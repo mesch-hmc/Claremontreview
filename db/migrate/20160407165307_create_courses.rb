@@ -1,6 +1,7 @@
 class CreateCourses < ActiveRecord::Migration
   def change
     create_table :courses do |t|
+      t.text :code
       t.text :title
       t.text :instructor
       t.float :credits
