@@ -1,36 +1,66 @@
-<div class="row course-info">
-  <div class="col-sm-7">
-    <h1 class="course-title" style="font-size:24pt"">
-        <span class="red" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
-    </h1>
-    <h4 style="line-height: 130%;">
-      <%= @course.instructor %> &nbsp;
-      <div class="classinfo">
-        <%= @course.credits %> credits &nbsp;
-        <i class="fa fa-star"></i><%# TODO: calculate average rating %>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-o"></i>
-        &nbsp;
-        Grade: <span class="yellow">P<%# TODO: calculate average grade %></span>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><span class="yellow">Mudd</span>rank</a>
+      <span class="navbar-brand">
+      </span>   
+    </div>
+    <form action="/search" method="get" class="navbar-form navbar-right" role="search">
+      <div class="form-group">
+        <input name="query" type="text" class="form-control" id="header-search" placeholder="Search" style="width:200px;margin-right:2px;" autofocus>
+        <button type="submit" class="btn btn-default">Go</button>
       </div>
-    </h4>
-    <p class="course-description">
-      <%= @course.description %>
-    </p>
-    <h5>
-      <div style="margin-bottom:5px">
-        <strong>Reqs:</strong>
-          <%= @course.requirements %>
-      </div>
-      <strong>Terms:</strong>
-        <span class="dark-col">Fall</span><%# TODO: make this automatic %>
-        <span class="light-col">Spring</span>
-        <span class="light-col">Summer</span>
-    </h5>
+    </form>
   </div>
-  <div class="col-sm-5">
-    <canvas style="margin-top:20px;" id="gradeChart" width="280" height="300"></canvas>
+</nav>
+
+<div id="main" class="container">
+  <div class="row">
+
+    <style>
+      canvas{
+        width: 90% !important;
+        max-width: 410px;
+        height: 90% !important;
+        max-height: 390px;
+      }
+    </style>
+    
+    <div class="row course-info">
+      <div class="col-sm-7">
+        <h1 class="course-title" style="font-size:24pt"">
+            <span class="yellow" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
+        </h1>
+        <h4 style="line-height: 130%;">
+          <%= @course.instructor %> &nbsp;
+          <div class="classinfo">
+            <%= @course.credits %> credits &nbsp;
+            <i class="fa fa-star"></i><%# TODO: calculate average rating %>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+            &nbsp;
+            Grade: <span class="yellow">P<%# TODO: calculate average grade %></span>
+          </div>
+        </h4>
+        <p class="course-description">
+          <%= @course.description %>
+        </p>
+        <h5>
+          <div style="margin-bottom:5px">
+            <strong>Reqs:</strong>
+              <%= @course.requirements %>
+          </div>
+          <strong>Terms:</strong>
+            <span class="dark-col">Fall</span><%# TODO: make this automatic %>
+            <span class="light-col">Spring</span>
+            <span class="light-col">Summer</span>
+        </h5>
+      </div>
+      <div class="col-sm-5">
+        <canvas style="margin-top:20px;" id="gradeChart" width="280" height="300"></canvas>
+      </div>
+    </div>
   </div>
 </div>
