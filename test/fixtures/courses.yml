@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  instructor: MyText
+  credits: 1
+  description: MyText
+  requirements: MyText
+  term: MyText
+
+two:
+  title: MyText
+  instructor: MyText
+  credits: 1
+  description: MyText
+  requirements: MyText
+  term: MyText
