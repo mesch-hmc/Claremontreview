@@ -3,7 +3,7 @@
 one:
   title: MyText
   instructor: MyText
-  credits: 1
+  credits: 1.5
   description: MyText
   requirements: MyText
   term: MyText
@@ -11,7 +11,7 @@ one:
 two:
   title: MyText
   instructor: MyText
-  credits: 1
+  credits: 1.5
   description: MyText
   requirements: MyText
   term: MyText
