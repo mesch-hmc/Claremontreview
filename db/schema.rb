@@ -14,9 +14,10 @@
 ActiveRecord::Schema.define(version: 20160407165714) do
 
   create_table "courses", force: :cascade do |t|
+    t.text     "code"
     t.text     "title"
     t.text     "instructor"
-    t.integer  "credits"
+    t.float    "credits"
     t.text     "description"
     t.text     "requirements"
     t.text     "term"
