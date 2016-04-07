@@ -1,39 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @course.code %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @course.title %>
-</p>
-
-<p>
-  <strong>Instructor:</strong>
-  <%= @course.instructor %>
-</p>
-
-<p>
-  <strong>Credits:</strong>
-  <%= @course.credits %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
-
-<p>
-  <strong>Requirements:</strong>
-  <%= @course.requirements %>
-</p>
-
-<p>
-  <strong>Term:</strong>
-  <%= @course.term %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<div class="row course-info">
+  <div class="col-sm-7">
+    <h1 class="course-title" style="font-size:24pt"">
+        <span class="red" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
+    </h1>
+    <h4 style="line-height: 130%;">
+      <%= @course.instructor %> &nbsp;
+      <div class="classinfo">
+        <%= @course.credits %> credits &nbsp;
+        <i class="fa fa-star"></i><%# TODO: calculate average rating %>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+        &nbsp;
+        Grade: <span class="yellow">P<%# TODO: calculate average grade %></span>
+      </div>
+    </h4>
+    <p class="course-description">
+      <%= @course.description %>
+    </p>
+    <h5>
+      <div style="margin-bottom:5px">
+        <strong>Reqs:</strong>
+          <%= @course.requirements %>
+      </div>
+      <strong>Terms:</strong>
+        <span class="dark-col">Fall</span><%# TODO: make this automatic %>
+        <span class="light-col">Spring</span>
+        <span class="light-col">Summer</span>
+    </h5>
+  </div>
+  <div class="col-sm-5">
+    <canvas style="margin-top:20px;" id="gradeChart" width="280" height="300"></canvas>
+  </div>
+</div>
