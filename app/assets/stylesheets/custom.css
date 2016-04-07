@@ -243,6 +243,11 @@ li a:hover, a.navbar-brand:hover, .navbar-text a:hover {
   color: #FA4E0E;
   color: #EE3418;
 }
+
+.yellow{
+  color: #EAAA00;
+}
+
 a.navbar-brand {
   color: #454E55 !important;
 }
