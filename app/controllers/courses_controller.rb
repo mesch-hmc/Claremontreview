@@ -65,6 +65,15 @@ class CoursesController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Course.search(params[:query], {
+      fields: ["code", "title"],
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:code)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course

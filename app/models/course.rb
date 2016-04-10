@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  searchkick
+  searchkick match: :word_start, searchable: [:code, :title]
 
   def to_param
     code
