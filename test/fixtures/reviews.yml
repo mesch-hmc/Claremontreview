@@ -6,6 +6,7 @@ one:
   date: MyText
   info: MyText
   review_text: MyText
+  course_code: MyText
 
 two:
   rank: MyText
@@ -13,3 +14,4 @@ two:
   date: MyText
   info: MyText
   review_text: MyText
+  course_code: MyText

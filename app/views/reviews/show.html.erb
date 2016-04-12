@@ -25,5 +25,10 @@
   <%= @review.review_text %>
 </p>
 
+<p>
+  <strong>Course code:</strong>
+  <%= @review.course_code %>
+</p>
+
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
