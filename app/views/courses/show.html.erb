@@ -55,6 +55,7 @@
       <div class="col-sm-7">
         <div id="helpful_reviews">
           <h3>Most helpful student reviews</h3>
+          <%= render @course.reviews %>
         </div>
       </div>
       <div class="col-sm-5">
@@ -64,4 +65,6 @@
       </div>
     </div>
   </div>
+      <p> New review </p>
+      <%= render 'reviews/form' %>
 </div>
