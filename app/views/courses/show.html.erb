@@ -21,10 +21,10 @@
           <%= @course.instructor %> &nbsp;
           <div class="classinfo">
             <%= @course.credits %> credits &nbsp;
-            <i class="fa fa-star"></i><%# TODO: calculate average rating %>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i><%# TODO: calculate average rating %>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
+            <i class="fa fa-star-o"></i>
             <i class="fa fa-star-o"></i>
             &nbsp;
             Grade: <span class="yellow">P<%# TODO: calculate average grade %></span>
@@ -39,12 +39,12 @@
               <%= @course.requirements %>
           </div>
           <strong>Terms:</strong>
-            <span class="dark-col">Fall</span><%# TODO: make this automatic %>
+            <span class="light-col">Fall</span><%# TODO: make this automatic %>
             <span class="light-col">Winter</span>
             <span class="light-col">Spring</span>
             <span class="light-col">Summer</span>
         </h5>
-        <span id="gradeDistribution" style="visibility:hidden">P:7,HP:2,A+:0,A:0,A-:0,B+:0,B:0,B-:0,C+:0,C:0,C-:0,D:0,F:0,CR:0,NC:1,</span> 
+        <span id="gradeDistribution" style="visibility:hidden">A+:0,A:0,A-:0,B+:0,B:0,B-:0,C+:0,C:0,C-:0,D:0,F:0,CR:0,NC:0,</span> 
       </div>
       <div class="col-sm-5">
         <canvas style="margin-top:20px;" id="gradeChart" width="280" height="300"></canvas>
@@ -55,111 +55,11 @@
       <div class="col-sm-7">
         <div id="helpful_reviews">
           <h3>Most helpful student reviews</h3>
-          <div class="helpful-review">
-            <p class="review-helpful-rank">
-              9 of 9 people found the following helpful
-            </p>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-            &nbsp;P
-            <p class="review-date">
-              By anonymous on April 1, 2016
-            </p>
-            <p class="review-info">
-              Taken Fall 2015 | Professor: Peter Saeta
-            </p>
-            <p class="helpful-review-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-          <div class="helpful-review">
-            <p class="review-helpful-rank">
-              5 of 5 people found the following helpful
-            </p>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            &nbsp;P
-            <p class="review-date">
-              By anonymous on December 20, 2015
-            </p>
-            <p class="review-info">
-              Taken Fall 2015 | Professor: Peter Saeta
-            </p>
-            <p class="helpful-review-text">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
-            </p>
-          </div>
-          <div class="helpful-review">
-            <p class="review-helpful-rank">
-              4 of 5 people found the following helpful
-            </p>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            &nbsp;P
-            <p class="review-date">
-              By anonymous on December 16, 2014
-            </p>
-            <p class="review-info">
-              Taken Fall 2014 | Professor: Peter Saeta
-            </p>
-            <p class="helpful-review-text">
-              Nam et leo quis velit tempus finibus ac ut odio. Nam molestie sapien in neque tempus ullamcorper. Maecenas pulvinar urna non mauris imperdiet, in pharetra tortor vehicula. Nunc tempus lorem nisi, non molestie neque commodo quis. Donec nisi nulla, rhoncus a massa nec, varius fermentum ipsum. Nulla eu eros augue. Donec non vestibulum neque, ut tempor felis. Praesent ultrices, nulla nec lobortis pharetra, tortor est tincidunt felis, eget varius lacus turpis ut eros. Donec auctor congue ex eu ornare.
-            </p>
-          </div>
         </div>
       </div>
       <div class="col-sm-5">
         <div id="recent_reviews">
           <h3 class="recent-reviews-header">Most recent student reviews</h3>
-          <div class="recent-review">
-            <p class="review-helpful-rank">
-              0 of 0 people found the following helpful
-            </p>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-            &nbsp;P
-            <p class="review-date">
-              By anonymous on April 7, 2016
-            </p>
-            <p class="review-info">
-              Taken Fall 2015 | Professor Gregory Lyzenga 
-            </p>
-            <p class="helpful-review-text">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-            </p>
-          </div>
-          <div class="recent-review">
-            <p class="review-helpful-rank">
-              0 of 0 people found the following helpful
-            </p>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            &nbsp;P
-            <p class="review-date">
-              By anonymous on April 3, 2016
-            </p>
-            <p class="review-info">
-              Taken Fall 2015 | Professor Gregory Lyzenga 
-            </p>
-            <p class="helpful-review-text">
-              Integer dictum consequat nulla, eget iaculis neque pharetra et. Pellentesque quis ipsum enim. Vivamus et lacus quis enim finibus sollicitudin. Sed at enim ac nisi ultricies iaculis. Phasellus id euismod nibh. Vivamus a lorem in nunc ultrices auctor. Aliquam vitae turpis id neque pellentesque maximus. In hac habitasse platea dictumst. Phasellus scelerisque bibendum tortor a eleifend.
-            </p>
-          </div>
         </div>
       </div>
     </div>
