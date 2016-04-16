@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rank: MyText
+  rating: 1
+  date: MyText
+  info: MyText
+  review_text: MyText
+  course_id: 
+
+two:
+  rank: MyText
+  rating: 1
+  date: MyText
+  info: MyText
+  review_text: MyText
+  course_id: 
