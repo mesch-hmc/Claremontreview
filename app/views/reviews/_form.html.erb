@@ -1,0 +1,19 @@
+<%= form_for([@course, @course.reviews.build]) do |f| %>
+    <p> 
+       <%= f.label :info %>
+       <%= f.text_field :info %>
+    </p>
+   
+    <p> 
+       <%= f.label :review_text %>
+       <%= f.text_area :review_text %>
+    </p>
+   
+    <p>
+       <%= f.label :course_id %>
+       <%= f.number_field :course_id %>
+    </p>
+
+    <br>
+    <p> <%= f.submit %> </p>
+<% end %>
