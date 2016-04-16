@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+      @reviews = @course.reviews
   end
 
   # GET /courses/new
