@@ -58,13 +58,11 @@
             <% else %>
                 <span class="light-col">Fall</span>
             <% end %>
-            <span class="light-col">Winter</span>
             <% if !@course.term.nil? and @course.term.include? "spring" %>
                 <span class="dark-col">Spring</span>
             <% else %>
                 <span class="light-col">Spring</span>
             <% end %>
-            <span class="light-col">Summer</span>
         </h5>
       </div>
       <div class="col-sm-5">
