@@ -1,7 +1,14 @@
-<div>
-    <div> <%= review.rating %> </div>
-    <div> <%= review.grade %> </div>
-    <div> <%= review.info %> </div>
-    <div> <%= review.review_text %> </div>
-    <br>
+<div class="recent-review">
+    <div class="review-rating-grade">
+        <% review.rating.times do %>
+            <i class="fa fa-star"></i>
+        <% end %>
+        <% (5-review.rating).times do %>
+            <i class="fa fa-star-o"></i>
+        <% end %>
+        &nbsp;
+        <%= review.grade %>
+    </div>
+    <p class="review-info"><%= review.info %></p>
+    <p class="helpful-review-text"><%= review.review_text %></p>
 </div>
