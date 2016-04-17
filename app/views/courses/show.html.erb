@@ -81,9 +81,13 @@
           <h3 class="recent-reviews-header">Most recent student reviews</h3>
           <%= render @course.reviews %>
         </div>
+        <% if @course.reviews.count < 1 %>
+            <p>Be the first to review this course:</p>
+        <% end %>
+        <div id="reviews_form">
+            <%= render 'reviews/form' %>
+        </div>
       </div>
     </div>
   </div>
-      <p> New review </p>
-      <%= render 'reviews/form' %>
 </div>
