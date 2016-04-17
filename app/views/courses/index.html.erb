@@ -7,11 +7,18 @@
         <% @courses.each do |course| %>
           <tr>
             <td>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
+              <% unless course.reviews.average(:rating).nil? %>
+                <% course.reviews.average(:rating).round.times do %>
+                  <i class="fa fa-star"></i>
+                <% end %>
+                <% (5-course.reviews.average(:rating)).round.times do %>
+                  <i class="fa fa-star-o"></i>
+                <% end %>
+              <% else %>
+                <% 5.times do %>
+                  <i class="fa fa-star-o"></i>
+                <% end %>
+              <% end %>
             </td>
             <td>
               <%= link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true) %>
