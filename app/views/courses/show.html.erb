@@ -53,9 +53,17 @@
               <%= @course.requirements %>
           </div>
           <strong>Terms:</strong>
-            <span class="light-col">Fall</span><%# TODO: make this automatic %>
+            <% if !@course.term.nil? and @course.term.include? "fall" %>
+                <span class="dark-col">Fall</span>
+            <% else %>
+                <span class="light-col">Fall</span>
+            <% end %>
             <span class="light-col">Winter</span>
-            <span class="light-col">Spring</span>
+            <% if !@course.term.nil? and @course.term.include? "spring" %>
+                <span class="dark-col">Spring</span>
+            <% else %>
+                <span class="light-col">Spring</span>
+            <% end %>
             <span class="light-col">Summer</span>
         </h5>
       </div>
