@@ -34,7 +34,11 @@
                 <% end %>
             <% end %>
             &nbsp;
-            Grade: <span class="yellow">P<%# TODO: calculate average grade %></span>
+            Grade: <span class="yellow">
+                <% unless @course.reviews.pluck(:grade).nil? %>
+                    <%= @course.reviews.pluck(:grade).sort[@course.reviews.length/2] %>
+                <% end %>
+            </span>
           </div>
         </h4>
         <p class="course-description">
