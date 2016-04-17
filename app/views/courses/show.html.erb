@@ -21,11 +21,12 @@
           <%= @course.instructor %> &nbsp;
           <div class="classinfo">
             <%= @course.credits %> credits &nbsp;
-            <i class="fa fa-star-o"></i><%# TODO: calculate average rating %>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
-            <i class="fa fa-star-o"></i>
+            <% @course.reviews.average(:rating).round.times do %>
+                <i class="fa fa-star"></i>
+            <% end %>
+            <% (5-@course.reviews.average(:rating)).round.times do %>
+                <i class="fa fa-star-o"></i>
+            <% end %>
             &nbsp;
             Grade: <span class="yellow">P<%# TODO: calculate average grade %></span>
           </div>
