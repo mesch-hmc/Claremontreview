@@ -243,6 +243,10 @@ li a:hover, a.navbar-brand:hover, .navbar-text a:hover {
   color: #EAAA00;
 }
 
+.claremont{
+  color: #981B32;
+}
+
 a.navbar-brand {
   color: #454E55 !important;
 }
@@ -261,7 +265,7 @@ a.navbar-brand {
 }
 
 .fa {
-  color: #EAAA00;
+  color: #981B32;
 }
 h1,h2,h3,h4,h5{
   color: #5F686F;

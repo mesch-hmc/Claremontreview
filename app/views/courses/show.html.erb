@@ -15,7 +15,7 @@
     <div class="row course-info">
       <div class="col-sm-7">
         <h1 class="course-title" style="font-size:24pt"">
-            <span class="yellow" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
+            <span class="claremont" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
         </h1>
         <h4 style="line-height: 130%;">
           <%= @course.instructor %> &nbsp;
@@ -37,7 +37,7 @@
                 <% end %>
             <% end %>
             &nbsp;
-            Grade: <span class="yellow">
+            Grade: <span class="claremont">
                 <% unless @course.reviews.pluck(:grade).nil? %>
                     <%= @course.reviews.pluck(:grade).sort[@course.reviews.length/2] %>
                 <% end %>
@@ -67,7 +67,7 @@
         </h5>
       </div>
       <div class="col-sm-5">
-        <%= column_chart @course.reviews.group(:grade).count, colors: ["EAAA00"] %>
+        <%= column_chart @course.reviews.group(:grade).count, colors: ["#981B32"] %>
       </div>
     </div>
 
