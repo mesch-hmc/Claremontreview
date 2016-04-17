@@ -9,6 +9,7 @@
         &nbsp;
         <%= review.grade %>
     </div>
+    <p class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago</p>
     <p class="review-info"><%= review.info %></p>
     <p class="helpful-review-text"><%= review.review_text %></p>
 </div>
