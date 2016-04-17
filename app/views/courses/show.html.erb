@@ -22,7 +22,7 @@
           <div class="classinfo">
             <%= @course.credits %> credits &nbsp;
             <% unless @course.reviews.average(:rating).nil? %>
-                <% @course.reviews.average(:rating).round.times do %>
+                <% @course.reviews.average(:rating).to_i.times do %>
                     <i class="fa fa-star"></i>
                 <% end %>
                 <% (5-@course.reviews.average(:rating)).round.times do %>
