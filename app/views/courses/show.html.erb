@@ -79,6 +79,8 @@
         </div>
         <% if @course.reviews.count < 1 %>
             <p>Be the first to review this course:</p>
+        <% else %>
+            <p>Submit a review:</p>
         <% end %>
         <div id="reviews_form">
             <%= render 'reviews/form' %>
