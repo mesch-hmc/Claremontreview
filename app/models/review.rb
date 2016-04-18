@@ -1,8 +1,8 @@
 class Review < ActiveRecord::Base
   belongs_to :course
 
-  validates :rating, presence: true
-  validates :rating, :inclusion => 0..5
+  validates :rating, presence: true, :inclusion => 0..5
+  validates :grade, presence: true
   validates :info, presence: true
   validates :review_text, presence: true
 

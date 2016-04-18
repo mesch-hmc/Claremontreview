@@ -1,7 +1,7 @@
 <%= form_for([@course, @course.reviews.build]) do |f| %>
     <p>
        <%= f.label :rating %> <br>
-       <%= f.number_field :rating, in: 1..5, step: 1 %>
+       <%= f.number_field :rating, in: 0..5, step: 1 %>
     </p>
 
     <p>
