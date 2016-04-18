@@ -11,10 +11,10 @@
         max-height: 390px;
       }
     </style>
-    
+
     <div class="row course-info">
       <div class="col-sm-7">
-        <h1 class="course-title" style="font-size:24pt"">
+        <h1 class="course-title" style="font-size:24pt">
             <span class="claremont" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
         </h1>
         <h4 style="line-height: 130%;">
@@ -82,8 +82,18 @@
         <% else %>
             <p>Submit a review:</p>
         <% end %>
-        <div id="reviews_form">
-            <%= render 'reviews/form' %>
+
+        <script type="text/javascript" language="JavaScript">
+          function toggle(d) {
+            if(document.getElementById(d).style.display == "none") {
+              document.getElementById(d).style.display = "block"; }
+            else { document.getElementById(d).style.display = "none"; }
+          }
+        </script>
+
+        <a href="javascript:toggle('reviews_form')" > Review this course </a>
+        <div id="reviews_form" style="display:none">
+          <%= render 'reviews/form' %>
         </div>
       </div>
     </div>
