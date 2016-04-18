@@ -5,4 +5,6 @@ class Review < ActiveRecord::Base
   validates :rating, :inclusion => 0..5
   validates :info, presence: true
   validates :review_text, presence: true
+
+  default_scope -> { order(created_at: :desc)}
 end
