@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+    before_action :authenticate_user!, only: [:create]
     
     def create
         @course = Course.find_by_code(params[:course_code])
