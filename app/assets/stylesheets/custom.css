@@ -5507,6 +5507,29 @@ a.title:active {
 
 /* Not required for template or sticky footer method. */
 
+.claremont_CM {
+    color: #981B32;
+}
+.claremont_HM {
+    color: #EAAA00;
+}
+.claremont_SC {
+    color: #2e4d41;
+}
+.claremont_PO {
+    color: #20438f;
+}
+.claremont_PZ {
+    color: #f7941d;
+}
+}
+.fa {
+    color: #EAAA00;
+}
+.claremont {
+    color: #EAAA00;
+}
+
 .container {
     width: auto;
     max-width: 960px;
@@ -5546,9 +5569,6 @@ li a:hover, a.navbar-brand:hover, .navbar-text a:hover {
 .yellow {
     color: #EAAA00;
 }
-.claremont {
-    color: #981B32;
-}
 a.navbar-brand {
     color: #454E55 !important;
 }
@@ -5561,9 +5581,6 @@ a.navbar-brand {
 }
 .review-info {
     color: #899499;
-}
-.fa {
-    color: #981B32;
 }
 h1, h2, h3, h4, h5 {
     color: #5F686F;

@@ -1,6 +1,19 @@
 <%= render "layouts/navbar" %>
 
-<div id="main" class="container">
+<div id="main" class="container" onload="changeColor()">
+
+  <a href="javascript:changeColor()">Click me</a>
+  <script type="text/javascript" language="JavaScript">
+    function changeColor() {
+      var school = <%= @course.code[-2, 2] %>;
+      document.getElementById("claremont_1").className = 'claremont_' + school;
+      document.getElementById("claremont_2").className = 'claremont_' + school;
+      var fa = document.getElementById("fa").className;
+      document.getElementById("fa").className = fa.slice(0, fa.indexOf('claremont_')) + 'claremont_' + school;
+    }
+    window.onload = changeColor();
+  </script>
+
   <div class="row">
 
     <style>
@@ -15,7 +28,7 @@
     <div class="row course-info">
       <div class="col-sm-7">
         <h1 class="course-title" style="font-size:24pt">
-            <span class="claremont" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
+            <span id="claremont_1" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
         </h1>
         <h4 style="line-height: 130%;">
           <%= @course.instructor %> &nbsp;
@@ -24,20 +37,20 @@
             <% unless @course.reviews.average(:rating).nil? %>
                 <% for i in 0..4 %>
                     <% if @course.reviews.average(:rating)-i>=1 %>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star" id='fa'></i>
                     <% elsif @course.reviews.average(:rating)-i>=0.5 %>
-                        <i class="fa fa-star-half"></i>
+                        <i class="fa fa-star-half" id='fa'></i>
                     <% else %>
-                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o" id='fa'></i>
                     <% end %>
                 <% end %>
             <% else %>
                 <% 5.times do %>
-                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o" id='fa'></i>
                 <% end %>
             <% end %>
             &nbsp;
-            Grade: <span class="claremont">
+            Grade: <span id="claremont_2">
                 <% unless @course.reviews.pluck(:grade).nil? %>
                     <%= @course.reviews.pluck(:grade).sort[@course.reviews.length/2] %>
                 <% end %>
@@ -67,7 +80,17 @@
         </h5>
       </div>
       <div class="col-sm-5">
-        <%= column_chart @course.reviews.group(:grade).count, colors: ["#981B32"] %>
+        <% if @course.code[-2, 2] == 'PO' %>
+          <%= column_chart @course.reviews.group(:grade).count, colors: ["#20438f"] %>
+        <% elsif @course.code[-2, 2] == 'PZ' %>
+          <%= column_chart @course.reviews.group(:grade).count, colors: ["#f7941d"] %>
+        <% elsif @course.code[-2, 2] == 'SC' %>
+          <%= column_chart @course.reviews.group(:grade).count, colors: ["#2e4d41"] %>
+        <% elsif @course.code[-2, 2] == 'CM' %>
+          <%= column_chart @course.reviews.group(:grade).count, colors: ["#981B32"] %>
+        <% else %>
+          <%= column_chart @course.reviews.group(:grade).count, colors: ["#EAAA00"] %>
+        <% end %>
       </div>
     </div>
 
