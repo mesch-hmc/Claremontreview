@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'searchkick'
 gem 'chartkick'
 gem 'devise'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   gem 'sqlite3'
