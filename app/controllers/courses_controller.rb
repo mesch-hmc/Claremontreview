@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
   end
 
   def show
+      @course = Course.find_by_slug(params[:code])
       @reviews = @course.reviews
   end
 
@@ -67,11 +68,11 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find_by_code(params[:code])
+      @course = Course.find_by_slug(params[:code])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:code, :title, :instructor, :credits, :description, :requirements, :term)
+      params.require(:course).permit(:code, :title, :instructor, :credits, :description, :requirements, :term, :slug)
     end
 end
