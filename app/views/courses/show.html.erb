@@ -1,21 +1,8 @@
 <%= render "layouts/navbar" %>
 
-<div id="main" class="container" onload="changeColor()">
-
-  <a href="javascript:changeColor()">Click me</a>
-  <script type="text/javascript" language="JavaScript">
-    function changeColor() {
-      var school = <%= @course.code[-2, 2] %>;
-      document.getElementById("claremont_1").className = 'claremont_' + school;
-      document.getElementById("claremont_2").className = 'claremont_' + school;
-      var fa = document.getElementById("fa").className;
-      document.getElementById("fa").className = fa.slice(0, fa.indexOf('claremont_')) + 'claremont_' + school;
-    }
-    window.onload = changeColor();
-  </script>
+<div id="main" class="container">
 
   <div class="row">
-
     <style>
       canvas{
         width: 90% !important;
@@ -28,7 +15,7 @@
     <div class="row course-info">
       <div class="col-sm-7">
         <h1 class="course-title" style="font-size:24pt">
-            <span id="claremont_1" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
+            <span style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
         </h1>
         <h4 style="line-height: 130%;">
           <%= @course.instructor %> &nbsp;
@@ -37,20 +24,20 @@
             <% unless @course.reviews.average(:rating).nil? %>
                 <% for i in 0..4 %>
                     <% if @course.reviews.average(:rating)-i>=1 %>
-                        <i class="fa fa-star" id='fa'></i>
+                        <i class="fa fa-star"></i>
                     <% elsif @course.reviews.average(:rating)-i>=0.5 %>
-                        <i class="fa fa-star-half" id='fa'></i>
+                        <i class="fa fa-star-half"></i>
                     <% else %>
-                        <i class="fa fa-star-o" id='fa'></i>
+                        <i class="fa fa-star-o"></i>
                     <% end %>
                 <% end %>
             <% else %>
                 <% 5.times do %>
-                    <i class="fa fa-star-o" id='fa'></i>
+                    <i class="fa fa-star-o"></i>
                 <% end %>
             <% end %>
             &nbsp;
-            Grade: <span id="claremont_2">
+            Grade: <span>
                 <% unless @course.reviews.pluck(:grade).nil? %>
                     <%= @course.reviews.pluck(:grade).sort[@course.reviews.length/2] %>
                 <% end %>
@@ -105,14 +92,6 @@
         <% else %>
             <p>Submit a review:</p>
         <% end %>
-
-        <script type="text/javascript" language="JavaScript">
-          function toggle(d) {
-            if(document.getElementById(d).style.display == "none") {
-              document.getElementById(d).style.display = "block"; }
-            else { document.getElementById(d).style.display = "none"; }
-          }
-        </script>
 
         <a href="javascript:toggle('reviews_form')" > Review this course </a>
         <div id="reviews_form" style="display:none">

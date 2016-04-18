@@ -1,4 +1,4 @@
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+ar/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 html {
     font-family: sans-serif;
@@ -3293,7 +3293,8 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
     padding: 15px 15px;
     font-size: 18px;
     line-height: 20px;
-    height: 50px
+    height: 50px;
+    text-decoration: none;
 }
 .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none
@@ -5507,19 +5508,19 @@ a.title:active {
 
 /* Not required for template or sticky footer method. */
 
-.claremont_CM {
+.claremontCM {
     color: #981B32;
 }
-.claremont_HM {
+.claremontHM {
     color: #EAAA00;
 }
-.claremont_SC {
+.claremontSC {
     color: #2e4d41;
 }
-.claremont_PO {
+.claremontPO {
     color: #20438f;
 }
-.claremont_PZ {
+.claremontPZ {
     color: #f7941d;
 }
 }
