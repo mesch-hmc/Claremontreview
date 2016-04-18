@@ -87,16 +87,21 @@
           <h3 class="recent-reviews-header">Most recent student reviews</h3>
           <%= render @course.reviews %>
         </div>
-        <% if @course.reviews.count < 1 %>
-            <p>Be the first to review this course:</p>
-        <% else %>
-            <p>Submit a review:</p>
-        <% end %>
-
+      </div>
+      <div class="col-sm-5">
+        <h3>Submit a review</h3>
         <% if user_signed_in? %>
-          <a href="javascript:toggle('reviews_form')" > Review this course </a>
+            <% if @course.reviews.count < 1 %>
+                <a href="javascript:toggle('reviews_form')">Be the first to review this course</a>
+            <% else %>
+                <a href="javascript:toggle('reviews_form')">Review this course</a>
+            <% end %>
         <% else %>
-          <%= link_to "Review this course", user_omniauth_authorize_path(:google_oauth2) %>
+            <% if @course.reviews.count < 1 %>
+                <%= link_to "Be the first to review this course", user_omniauth_authorize_path(:google_oauth2) %>
+            <% else %>
+                <%= link_to "Submit a review", user_omniauth_authorize_path(:google_oauth2) %>
+            <% end %>
         <% end %>
         <div id="reviews_form" style="display:none">
           <%= render 'reviews/form' %>
