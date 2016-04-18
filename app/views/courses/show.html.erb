@@ -93,7 +93,11 @@
             <p>Submit a review:</p>
         <% end %>
 
-        <a href="javascript:toggle('reviews_form')" > Review this course </a>
+        <% if user_signed_in? %>
+          <a href="javascript:toggle('reviews_form')" > Review this course </a>
+        <% else %>
+          <%= link_to "Review this course", user_omniauth_authorize_path(:google_oauth2) %>
+        <% end %>
         <div id="reviews_form" style="display:none">
           <%= render 'reviews/form' %>
         </div>
