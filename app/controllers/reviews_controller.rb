@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
     before_action :authenticate_user!, only: [:create]
     
     def create
-        @course = Course.find_by_code(params[:course_code])
+        @course = Course.find_by_slug(params[:course_code])
         @review = @course.reviews.create(review_params)
 
         redirect_to course_path(@course)
