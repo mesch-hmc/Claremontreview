@@ -15,7 +15,7 @@
     <div class="row course-info">
       <div class="col-sm-7">
         <h1 class="course-title" style="font-size:24pt">
-            <span style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
+            <span class="claremont" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
         </h1>
         <h4 style="line-height: 130%;">
           <%= @course.instructor %> &nbsp;
@@ -24,20 +24,20 @@
             <% unless @course.reviews.average(:rating).nil? %>
                 <% for i in 0..4 %>
                     <% if @course.reviews.average(:rating)-i>=1 %>
-                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star" id='fa'></i>
                     <% elsif @course.reviews.average(:rating)-i>=0.5 %>
-                        <i class="fa fa-star-half"></i>
+                        <i class="fa fa-star-half" id='fa'></i>
                     <% else %>
-                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o" id='fa'></i>
                     <% end %>
                 <% end %>
             <% else %>
                 <% 5.times do %>
-                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o" id='fa'></i>
                 <% end %>
             <% end %>
             &nbsp;
-            Grade: <span>
+            Grade: <span class="claremont">
                 <% unless @course.reviews.pluck(:grade).nil? %>
                     <%= @course.reviews.pluck(:grade).sort[@course.reviews.length/2] %>
                 <% end %>
@@ -67,6 +67,7 @@
         </h5>
       </div>
       <div class="col-sm-5">
+        <% if false %>
         <% if @course.code[-2, 2] == 'PO' %>
           <%= column_chart @course.reviews.group(:grade).count, colors: ["#20438f"] %>
         <% elsif @course.code[-2, 2] == 'PZ' %>
@@ -78,6 +79,8 @@
         <% else %>
           <%= column_chart @course.reviews.group(:grade).count, colors: ["#EAAA00"] %>
         <% end %>
+        <% end %>
+        <%= column_chart @course.reviews.group(:grade).count, colors: ["#EAAA00"] %>
       </div>
     </div>
 

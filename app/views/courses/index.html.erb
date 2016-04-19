@@ -10,16 +10,16 @@
               <% unless course.reviews.average(:rating).nil? %>
                 <% for i in 0..4 %>
                   <% if course.reviews.average(:rating)-i>=1 %>
-                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star" id='fa'></i>
                   <% elsif course.reviews.average(:rating)-i>=0.5 %>
-                    <i class="fa fa-star-half"></i>
+                    <i class="fa fa-star-half" id='fa'></i>
                   <% else %>
-                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star-o" id='fa'></i>
                   <% end %>
                 <% end %>
               <% else %>
                 <% 5.times do %>
-                  <i class="fa fa-star-o"></i>
+                  <i class="fa fa-star-o" id='fa'></i>
                 <% end %>
               <% end %>
             </td>
