@@ -1,5 +1,6 @@
 class Review < ActiveRecord::Base
   belongs_to :course
+  belongs_to :user
 
   validates :rating, presence: true, :inclusion => 0..5
   validates :grade, presence: true
