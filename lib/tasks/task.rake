@@ -7,4 +7,11 @@ namespace :task do
       end
     end
   end
+
+  task slug: :environment do
+    Course.all.each do |course|
+      course.slug = course.code.gsub(" ", "_")
+      course.save
+    end
+  end
 end
