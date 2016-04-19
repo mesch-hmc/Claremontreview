@@ -3980,6 +3980,11 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .alert-info .alert-link {
     color: #245269
 }
+.alert-notice {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f
+}
 .alert-warning {
     background-color: #fcf8e3;
     border-color: #faebcc;
