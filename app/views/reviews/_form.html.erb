@@ -2,25 +2,25 @@
   <div class="form-group">
     <p>
       <%= f.label :rating %> <br>
-      <%= f.number_field :rating, :class => 'form-control', :id => 'form_review_rating', in: 0..5, step: 1 %>
+      <%= f.number_field :rating, class: 'form-control', id: 'form_review_rating', in: 0..5, step: 1 %>
     </p>
 
     <p>
       <%= f.label :grade %> <br>
-      <%= f.text_field :grade, placeholder: 'e.g. B', :id => 'form_review_grade', :class => 'form-control' %>
+      <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s,  id: 'form_review_grade', class: 'form-control' %>
     </p>
 
     <p>
       <%= f.label :info %> <br>
-      <%= f.text_field :info, placeholder: "Taken Fall 2015 | Professor: Charles Xavier", :class => 'form-control', :id => 'form_review_info' %>
+      <%= f.text_field :info, placeholder: "Taken Fall 2015 | Professor: Charles Xavier", class: 'form-control', id: 'form_review_info' %>
     </p>
 
     <p>
       <%= f.label :review_text %> <br>
-      <%= f.text_area :review_text, placeholder: 'Write review here...', :class => 'form-control', :id => 'form_review_text' %>
+      <%= f.text_area :review_text, placeholder: 'Write review here...', class: 'form-control', id: 'form_review_text' %>
     </p>
 
     <br>
-    <p><%= f.submit 'Submit', :class => 'btn btn-default' %></p>
+    <p><%= f.submit 'Submit', class: 'btn btn-default' %></p>
   </div>
 <% end %>
