@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
     if params[:query].present?
       @courses = Course.search(params[:query])
     else
-      @courses = Course.all
+      @courses = Course.all.order(:id)
     end
   end
 
