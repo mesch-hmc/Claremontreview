@@ -1,12 +1,29 @@
+<style>
+ #inner {
+     position: fixed;
+     margin-left: 75%;
+     right: 100px;
+     bottom: 20px;
+     font-size: 90%%;
+ }
+</style>
+
 <div id="main" class="container">
-  <div class="row">
-    <div class="main-container">
-      <div class="title-container">
-        <a href="/" class="title"><span class="claremont">Claremont</span><span class="dark-col">review</span></a>
-        <div class="title-description">Search for classes, departments, and professors.</div>
-          <%= render "layouts/search" %>
+    <div class="row">
+        <div class="main-container">
+            <div class="title-container">
+                <a href="/" class="title"><span class="claremont">Claremont</span><span class="dark-col">review</span></a>
+                <div class="title-description">Search for classes, departments, and professors.</div>
+                <%= render "layouts/search" %>
+            </div>
+            <div id= "inner">
+                <a href="/about">Contact Us</a>
+            </div>
         </div>
-      </div>
+
     </div>
-  </div>
+
 </div>
+</div>
+
+
