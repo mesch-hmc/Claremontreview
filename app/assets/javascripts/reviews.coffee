@@ -26,7 +26,7 @@ $.rails.allowAction = (element) ->
                       <a class="close" data-dismiss="modal">×</a>    <h3 class='modal-title' id='deleteMessage'>#{message}</h3>
                     </div>
                     <div class="modal-footer">
-                      <a data-dismiss="modal" class="btn btn-default btn-info">Cancel</a>
+                      <a data-dismiss="modal" class="btn btn-default btn-primary">Cancel</a>
                     </div>
                  </div>
                </div>
