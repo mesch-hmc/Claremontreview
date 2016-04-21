@@ -5631,3 +5631,10 @@ p {
 #form_review_text {
     width: 350px;
 }
+#deleteMessage {
+  padding-left: 5%;
+  color: #000000;
+}
+a#main {
+  padding: 12px;
+}

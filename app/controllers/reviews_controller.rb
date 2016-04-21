@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
       respond_to do |format|
         if @review.save
           format.html { redirect_to @course, notice: 'Thank you for your review!' }
+          format.json { render :show, status: :ok, location: @course }
         else
           format.html { redirect_to @course, notice: 'Invalid review' }
           format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -36,7 +37,6 @@ class ReviewsController < ApplicationController
     if (current_user == @review.user || current_user.admin?)
       @review.destroy
     end
-
     redirect_to course_path(@course)
   end
 

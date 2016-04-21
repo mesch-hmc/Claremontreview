@@ -15,7 +15,6 @@ class CoursesController < ApplicationController
   end
 
   def new
-    # @course = Course.new
     redirect_to courses_url # don't allow people to hit new
   end
 
