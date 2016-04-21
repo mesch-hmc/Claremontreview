@@ -21,6 +21,12 @@
     </p>
 
     <br>
-    <p><%= f.submit 'Submit', class: 'btn btn-default' %></p>
+    <p><%= f.submit 'Submit', class: 'btn btn-default btn-primary' %> |
+      <% if @review == nil %>
+        <a href="javascript:toggle('reviews_form')", class="btn btn-default btn-danger">Cancel</a>
+      <% else %>
+        <%= link_to 'Cancel', course_path(@course), class: 'btn btn-default btn-danger'%>
+      <% end %>
+  </p>
   </div>
 <% end %>
