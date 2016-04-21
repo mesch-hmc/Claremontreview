@@ -1,0 +1,2 @@
+var id = <%= @review.id %>
+$("#review_form_" + id).html("<%= escape_javascript(render('reviews/form')) %>");

@@ -9,7 +9,15 @@
         &nbsp;
         <%= review.grade %>
     </div>
-    <p class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago</p>
+    <p class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago
+      <% if user_signed_in? && current_user == review.user %>
+      |
+        <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
+      | <%= link_to 'Delete', [review.course, review], method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
+       <% end %></p>
     <p class="review-info"><%= review.info %></p>
     <p class="helpful-review-text"><%= review.review_text %></p>
+    <div id="review_form_<%= review.id %>">
+    </div>
 </div>

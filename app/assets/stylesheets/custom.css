@@ -5584,6 +5584,10 @@ a.navbar-brand {
     color: #899499;
     font-size: 12px;
 }
+a.review-date {
+  text-decoration: none;
+  color: #899499;
+}
 .review-info {
     color: #899499;
 }
@@ -5619,7 +5623,7 @@ p {
     width: 70px;
 }
 #form_review_grade {
-    width: 70px;
+    width: 85px;
 }
 #form_review_info {
     width: 350px;

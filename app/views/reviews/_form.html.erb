@@ -1,4 +1,4 @@
-<%= form_for([@course, @course.reviews.build]) do |f| %>
+<%= form_for( (@review == nil ? [@course, @course.reviews.build] : [@course, @review]) ) do |f| %>
   <div class="form-group">
     <p>
       <%= f.label :rating %> <br>
@@ -7,7 +7,7 @@
 
     <p>
       <%= f.label :grade %> <br>
-      <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s,  id: 'form_review_grade', class: 'form-control' %>
+      <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s, { include_blank: true }, { class: 'form-control dropdown', id: 'form_review_grade' } %>
     </p>
 
     <p>
