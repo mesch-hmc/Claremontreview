@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    if current_user == @review.user
+    if (current_user == @review.user || current_user.admin?)
       @review.destroy
     end
 
