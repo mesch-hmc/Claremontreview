@@ -9,6 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
                 sign_in_and_redirect @user, :event => :authentication
             else
                 sign_out_and_redirect @user
+                @user.destroy
                 flash[:warning] = "Failure: edu email required"
             end
         else
