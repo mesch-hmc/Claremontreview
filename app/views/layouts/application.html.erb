@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Claremontreview</title>
+  <title><%= content_for?(:title) ? content_for(:title) : "Claremontreview" %></title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="shortcut icon" href="https://www.hmc.edu/wp-content/themes/hmc-core/favicon.ico" />
