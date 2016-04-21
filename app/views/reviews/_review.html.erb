@@ -17,7 +17,7 @@
                         data: { confirm: 'Are you sure?' } %>
        <% end %></p>
     <p class="review-info"><%= review.info %></p>
-    <p class="helpful-review-text"><%= review.review_text %></p>
+    <p class="helpful-review-text"><%= simple_format(review.review_text) %></p>
     <div id="review_form_<%= review.id %>">
     </div>
 </div>
