@@ -7,11 +7,11 @@
         <% @courses.each do |course| %>
           <tr>
             <td>
-              <% unless course.reviews.average(:rating).nil? %>
+              <% unless course.avg_rating.nil? %>
                 <% for i in 0..4 %>
-                  <% if course.reviews.average(:rating)-i>=1 %>
+                  <% if course.avg_rating-i>=1 %>
                     <i class="fa fa-star" id='fa'></i>
-                  <% elsif course.reviews.average(:rating)-i>=0.5 %>
+                  <% elsif course.avg_rating-i>=0.5 %>
                     <i class="fa fa-star-half" id='fa'></i>
                   <% else %>
                     <i class="fa fa-star-o" id='fa'></i>
