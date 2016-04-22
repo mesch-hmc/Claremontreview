@@ -14,6 +14,9 @@ class Review < ActiveRecord::Base
 
   def update_avg_rating
     avg = course.reviews.average(:rating)
+    if avg.nil?
+      avg = 0.0
+    end
     course.update_column(:avg_rating, avg)
   end
 end

@@ -37,6 +37,7 @@ class ReviewsController < ApplicationController
     if (current_user == @review.user || current_user.admin?)
       @review.destroy
     end
+    @review.update_avg_rating
     redirect_to course_path(@course)
   end
 
