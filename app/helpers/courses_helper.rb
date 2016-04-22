@@ -2,6 +2,7 @@ module CoursesHelper
   def title(page_title)
     content_for(:title) { page_title }
   end
+
   def real_average(rGrades)
     length = rGrades.size
     if (length == 0)

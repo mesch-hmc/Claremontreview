@@ -2,7 +2,6 @@
 <%= render "layouts/navbar", search: true %>
 
 <div id="main" class="container">
-
   <div class="row">
     <style>
       canvas{
@@ -16,32 +15,32 @@
     <div class="row course-info">
       <div class="col-sm-7">
         <h1 class="course-title" style="font-size:24pt">
-            <span class="claremont" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
+          <span class="claremont" style="font-size:30pt"><%= @course.code %></span>: <%= @course.title %>
         </h1>
         <h4 style="line-height: 130%;">
           <%= @course.instructor %> &nbsp;
           <div class="classinfo">
             <%= @course.credits %> credits &nbsp;
             <% unless @course.avg_rating.nil? %>
-                <% for i in 0..4 %>
-                    <% if @course.avg_rating-i>=1 %>
-                        <i class="fa fa-star" id='fa'></i>
-                    <% elsif @course.avg_rating-i>=0.5 %>
-                        <i class="fa fa-star-half" id='fa'></i>
-                    <% else %>
-                        <i class="fa fa-star-o" id='fa'></i>
-                    <% end %>
+              <% for i in 0..4 %>
+                <% if @course.avg_rating-i>=1 %>
+                  <i class="fa fa-star" id='fa'></i>
+                <% elsif @course.avg_rating-i>=0.5 %>
+                  <i class="fa fa-star-half" id='fa'></i>
+                <% else %>
+                  <i class="fa fa-star-o" id='fa'></i>
                 <% end %>
+              <% end %>
             <% else %>
-                <% 5.times do %>
-                    <i class="fa fa-star-o" id='fa'></i>
-                <% end %>
+              <% 5.times do %>
+                <i class="fa fa-star-o" id='fa'></i>
+              <% end %>
             <% end %>
             &nbsp;
             Grade: <span class="claremont">
-                <% unless @course.reviews.pluck(:grade).nil? && @course.reviews.pluck(:grade) == 0 %>
-                    <%= real_average(@course.reviews.pluck(:grade))%>
-                <% end %>
+              <% unless @course.reviews.pluck(:grade).nil? && @course.reviews.pluck(:grade) == 0 %>
+                <%= real_average(@course.reviews.pluck(:grade))%>
+              <% end %>
             </span>
           </div>
         </h4>
@@ -51,19 +50,19 @@
         <h5>
           <strong>Terms:</strong>
           <% if !@course.term.nil? %>
-              <% if @course.term.include? "fall" %>
-                  <span class="dark-col">Fall</span>
-              <% else %>
-                  <span class="light-col">Fall</span>
-              <% end %>
-              <% if @course.term.include? "spring" %>
-                  <span class="dark-col">Spring</span>
-              <% else %>
-                  <span class="light-col">Spring</span>
-              <% end %>
-          <% else %>
+            <% if @course.term.include? "fall" %>
+              <span class="dark-col">Fall</span>
+            <% else %>
               <span class="light-col">Fall</span>
+            <% end %>
+            <% if @course.term.include? "spring" %>
+              <span class="dark-col">Spring</span>
+            <% else %>
               <span class="light-col">Spring</span>
+            <% end %>
+          <% else %>
+            <span class="light-col">Fall</span>
+            <span class="light-col">Spring</span>
           <% end %>
         </h5>
       </div>
@@ -95,17 +94,17 @@
       <div class="col-sm-5">
         <h3>Submit a review</h3>
         <% if user_signed_in? %>
-            <% if @course.reviews.count < 1 %>
-                <a href="javascript:toggle('reviews_form')">Be the first to review this course</a>
-            <% else %>
-                <a href="javascript:toggle('reviews_form')">Review this course</a>
-            <% end %>
+          <% if @course.reviews.count < 1 %>
+            <a href="javascript:toggle('reviews_form')">Be the first to review this course</a>
+          <% else %>
+            <a href="javascript:toggle('reviews_form')">Review this course</a>
+          <% end %>
         <% else %>
-            <% if @course.reviews.count < 1 %>
-                <%= link_to "Be the first to review this course", user_omniauth_authorize_path(:google_oauth2) %>
-            <% else %>
-                <%= link_to "Submit a review", user_omniauth_authorize_path(:google_oauth2) %>
-            <% end %>
+          <% if @course.reviews.count < 1 %>
+            <%= link_to "Be the first to review this course", user_omniauth_authorize_path(:google_oauth2) %>
+          <% else %>
+            <%= link_to "Submit a review", user_omniauth_authorize_path(:google_oauth2) %>
+          <% end %>
         <% end %>
         <div id="reviews_form" style="display:none">
           <%= render 'reviews/form' %>

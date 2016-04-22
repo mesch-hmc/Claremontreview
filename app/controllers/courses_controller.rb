@@ -10,8 +10,8 @@ class CoursesController < ApplicationController
   end
 
   def show
-      @course = Course.find_by_slug(params[:code])
-      @reviews = @course.reviews
+    @course = Course.find_by_slug(params[:code])
+    @reviews = @course.reviews
   end
 
   def new

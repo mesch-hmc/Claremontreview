@@ -1,23 +1,22 @@
 <div class="recent-review">
-    <div class="review-rating-grade">
-        <% review.rating.times do %>
-            <i class="fa fa-star" id='fa'></i>
-        <% end %>
-        <% (5-review.rating).times do %>
-            <i class="fa fa-star-o" id='fa'></i>
-        <% end %>
-        &nbsp;
-        <%= review.grade %>
-    </div>
-    <div class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago
-      <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
-      |
-        <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
-      | <%= button_to 'Delete', [review.course, review], method: :delete,
-                    data: { confirm: 'Are you sure you want to delete your review?' }, class: 'deleteBtn'%>
-       <% end %></div>
-    <p class="review-info"><%= review.info %></p>
-    <p class="helpful-review-text"><%= simple_format(review.review_text) %></p>
-    <div id="review_form_<%= review.id %>">
-    </div>
+  <div class="review-rating-grade">
+    <% review.rating.times do %>
+      <i class="fa fa-star" id='fa'></i>
+    <% end %>
+    <% (5-review.rating).times do %>
+      <i class="fa fa-star-o" id='fa'></i>
+    <% end %>
+    &nbsp;
+    <%= review.grade %>
+  </div>
+  <div class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago
+    <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
+    | <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
+    | <%= button_to 'Delete', [review.course, review], method: :delete,
+        data: { confirm: 'Are you sure you want to delete your review?' }, class: 'deleteBtn'%>
+      <% end %></div>
+  <p class="review-info"><%= review.info %></p>
+  <p class="helpful-review-text"><%= simple_format(review.review_text) %></p>
+  <div id="review_form_<%= review.id %>">
+  </div>
 </div>

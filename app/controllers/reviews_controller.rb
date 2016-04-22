@@ -3,19 +3,19 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def create
-      @course = Course.find_by_slug(params[:course_code])
-      @review = @course.reviews.create(review_params)
-      @review.user = current_user
+    @course = Course.find_by_slug(params[:course_code])
+    @review = @course.reviews.create(review_params)
+    @review.user = current_user
 
-      respond_to do |format|
-        if @review.save
-          format.html { redirect_to @course, notice: 'Thank you for your review!' }
-          format.json { render :show, status: :ok, location: @course }
-        else
-          format.html { redirect_to @course, notice: 'Invalid review' }
-          format.json { render json: @review.errors, status: :unprocessable_entity }
-        end
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to @course, notice: 'Thank you for your review!' }
+        format.json { render :show, status: :ok, location: @course }
+      else
+        format.html { redirect_to @course, notice: 'Invalid review' }
+        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   def edit
@@ -48,6 +48,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:rank, :rating, :date, :info, :review_text, :course_id, :grade, :user_id)
+      params.require(:review).permit(:rank, :rating, :date, :info, :review_text, :course_id, :grade, :user_id)
     end
 end

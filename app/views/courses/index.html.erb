@@ -4,28 +4,30 @@
   <div class="row">
     <table>
       <tr><td width=100px;>Rating</td><td>Class</td></tr>
-        <% @courses.each do |course| %>
-          <tr>
-            <td>
-              <% unless course.avg_rating.nil? %>
-                <% for i in 0..4 %>
-                  <% if course.avg_rating-i>=1 %>
-                    <i class="fa fa-star" id='fa'></i>
-                  <% elsif course.avg_rating-i>=0.5 %>
-                    <i class="fa fa-star-half" id='fa'></i>
-                  <% else %>
-                    <i class="fa fa-star-o" id='fa'></i>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <% 5.times do %>
+      <% @courses.each do |course| %>
+        <tr>
+          <td>
+            <% unless course.avg_rating.nil? %>
+              <% for i in 0..4 %>
+                <% if course.avg_rating-i>=1 %>
+                  <i class="fa fa-star" id='fa'></i>
+                <% elsif course.avg_rating-i>=0.5 %>
+                  <i class="fa fa-star-half" id='fa'></i>
+                <% else %>
                   <i class="fa fa-star-o" id='fa'></i>
                 <% end %>
               <% end %>
-            </td>
-            <td>
-              <%= link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true) %>
-            </td>
-        <% end %>
+            <% else %>
+              <% 5.times do %>
+                <i class="fa fa-star-o" id='fa'></i>
+              <% end %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>
