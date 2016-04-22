@@ -3,6 +3,9 @@ module CoursesHelper
     content_for(:title) { page_title }
   end
   def real_average(rGrades)
+    if (rGrades.count == 0)
+      return ""
+    end
     grades = { "A+" => 97, "A" => 94, "A-" => 90, "B+" => 87, "B" => 84, "B" => 80, "C+" => 77, "C" => 74, "C-" => 70, "D+" => 67, "D" => 64, "D-" => 60, "F" => 50}
     length = rGrades.size
     count = 0
