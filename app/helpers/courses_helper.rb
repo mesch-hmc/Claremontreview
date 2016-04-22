@@ -3,11 +3,13 @@ module CoursesHelper
     content_for(:title) { page_title }
   end
   def real_average(rGrades)
-    if (rGrades.count == 0)
+    length = rGrades.size
+    if (length == 0)
       return ""
     end
-    grades = { "A+" => 97, "A" => 94, "A-" => 90, "B+" => 87, "B" => 84, "B" => 80, "C+" => 77, "C" => 74, "C-" => 70, "D+" => 67, "D" => 64, "D-" => 60, "F" => 50}
-    length = rGrades.size
+
+    grades = { "A+" => 97, "A" => 94, "A-" => 90, "B+" => 87, "B" => 84, "B-" => 80, "C+" => 77, "C" => 74, "C-" => 70, "D+" => 67, "D" => 64, "D-" => 60, "F" => 50}
+
     count = 0
     for i in 0..rGrades.size-1
       if grades.has_key?(rGrades[i])
@@ -16,9 +18,11 @@ module CoursesHelper
         length = length - 1
       end
     end
-    result = ((length < 1) ? 0 : count / length).to_s
+
+    result = ((length < 1) ? 0 : count / length).to_i.to_s
     rF = result[0].to_i
     rL = result[1].to_i
+    
     output = ''
     if result == 100
       return 'A+'
