@@ -5641,3 +5641,20 @@ a#main {
 #myModal {
   margin: 5% 15%;
 }
+.deleteBtn {
+  background:none!important;
+  border:none;
+  padding:0!important;
+  font: inherit;
+  text-decoration: none;
+  color: #428bca;
+  display: inline;
+  position: relative;
+}
+.deleteBtn:hover {
+  text-decoration: underline;
+}
+.button_to, .button_to div {
+  display: inline;
+  position: relative;
+}
