@@ -5,25 +5,34 @@ module CoursesHelper
 
   def real_average(rGrades)
     length = rGrades.size
-    if (length == 0)
+    if length == 0
       return ""
     end
 
-    grades = { "A+" => 97, "A" => 94, "A-" => 90, "B+" => 87, "B" => 84, "B-" => 80, "C+" => 77, "C" => 74, "C-" => 70, "D+" => 67, "D" => 64, "D-" => 60, "F" => 50}
+    if rGrades.include? "P"
+      return passFail rGrades, length
+    else
+      return letterGrade rGrades, length
+    end
+  end
+
+  def passFail(rGrades, length)
+    ps = rGrades.count { |grade| grade=='P' }
+    return ps > length/2 ? 'P' : 'F'
+  end
+
+  def letterGrade(rGrades, length)
+    grades = { "A+" => 97, "A" => 94, "A-" => 90, "B+" => 87, "B" => 84, "B-" => 80, "C+" => 77, "C" => 74, "C-" => 70, "D+" => 67, "D" => 64, "D-" => 60, "F" => 50, "P" => 0, 'W' => 0, 'NC' => 0}
 
     count = 0
-    for i in 0..rGrades.size-1
-      if grades.has_key?(rGrades[i])
-        count = count + grades[rGrades[i]]
-      else
-        length = length - 1
-      end
+    for i in 0..length-1
+      count = count + grades[rGrades[i]]
     end
 
-    result = ((length < 1) ? 0 : count / length).to_i.to_s
+    result = (count / length).to_i.to_s
     rF = result[0].to_i
     rL = result[1].to_i
-    
+
     output = ''
     if result == 100
       return 'A+'
