@@ -43,9 +43,9 @@ module CoursesHelper
       count = count + grades[rGrades[i]]
     end
 
-    result = (count.to_f / length).round.to_s
+    result = (count.to_f / length).round(1).to_s
     rF = result[0].to_i
-    rL = result[1].to_i
+    rL = result[3].to_i
 
     output = ''
     if result == 100
