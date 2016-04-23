@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :show]
 
   def index
     if params[:query].present?
@@ -10,7 +10,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find_by_slug(params[:code])
     @reviews = @course.reviews
   end
 
