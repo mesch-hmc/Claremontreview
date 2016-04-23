@@ -9,7 +9,7 @@ module CoursesHelper
       return ""
     end
 
-    if rGrades.include? "P"
+    if rGrades.include? "P" or rGrades.include? "HP"
       return passFail rGrades, length
     else
       return letterGrade rGrades, length
@@ -17,8 +17,22 @@ module CoursesHelper
   end
 
   def passFail(rGrades, length)
-    ps = rGrades.count { |grade| grade=='P' }
-    return ps > length/2 ? 'P' : 'F'
+    grades = { "HP" => 3, "P" => 2, "F" => 1 }
+    count = 0
+    for i in 0..length-1
+      if !grades[rGrades[i]].nil?
+        count = count + grades[rGrades[i]]
+      end
+    end
+
+    result = (count.to_f / length).round
+    if result == 3
+      return "HP"
+    elsif result == 2
+      return "P"
+    else
+      return "F"
+    end
   end
 
   def letterGrade(rGrades, length)
