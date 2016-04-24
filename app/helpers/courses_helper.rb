@@ -43,7 +43,7 @@ module CoursesHelper
       count = count + grades[rGrades[i]]
     end
 
-    result = (count.to_f / length).round.to_s
+    result = (count / length).to_i.to_s
     rF = result[0].to_i
     rL = result[1].to_i
 
