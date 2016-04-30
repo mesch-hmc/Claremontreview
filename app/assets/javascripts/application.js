@@ -15,6 +15,7 @@
 //= require jquery-ui/autocomplete
 //= require turbolinks
 //= require autocomplete-rails
+//= require Chart
 //= require_tree .
 
 
