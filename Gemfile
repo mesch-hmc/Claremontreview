@@ -13,6 +13,7 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
+gem 'chart-js-rails'
 
 group :development, :test do
   gem 'sqlite3'
