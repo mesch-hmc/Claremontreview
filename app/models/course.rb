@@ -10,4 +10,8 @@ class Course < ActiveRecord::Base
   def to_param
     slug
   end
+
+  def full_title
+    "#{self.code}: #{self.title}"
+  end
 end

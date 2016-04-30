@@ -12,6 +12,8 @@ gem 'searchkick'
 gem 'chartkick'
 gem 'devise'
 gem 'omniauth-google-oauth2'
+gem 'jquery-ui-rails'
+gem 'rails-jquery-autocomplete'
 
 group :development, :test do
   gem 'sqlite3'

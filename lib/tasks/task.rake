@@ -24,4 +24,11 @@ namespace :task do
       course.update_column(:avg_rating, avg)
     end
   end
+
+  task codetitleinstructor: :environment do
+    Course.all.each do |course|
+      course.code_title_instructor = "#{course.code} #{course.title} #{course.instructor}"
+      course.save
+    end
+  end
 end

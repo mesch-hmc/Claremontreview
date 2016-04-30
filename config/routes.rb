@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :courses, except: [:edit, :destroy], param: :code do
     resources :reviews
+    get :autocomplete_course_code_title_instructor, on: :collection
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
