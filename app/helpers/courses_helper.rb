@@ -72,4 +72,20 @@ module CoursesHelper
 
     return output
   end
+
+  def gradeHash(course)
+    course.reviews.unscoped.where(:course_id => @course).group(:grade).count
+  end
+
+  def gradeDist(hash)
+    grades = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F','HP','P','W','NC']
+    h = Hash[ grades.collect { |v| [ v, 0 ] }]
+    hash.map do |key,value|
+      h[key]=value
+    end
+    list = h.map do |key,value|
+      "#{key}:#{value}"
+    end
+    list.map(&:inspect).join(',').gsub('"','')
+  end
 end
