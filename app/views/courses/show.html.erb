@@ -67,20 +67,7 @@
         </h5>
       </div>
       <div class="col-sm-5">
-        <% if false %>
-        <% if @course.code[-2, 2] == 'PO' %>
-          <%= column_chart @course.reviews.group(:grade).count, colors: ["#20438f"] %>
-        <% elsif @course.code[-2, 2] == 'PZ' %>
-          <%= column_chart @course.reviews.group(:grade).count, colors: ["#f7941d"] %>
-        <% elsif @course.code[-2, 2] == 'SC' %>
-          <%= column_chart @course.reviews.group(:grade).count, colors: ["#2e4d41"] %>
-        <% elsif @course.code[-2, 2] == 'CM' %>
-          <%= column_chart @course.reviews.group(:grade).count, colors: ["#981B32"] %>
-        <% else %>
-          <%= column_chart @course.reviews.group(:grade).count, colors: ["#EAAA00"] %>
-        <% end %>
-        <% end %>
-        <%= column_chart @course.reviews.group(:grade).count, colors: ["#EAAA00"] %>
+        <canvas style="margin-top:20px;" id="gradeChart" width="280" height="300"></canvas>
       </div>
     </div>
 
