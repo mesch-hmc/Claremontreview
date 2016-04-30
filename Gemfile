@@ -9,7 +9,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'searchkick'
-gem 'chartkick'
 gem 'devise'
 gem 'omniauth-google-oauth2'
 gem 'jquery-ui-rails'
