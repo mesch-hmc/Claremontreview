@@ -6,11 +6,26 @@ ready = function() {
     for (var e = 0; e < labels.length; e++) {
         var t = labels.indexOf(new_labels[e]); - 1 != t && (new_data[e] = a[t])
     }
+    course = window.location.href.split('/').pop();
+    school = course.substring(course.length-2, course.length);
+    if (school == 'CM') {
+        color = "rgba(152,27,50,0.5)";
+    } else if (school == 'HM') {
+        color = "rgba(234,170,0,0.5)";
+    } else if (school == 'PO') {
+        color = "rgba(32,67,143,0.5)";
+    } else if (school == 'PZ') {
+        color = "rgba(247,148,29,0.5)";
+    } else if (school == 'SC') {
+        color = "rgba(46,77,65,0.5)";
+    } else {
+        color = "rgba(234,170,0,0.5)";
+    }
     var a = {
         labels: new_labels,
         datasets: [{
-            backgroundColor: "rgba(234,170,0,0.5)",
-            borderColor: "rgba(234,170,0,0.5)",
+            backgroundColor: color,
+            borderColor: color,
             data: new_data
         }]
     },
@@ -27,7 +42,6 @@ ready = function() {
         barStrokeWidth: 1,
         barValueSpacing: 4,
         barDatasetSpacing: 1,
-        //legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
         legend: {
             display: false
         }
