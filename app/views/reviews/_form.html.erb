@@ -10,6 +10,7 @@
         $('#r').raty({
             starType: 'i',
             hints: ['','','','',''],
+            score: <%= @review.nil? ? 0 : @review.rating %>,
             scoreName: 'review[rating]'
         });
       </script>
