@@ -1,8 +1,18 @@
 <%= form_for( (@review == nil ? [@course, @course.reviews.build] : [@course, @review]) ) do |f| %>
+
   <div class="form-group">
     <p>
       <%= f.label :rating %> <br>
-      <%= f.number_field :rating, class: 'form-control', id: 'form_review_rating', in: 0..5, step: 1 %>
+      <div id="r">
+        <input class="form-control" id="form_review_rating" type="hidden" name="review[rating]" />
+      </div>
+      <script>
+        $('#r').raty({
+            starType: 'i',
+            hints: ['','','','',''],
+            scoreName: 'review[rating]'
+        });
+      </script>
     </p>
 
     <p>
