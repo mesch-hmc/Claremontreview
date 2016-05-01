@@ -13,6 +13,16 @@
             score: <%= @review.nil? ? 0 : @review.rating %>,
             scoreName: 'review[rating]'
         });
+        starsOff = document.getElementsByClassName('star-off-png');
+        for (var i=0; i<starsOff.length; i++) {
+            var curr_element = starsOff[i];
+            curr_element.style.color="<%= schoolColor(@course.code[-2,2]) %>";
+        }
+        starsOn = document.getElementsByClassName('star-on-png');
+        for (var i=0; i<starsOn.length; i++) {
+            var curr_element = starsOn[i];
+            curr_element.style.color="<%= schoolColor(@course.code[-2,2]) %>";
+        }
       </script>
     </p>
 

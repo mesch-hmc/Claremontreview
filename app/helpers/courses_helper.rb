@@ -88,4 +88,20 @@ module CoursesHelper
     end
     list.map(&:inspect).join(',').gsub('"','')
   end
+
+  def schoolColor(school)
+    color = "#EAAA00";
+    if school == 'CM'
+      color = "#981B32";
+    elsif school == 'HM'
+      color = "#EAAA00";
+    elsif school == 'PO'
+      color = "#20438f";
+    elsif school == 'PZ'
+      color = "#f7941d";
+    elsif school == 'SC'
+      color = "#2e4d41";
+    end
+    color
+  end
 end
