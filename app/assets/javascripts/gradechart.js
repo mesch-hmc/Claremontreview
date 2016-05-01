@@ -10,8 +10,9 @@ ready = function() {
         var a = {
             labels: new_labels,
             datasets: [{
-                backgroundColor: convertHex(schoolColor(), 100),
+                backgroundColor: convertHex(schoolColor(), 50),
                 borderColor: convertHex(schoolColor(), 100),
+                borderWidth: 1,
                 data: new_data
             }]
         },
