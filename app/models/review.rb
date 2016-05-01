@@ -5,7 +5,7 @@ class Review < ActiveRecord::Base
 
   GRADES = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F','HP','P','NC']
 
-  validates :rating, presence: true, inclusion: 0..5
+  validates :rating, presence: true, inclusion: 1..5
   validates :grade, presence: true, inclusion: {in: GRADES}
   validates :info, presence: true
   validates :review_text, presence: true
