@@ -3,14 +3,7 @@ ready = function() {
     if (window.location.href.split('/')[3] != null && window.location.href.split('/')[3] == 'courses') {
         grade_distr = $("#gradeDistribution").html().split(","), a = new Array, labels = new Array;
         for (var e = 0; e < grade_distr.length; e++) 0 != grade_distr[e].length && (datapts = grade_distr[e].split(":"), labels.push(datapts[0]), a.push(parseInt(datapts[1])));
-        pCount = parseInt(grade_distr[14].replace( /^\D+/g, ''));
-        hpCount = parseInt(grade_distr[13].replace( /^\D+/g, ''));
-        if (pCount+hpCount>0) {
-            new_labels = ["HP","P","NC"]
-        } else {
-            new_labels = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"]
-        }
-        new_data = new Array(new_labels.length);
+        new_labels = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F","HP","P","NC"], new_data = new Array(new_labels.length);
         for (var e = 0; e < labels.length; e++) {
             var t = labels.indexOf(new_labels[e]); - 1 != t && (new_data[e] = a[t])
         }
