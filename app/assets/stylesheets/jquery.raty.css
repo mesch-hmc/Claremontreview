@@ -22,25 +22,20 @@
 
 .cancel-on-png:before {
   content: "\f057";
-  color: #EAAA00;
 }
 
 .cancel-off-png:before {
   content: "\f05c";
-  color: #EAAA00;
 }
 
 .star-on-png:before {
   content: "\f005";
-  color: #EAAA00;
 }
 
 .star-off-png:before {
   content: "\f006";
-  color: #EAAA00;
 }
 
 .star-half-png:before {
   content: "\f123";
-  color: #EAAA00;
 }
