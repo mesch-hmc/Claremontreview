@@ -3,29 +3,42 @@ module CoursesHelper
     content_for(:title) { page_title }
   end
 
-  def real_average(rGrades)
-    length = rGrades.size
+  def real_average(gradeHash)
+    length = gradeHash.size
     if length == 0
       return ""
     end
 
-    if rGrades.include? "P" or rGrades.include? "HP"
-      return passFail rGrades, length
+    passFailKeys = ["HP","P","NC"]
+    letterGradeKeys = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"]
+    passFailCount = 0
+    passFailKeys.each do |key|
+      passFailCount += gradeHash[key] if !gradeHash[key].nil?
+    end
+    letterGradeCount = 0
+    letterGradeKeys.each do |key|
+      letterGradeCount += gradeHash[key] if !gradeHash[key].nil?
+    end
+
+    total = gradeHash.values.inject(0){|sum,x| sum + x}
+    if passFailCount > 0 and letterGradeCount > 0
+      new_total = gradeHash.except("HP","P","NC").values.inject(0){|sum,x| sum + x}
+      return letterGrade gradeHash.except("HP","P","NC"), new_total
+    elsif letterGradeCount > 0
+      return letterGrade gradeHash, total
     else
-      return letterGrade rGrades, length
+      return passFail gradeHash, total
     end
   end
 
-  def passFail(rGrades, length)
-    grades = { "HP" => 3, "P" => 2, "F" => 1 }
+  def passFail(gradeHash, total)
     count = 0
-    for i in 0..length-1
-      if !grades[rGrades[i]].nil?
-        count = count + grades[rGrades[i]]
-      end
+    gradeValues = { "HP" => 3, "P" => 2, "NC" => 1 }
+    gradeHash.each do |key,value|
+      count += gradeValues[key] * value
     end
 
-    result = (count.to_f / length).round
+    result = (count.to_f / total).round
     if result == 3
       return "HP"
     elsif result == 2
@@ -35,15 +48,14 @@ module CoursesHelper
     end
   end
 
-  def letterGrade(rGrades, length)
-    grades = { "A+" => 97, "A" => 94, "A-" => 90, "B+" => 87, "B" => 84, "B-" => 80, "C+" => 77, "C" => 74, "C-" => 70, "D+" => 67, "D" => 64, "D-" => 60, "F" => 50, "P" => 0, 'W' => 0, 'NC' => 0}
-
+  def letterGrade(gradeHash, total)
     count = 0
-    for i in 0..length-1
-      count = count + grades[rGrades[i]]
+    gradeValues = { "A+" => 97, "A" => 94, "A-" => 90, "B+" => 87, "B" => 84, "B-" => 80, "C+" => 77, "C" => 74, "C-" => 70, "D+" => 67, "D" => 64, "D-" => 60, "F" => 50}
+    gradeHash.each do |key,value|
+      count += gradeValues[key] * value
     end
 
-    result = (count / length).to_i.to_s
+    result = (count / total).to_i.to_s
     rF = result[0].to_i
     rL = result[1].to_i
 
@@ -78,7 +90,7 @@ module CoursesHelper
   end
 
   def gradeDist(hash)
-    grades = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F','HP','P','W','NC']
+    grades = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F','HP','P','NC']
     h = Hash[ grades.collect { |v| [ v, 0 ] }]
     hash.map do |key,value|
       h[key]=value

@@ -39,7 +39,7 @@
             &nbsp;
             Grade: <span class="claremont">
               <% unless @course.reviews.pluck(:grade).nil? && @course.reviews.pluck(:grade) == 0 %>
-                <%= real_average(@course.reviews.pluck(:grade))%>
+                <%= real_average(gradeHash(@course)) %>
               <% end %>
             </span>
           </div>
