@@ -298,32 +298,48 @@ a#main {
 #footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  min-width: 100%;
+  margin: auto 0;
   margin-bottom: 0;
-  background-color: #f3f3f3;
+  border: 0px solid #fff;
+  background-color: #fff;
 
   .container {
     max-width: 90%;
   }
 
-  #logo {
-    display: inline-block;
-    margin-left: 50%;
-    margin-right: auto;
-    img {
-      margin-left: 18px;
-      height: 28px;
-      display: inline;
-    }
+  hr {
+    height: 5px;
+    margin: auto 5%;
+    margin-top: 2px;
+    border-top: 1.5px solid #c3c3c3;
+  }
 
-    p {
-      display: inline;
-      float: left;
-    }
+  img {
+    height: 40px;
+    width: auto;
+    display: inline-block;
+  }
+
+  #cr {
+    display: block;
+    margin: 0 auto;
+  }
+
+  #mesch {
+    float: left;
+    margin-right: 12px;
+  }
+
+  p {
+    float: left;
+    margin: 10px 0;
+    color: #222;
   }
 
   a {
     font-size: 16px;
-    margin-top: 14px;
+    padding: 10px 0px;
+    float: right;
   }
 }
