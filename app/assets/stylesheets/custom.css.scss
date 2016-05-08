@@ -19,138 +19,138 @@ td {
 -------------------------------------------------- */
 
 html {
-    position: relative;
-    min-height: 100%;
-    width: 100%;
+  position: relative;
+  min-height: 100%;
+  width: 100%;
 }
 body {
-    /* Margin bottom by footer height */
-    font-family: Avenir, 'avenir next', Helvetica Neue, Helvetica, sans-serif;
-    font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    color: #454E55;
+  /* Margin bottom by footer height */
+  font-family: Avenir, 'avenir next', Helvetica Neue, Helvetica, sans-serif;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: #454E55;
 }
 .content {
   margin: 0 auto 80px;
 }
 @media (min-width: 600px) {
-    .large-h1 {
-        font-size: 60px;
-    }
+  .large-h1 {
+      font-size: 60px;
+  }
 }
 .container#main {
-    padding-left: 32px;
-    padding-right: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 ::selection {
-    background: #C39BD3;
-    color: #ffffff;
+  background: #C39BD3;
+  color: #ffffff;
 }
 ::-moz-selection {
-    background: #C39BD3;
-    color: #ffffff;
+  background: #C39BD3;
+  color: #ffffff;
 }
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 45px;
-    background-color: #2B2D34;
-    color: #A3A5AC;
-    text-align: center;
-    border: 1px groove #aaaaaa;
-    color: White;
-    padding: 0;
-    text-align: center;
-    vertical-align: middle;
-    line-height: normal;
-    margin: 0;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 45px;
+  background-color: #2B2D34;
+  color: #A3A5AC;
+  text-align: center;
+  border: 1px groove #aaaaaa;
+  color: White;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+  margin: 0;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }
 .fullpage {
-    height: 100vh;
+  height: 100vh;
 }
 .vcenter {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
 }
 @media (min-height: 600px) {
-    .vcenter {
-        margin-top: -70px;
-    }
+  .vcenter {
+      margin-top: -70px;
+  }
 }
 
 /* Main page styles
  -------------------------------------------------- */
 
 .title {
-    font-size: 380%;
+  font-size: 380%;
 }
 
 /* unvisited link */
 
 a.title:link {
-    color: black;
+  color: black;
 }
 
 /* visited link */
 
 a.title:visited {
-    color: black;
+  color: black;
 }
 
 /* mouse over link */
 
 a.title:hover {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 
 /* selected link */
 
 a.title:active {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 .main-container {
-    margin-top: 15%;
-    text-align: center;
+  margin-top: 15%;
+  text-align: center;
 }
 .title-container {
-    text-align: center;
+  text-align: center;
 }
 .title-description {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .main-search {
-    width: 300px;
-    height: 40px;
-    padding-left: 10px;
+  width: 300px;
+  height: 40px;
+  padding-left: 10px;
 }
 .main-search-button {
-    height: 42px;
-    margin-bottom: 2px;
-    margin-left: 4px;
+  height: 42px;
+  margin-bottom: 2px;
+  margin-left: 4px;
 }
 
 /* scroll results */
 
 .ui-autocomplete {
-    max-height: 250px;
-    max-width: 300px;
-    overflow-y: auto;
-    /* prevent horizontal scrollbar */
-    overflow-x: hidden;
-    /* add padding for vertical scrollbar */
-    padding-right: 5px;
-    font-size: 90%;
+  max-height: 250px;
+  max-width: 300px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+  /* add padding for vertical scrollbar */
+  padding-right: 5px;
+  font-size: 90%;
 }
 
 /* Custom page CSS
@@ -160,107 +160,107 @@ a.title:active {
 /* Not required for template or sticky footer method. */
 
 .claremont {
-    color: #EAAA00;
+  color: #EAAA00;
 }
 .fa {
-    color: #EAAA00;
+  color: #EAAA00;
 }
 
 .container {
-    width: auto;
-    max-width: 960px;
-    padding: 0 20px;
+  width: auto;
+  max-width: 960px;
+  padding: 0 20px;
 }
 .container .text-muted {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 /*custom*/
 
 .navbar-default {
-    background-color: #fff;
-    border-color: #eee;
+  background-color: #fff;
+  border-color: #eee;
 }
 li.active a {
-    background-color: #fff !important;
-    color: #8e44ad !important;
+  background-color: #fff !important;
+  color: #8e44ad !important;
 }
 li a:hover, a.navbar-brand:hover, .navbar-text a:hover {
-    color: #8e44ad !important;
+  color: #8e44ad !important;
 }
 .navbar-text a {
-    color: #777 !important;
-    text-decoration: none;
+  color: #777 !important;
+  text-decoration: none;
 }
 .navbar-text {
-    padding-top: 2px !important;
+  padding-top: 2px !important;
 }
 .red {
-    color: #FA4E0E;
-    color: #EE3418;
+  color: #FA4E0E;
+  color: #EE3418;
 }
 .yellow {
-    color: #EAAA00;
+  color: #EAAA00;
 }
 a.navbar-brand {
-    color: #454E55 !important;
+  color: #454E55 !important;
 }
 .review-helpful-rank {
-    color: #899499;
-}
-.review-date {
-    color: #899499;
-    font-size: 12px;
-}
-a.review-date {
-  text-decoration: none;
   color: #899499;
 }
+.review-date {
+  color: #899499;
+  font-size: 12px;
+}
+a.review-date {
+text-decoration: none;
+color: #899499;
+}
 .review-info {
-    color: #899499;
+  color: #899499;
 }
 h1, h2, h3, h4, h5 {
-    color: #5F686F;
+  color: #5F686F;
 }
 .course-title {
-    color: #5F686F;
+  color: #5F686F;
 }
 .course-description {
-    color: #899499;
+  color: #899499;
 }
 .recent-reviews-header {
-    /*color: #788188*/
+  /*color: #788188*/
 }
 .helpful-review, .recent-review {
-    padding-bottom: 22px;
+  padding-bottom: 22px;
 }
 p {
-    margin: 0 0 3px;
-    word-wrap: break-word;
+  margin: 0 0 3px;
+  word-wrap: break-word;
 }
 .classinfo {
-    margin-top: 3px;
+  margin-top: 3px;
 }
 .light-col {
-    color: #ABB5BB;
+  color: #ABB5BB;
 }
 .dark-col {
-    color: #5F686F;
+  color: #5F686F;
 }
 #form_review_rating {
-    width: 70px;
+  width: 70px;
 }
 #form_review_grade {
-    width: 85px;
+  width: 85px;
 }
 #form_review_info {
-    width: 350px;
+  width: 350px;
 }
 #form_review_text {
-    width: 350px;
+  width: 350px;
 }
 #deleteMessage {
   padding-left: 5%;
