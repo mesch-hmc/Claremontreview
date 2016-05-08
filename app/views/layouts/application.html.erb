@@ -19,16 +19,6 @@
     <%= yield %>
   </div>
 
-  <% if !current_page?(about_url) %>
-    <div id="footer" class="navbar navbar-default navbar-bottom" >
-      <div class="container">
-        <div id="logo">
-          <%= image_tag 'cr.ico' %> <br>
-          <p> @MESCH </p>
-        </div>
-        <a class="pull-right" href="/about">Contact Us</a>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'layouts/_footer' %> 
 </body>
 </html>
