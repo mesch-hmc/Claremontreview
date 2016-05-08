@@ -57,19 +57,49 @@ body {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 45px;
-  background-color: #2B2D34;
-  color: #A3A5AC;
   text-align: center;
-  border: 1px groove #aaaaaa;
   color: White;
   padding: 0;
   text-align: center;
   vertical-align: middle;
   line-height: normal;
   margin: 0;
-  position: fixed;
   bottom: 0px;
   width: 100%;
+
+  hr {
+    margin: auto;
+  }
+
+  img {
+    height: 45px;
+    width: auto;
+    display: inline-block;
+  }
+
+  #cr {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 5px;
+  }
+
+  #mesch {
+    float: left;
+    margin-right: 12px;
+  }
+
+  p {
+    font-size: 16px;
+    float: left;
+    padding: 10px 0px;
+    color: #222;
+  }
+
+  a#about {
+    font-size: 16px;
+    padding: 10px 0px;
+    float: right;
+  }
 }
 .fullpage {
   height: 100vh;
@@ -293,53 +323,4 @@ a#main {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #31708f
-}
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  min-width: 100%;
-  margin: auto 0;
-  margin-bottom: 0;
-  border: 0px solid #fff;
-  background-color: #fff;
-
-  .container {
-    max-width: 90%;
-  }
-
-  hr {
-    height: 5px;
-    margin: auto 5%;
-    margin-top: 2px;
-    border-top: 1.5px solid #c3c3c3;
-  }
-
-  img {
-    height: 40px;
-    width: auto;
-    display: inline-block;
-  }
-
-  #cr {
-    display: block;
-    margin: 0 auto;
-  }
-
-  #mesch {
-    float: left;
-    margin-right: 12px;
-  }
-
-  p {
-    float: left;
-    margin: 10px 0;
-    color: #222;
-  }
-
-  a#about {
-    font-size: 16px;
-    padding: 10px 0px;
-    float: right;
-  }
 }
