@@ -25,12 +25,14 @@ html {
 }
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 140px;
     font-family: Avenir, 'avenir next', Helvetica Neue, Helvetica, sans-serif;
     font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     color: #454E55;
+}
+.content {
+  margin: 0 auto 80px;
 }
 @media (min-width: 600px) {
     .large-h1 {
@@ -291,4 +293,37 @@ a#main {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #31708f
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #f3f3f3;
+
+  .container {
+    max-width: 90%;
+  }
+
+  #logo {
+    display: inline-block;
+    margin-left: 50%;
+    margin-right: auto;
+    img {
+      margin-left: 18px;
+      height: 28px;
+      display: inline;
+    }
+
+    p {
+      display: inline;
+      float: left;
+    }
+  }
+
+  a {
+    font-size: 16px;
+    margin-top: 14px;
+  }
 }
