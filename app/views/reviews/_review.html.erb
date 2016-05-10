@@ -9,7 +9,7 @@
     &nbsp;
     <%= review.grade %>
   </div>
-  <div class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago
+  <div class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago <%= anon_student(review.user.email) %>
     <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
     | <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
     | <%= button_to 'Delete', [review.course, review], method: :delete,
