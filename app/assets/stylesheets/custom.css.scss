@@ -56,12 +56,13 @@ body {
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 45px;
+  height: 40px;
+  min-height: 40px;
+  max-height: 40px;
   text-align: center;
   color: White;
   padding: 0;
   text-align: center;
-  vertical-align: middle;
   line-height: normal;
   margin: 0;
   bottom: 0px;
@@ -72,7 +73,7 @@ body {
   }
 
   img {
-    height: 45px;
+    height: 40px;
     width: auto;
     display: inline-block;
   }
@@ -80,24 +81,26 @@ body {
   #cr {
     display: inline-block;
     margin: 0 auto;
-    padding: 5px;
+    padding: 8px 0;
   }
 
   #mesch {
     float: left;
     margin-right: 12px;
+    padding: 7px 0;
   }
 
   p {
-    font-size: 16px;
+    font-size: 12px;
     float: left;
-    padding: 10px 0px;
-    color: #222;
+    padding: 12px 0px;
+    color: #5F686F;
+    margin: 0;
   }
 
   a#about {
-    font-size: 16px;
-    padding: 10px 0px;
+    font-size: 12px;
+    padding: 12px 0px;
     float: right;
   }
 }

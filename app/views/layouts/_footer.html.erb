@@ -1,14 +1,18 @@
-<% if !current_page?(root_url) and !current_page?(about_url) %>
+<% if !current_page?(about_url) %>
   <div id="footer" class="navbar navbar-bottom footer" >
     <div class="container row-fluid">
       <hr/>
       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-left">
         <%= image_tag 'mesch.png', id: 'mesch' %>
+        <% if !current_page?(root_url) %>
         <p> MESCH </p>
+        <% end %>
       </div>
+      <% if !current_page?(root_url) %>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <a href="/" id="home"><%= image_tag 'cr.ico', id: 'cr', class: 'img-responsive' %></a>
       </div>
+      <% end %>
       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-right">
         <a href="/about" id='about'>Contact Us</a>
       </div>
