@@ -1,13 +1,13 @@
 <style>
   .content {
-    position: absolute;
-    top: 80px;
+    position: relative;
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    margin: 0 auto;
+    margin: auto auto;
     max-width: 750px;
-    height: 700px;
+    max-height: 700px;
   }
 
   .hovereffect {
@@ -90,7 +90,7 @@
 
 <div class="content">
     <div class="hovereffect">
-        <%= image_tag 'mesch.png', class: 'img-responsive', alt: 'MESCH' %>
+        <%= image_tag 'mesch_text.png', class: 'img-responsive', alt: 'MESCH' %>
         <div class="overlay">
            <div class="shift">
              <h2>Questions?</h2>
