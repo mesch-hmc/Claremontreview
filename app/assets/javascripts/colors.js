@@ -34,7 +34,7 @@ function convertHex(hex,opacity){
 var ready;
 ready = function() {
     if (coursePage()) {
-        var elements = document.getElementsByClassName('fa');
+        var elements = document.getElementsByClassName('fa-change');
         for (var i=0; i<elements.length; i++) {
             var curr_element = elements[i];
             curr_element.style.color=schoolColor();

@@ -24,16 +24,16 @@
             <% unless @course.avg_rating.nil? %>
               <% for i in 0..4 %>
                 <% if @course.avg_rating-i>=1 %>
-                  <i class="fa fa-star" id='fa'></i>
+                  <i class="fa fa-star fa-change" id='fa'></i>
                 <% elsif @course.avg_rating-i>=0.5 %>
-                  <i class="fa fa-star-half" id='fa'></i>
+                  <i class="fa fa-star-half fa-change" id='fa'></i>
                 <% else %>
-                  <i class="fa fa-star-o" id='fa'></i>
+                  <i class="fa fa-star-o fa-change" id='fa'></i>
                 <% end %>
               <% end %>
             <% else %>
               <% 5.times do %>
-                <i class="fa fa-star-o" id='fa'></i>
+                <i class="fa fa-star-o fa-change" id='fa'></i>
               <% end %>
             <% end %>
             &nbsp;
