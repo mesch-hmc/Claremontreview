@@ -12,11 +12,19 @@
 
   <div class="voting pull-right">
     <%= link_to like_course_review_path(review.course, review), method: :put do %>
+      <% if user_signed_in? && (current_user.voted_up_on? review) %>
       <i class="fa fa-thumbs-up fa-lg" title='Helpful'></i>
+      <% else %>
+      <i class="fa fa-thumbs-o-up fa-lg" title='Helpful'></i>
+      <% end %>
     <% end %>
     <%= review.cached_votes_up %> |
     <%= link_to dislike_course_review_path(review.course, review), method: :put do %>
+      <% if user_signed_in? && (current_user.voted_down_on? review) %>
       <i class="fa fa-thumbs-down fa-lg" title='Unhelpful'></i>
+      <% else %>
+      <i class="fa fa-thumbs-o-down fa-lg" title='Unhelpful'></i>
+      <% end %>
     <% end %>
     <%= review.cached_votes_down %>
   </div>
