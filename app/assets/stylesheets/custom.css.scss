@@ -281,16 +281,11 @@ p {
   color: #899499;
   a {
     text-decoration: none;
+    color: inherit;
   }
   i {
     margin: 0 2px;
     padding-top: 1px;
-  }
-  .fa-thumbs-up {
-    color: #49F6B3;
-  }
-  .fa-thumbs-down {
-    color: #FC3A51;
   }
 }
 
