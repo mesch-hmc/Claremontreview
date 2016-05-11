@@ -10,18 +10,16 @@
     <%= review.grade %>
   </div>
 
-  <% if user_signed_in? %>
-    <div class="voting pull-right">
-      <%= link_to like_course_review_path(review.course, review), method: :put do %>
-        <i class="fa fa-thumbs-up fa-lg" title='like'></i>
-      <% end %>
-      <%= review.cached_votes_up %> |
-      <%= link_to dislike_course_review_path(review.course, review), method: :put do %>
-        <i class="fa fa-thumbs-down fa-lg" title='dislike'></i>
-      <% end %>
-      <%= review.cached_votes_down %>
-    </div>
-  <% end %>
+  <div class="voting pull-right">
+    <%= link_to like_course_review_path(review.course, review), method: :put do %>
+      <i class="fa fa-thumbs-up fa-lg" title='Helpful'></i>
+    <% end %>
+    <%= review.cached_votes_up %> |
+    <%= link_to dislike_course_review_path(review.course, review), method: :put do %>
+      <i class="fa fa-thumbs-down fa-lg" title='Unhelpful'></i>
+    <% end %>
+    <%= review.cached_votes_down %>
+  </div>
 
   <div class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago <%= anon_student(review.user.email) %>
     <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
