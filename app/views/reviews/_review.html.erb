@@ -1,10 +1,10 @@
 <div class="review">
   <div class="review-rating-grade">
     <% review.rating.times do %>
-      <i class="fa fa-star fa-change" id='fa'></i>
+      <i class="fa fa-star school-color" id='fa'></i>
     <% end %>
     <% (5-review.rating).times do %>
-      <i class="fa fa-star-o fa-change" id='fa'></i>
+      <i class="fa fa-star-o school-color" id='fa'></i>
     <% end %>
     &nbsp;
     <%= review.grade %>

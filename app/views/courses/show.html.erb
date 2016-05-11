@@ -24,16 +24,16 @@
             <% unless @course.avg_rating.nil? %>
               <% for i in 0..4 %>
                 <% if @course.avg_rating-i>=1 %>
-                  <i class="fa fa-star fa-change" id='fa'></i>
+                  <i class="fa fa-star school-color" id='fa'></i>
                 <% elsif @course.avg_rating-i>=0.5 %>
-                  <i class="fa fa-star-half fa-change" id='fa'></i>
+                  <i class="fa fa-star-half school-color" id='fa'></i>
                 <% else %>
-                  <i class="fa fa-star-o fa-change" id='fa'></i>
+                  <i class="fa fa-star-o school-color" id='fa'></i>
                 <% end %>
               <% end %>
             <% else %>
               <% 5.times do %>
-                <i class="fa fa-star-o fa-change" id='fa'></i>
+                <i class="fa fa-star-o school-color" id='fa'></i>
               <% end %>
             <% end %>
             &nbsp;
@@ -76,10 +76,10 @@
       <div class="col-sm-7">
         <div class='btn-group pull-left' id="review-switch">
           <a href="javascript:review_switch('recent_reviews', 'most_popular_review')" class='btn btn-default'>
-            <i class='fa fa-clock-o fa-lg fa-change'></i> Recent reviews
+            <i class='fa fa-clock-o fa-lg school-color'></i> Recent reviews
           </a>
           <a href="javascript:review_switch('most_popular_review', 'recent_reviews')" class='btn btn-default'>
-            <i class='fa fa-thumbs-up fa-lg fa-change'></i> Popular reviews
+            <i class='fa fa-thumbs-up fa-lg school-color'></i> Popular reviews
           </a>
         </div>
         <div id="recent_reviews" style="display:block">
