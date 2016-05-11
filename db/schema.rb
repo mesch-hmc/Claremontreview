@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511074001) do
+ActiveRecord::Schema.define(version: 20160511105053) do
 
   create_table "courses", force: :cascade do |t|
     t.text     "code"
@@ -35,12 +35,18 @@ ActiveRecord::Schema.define(version: 20160511074001) do
     t.text     "info"
     t.text     "review_text"
     t.integer  "course_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "grade"
     t.integer  "user_id"
+    t.integer  "cached_votes_score", default: 0
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
   end
 
+  add_index "reviews", ["cached_votes_down"], name: "index_reviews_on_cached_votes_down"
+  add_index "reviews", ["cached_votes_score"], name: "index_reviews_on_cached_votes_score"
+  add_index "reviews", ["cached_votes_up"], name: "index_reviews_on_cached_votes_up"
   add_index "reviews", ["course_id"], name: "index_reviews_on_course_id"
 
   create_table "users", force: :cascade do |t|

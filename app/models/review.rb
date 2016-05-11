@@ -11,7 +11,7 @@ class Review < ActiveRecord::Base
   validates :info, presence: true
   validates :review_text, presence: true
 
-  default_scope -> { order(created_at: :desc)}
+  default_scope -> {order(created_at: :desc)}
 
   def update_avg_rating
     avg = course.reviews.average(:rating)

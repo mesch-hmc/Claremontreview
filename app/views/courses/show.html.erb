@@ -76,7 +76,10 @@
       <div class="col-sm-7">
         <div id="recent_reviews">
           <h3 class="recent-reviews-header">Most recent student reviews</h3>
-          <%= render @course.reviews %>
+          <%= render @reviews %>
+        </div>
+        <div id="most_helpful_review">
+          <%= render @reviews.reorder("cached_votes_score DESC") %>
         </div>
       </div>
       <div class="col-sm-5">
