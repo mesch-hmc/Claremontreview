@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :get_review, only: [:destroy, :edit, :update]
-  before_action :authenticate_user!, only: [:create]
+  before_action :get_review, only: [:destroy, :edit, :update, :upvote, :downvote]
+  before_action :authenticate_user!, only: [:create, :upvote, :downvote]
 
   def create
     @course = Course.find_by_slug(params[:course_code])
@@ -39,6 +39,17 @@ class ReviewsController < ApplicationController
     end
     @review.update_avg_rating
     redirect_to course_path(@course)
+  end
+
+  ### Voting ###
+  def upvote
+    @review.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @review.downvote_by current_user
+    redirect_to :back
   end
 
   private

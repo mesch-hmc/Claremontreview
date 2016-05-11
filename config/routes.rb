@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   }
 
   resources :courses, except: [:edit, :destroy], param: :code do
-    resources :reviews
+    resources :reviews do
+      member do
+        put 'like',    to: 'reviews#upvote'
+        put 'dislike', to: 'reviews#downvote'
+      end
+    end
     get :autocomplete_course_code_title_instructor, on: :collection
   end
   # The priority is based upon order of creation: first created -> highest priority.

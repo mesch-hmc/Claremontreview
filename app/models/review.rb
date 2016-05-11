@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+  acts_as_votable
   belongs_to :course
   belongs_to :user
   after_save :update_avg_rating
