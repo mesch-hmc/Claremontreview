@@ -336,3 +336,17 @@ a#main {
     border-color: #bce8f1;
     color: #31708f
 }
+.voting {
+  a {
+    text-decoration: none;
+  }
+  i {
+    margin: 0 2px;
+  }
+  .fa-thumbs-up {
+    color: rgb(25, 212, 98);
+  }
+  .fa-thumbs-down {
+    color: rgb(149, 1, 43);
+  }
+}
