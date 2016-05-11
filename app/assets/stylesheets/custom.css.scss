@@ -275,6 +275,7 @@ h1, h2, h3, h4, h5 {
 }
 .recent-reviews-header {
     /*color: #788188*/
+    display: inline-block;
 }
 .helpful-review, .recent-review {
     padding-bottom: 22px;
@@ -351,4 +352,7 @@ a#main {
   .fa-thumbs-down {
     color: #FC3A51;
   }
+}
+#review-switch {
+  margin-left: 22%;
 }

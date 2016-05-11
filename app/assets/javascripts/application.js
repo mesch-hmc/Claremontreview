@@ -21,9 +21,18 @@
 
 
 function toggle(d) {
-  if(document.getElementById(d).style.display == "none") {
-    document.getElementById(d).style.display = "block"; }
-  else { document.getElementById(d).style.display = "none"; }
+  if (document.getElementById(d).style.display == "none") {
+    document.getElementById(d).style.display = "block";
+  } else {
+    document.getElementById(d).style.display = "none";
+  }
+}
+
+function review_switch(_to, _from) {
+  if (document.getElementById(_to).style.display == "none") {
+    document.getElementById(_to).style.display = "block";
+    document.getElementById(_from).style.display = "none";
+  }
 }
 
 // $.rails.allowAction = function confirmBox(element) {
