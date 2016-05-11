@@ -218,6 +218,13 @@ li.active a {
     background-color: #fff !important;
     color: #8e44ad !important;
 }
+li a:hover, a.navbar-brand:hover, .navbar-text a:hover {
+    color: #8e44ad !important;
+}
+.navbar-text a {
+    color: #777 !important;
+    text-decoration: none;
+}
 a.navbar-brand {
     color: #454E55 !important;
 }
