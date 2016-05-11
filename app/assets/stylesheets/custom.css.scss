@@ -337,11 +337,13 @@ a#main {
     color: #31708f
 }
 .voting {
+  color: #899499;
   a {
     text-decoration: none;
   }
   i {
     margin: 0 2px;
+    padding-top: 1px;
   }
   .fa-thumbs-up {
     color: #49F6B3;

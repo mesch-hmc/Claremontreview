@@ -43,12 +43,20 @@ class ReviewsController < ApplicationController
 
   ### Voting ###
   def upvote
-    @review.upvote_by current_user
+    if current_user.voted_up_on? @review
+      @review.unliked_by current_user
+    else
+      @review.upvote_by current_user
+    end
     redirect_to :back
   end
 
   def downvote
-    @review.downvote_by current_user
+    if current_user.voted_down_on? @review
+      @review.undisliked_by current_user
+    else
+      @review.downvote_by current_user
+    end
     redirect_to :back
   end
 

@@ -15,7 +15,7 @@
       <%= link_to like_course_review_path(review.course, review), method: :put do %>
         <i class="fa fa-thumbs-up fa-lg" title='like'></i>
       <% end %>
-      <%= review.get_upvotes.size %>
+      <%= review.get_upvotes.size %> | 
       <%= link_to dislike_course_review_path(review.course, review), method: :put do %>
         <i class="fa fa-thumbs-down fa-lg" title='dislike'></i>
       <% end %>
