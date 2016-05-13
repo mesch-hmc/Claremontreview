@@ -48,7 +48,6 @@ class ReviewsController < ApplicationController
     else
       @review.upvote_by current_user
     end
-    redirect_to :back
   end
 
   def downvote
@@ -57,7 +56,6 @@ class ReviewsController < ApplicationController
     else
       @review.downvote_by current_user
     end
-    redirect_to :back
   end
 
   private
