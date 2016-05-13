@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style media="screen">
+      html {
+          position: relative;
+          min-height: 100%;
+          width: 100%;
+      }
+      body {
+          /* Margin bottom by footer height */
+          font-family: Avenir, 'avenir next', Helvetica Neue, Helvetica, sans-serif;
+          font-smoothing: antialiased;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          color: #454E55;
+          margin: 32px 32px;
+      }
+      p {
+        margin: 8px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>New review made on <%= @review.course.slug %> : <%= @review.course.title %></h1>
+    <hr>
+    <div>
+      <h3>Review information</h3>
+      <p> Created - <%= @review.created_at %> </p>
+      <p> Rating - <%= @review.rating %> </p>
+      <p> Info - <%= @review.info %> </p>
+      <p> User - <%= @review.user.email %> </p>
+      <p> Review text - <%= @review.review_text %> </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+New review made on <%= @review.course.slug %> : <%= @review.course.title %>
+===========================================================================
+
+Review information
+------------------
+
+Created - <%= @review.created_at %>
+---
+Rating - <%= @review.rating %>
+---
+Info - <%= @review.info %>
+---
+User - <%= @review.user.email %>
+---
+Review text - <%= @review.review_text %>
