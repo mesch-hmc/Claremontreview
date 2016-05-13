@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
       if @review.save
 
         # Send email notification to admin : Don't use in local
-        NewReviewNotification.notify(@review).deliver_later
+        # NewReviewNotification.notify(@review).deliver_later
 
         format.html { redirect_to @course, notice: 'Thank you for your review!' }
         format.json { render :show, status: :ok, location: @course }
