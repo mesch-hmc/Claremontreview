@@ -1,66 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>Claremontreview - 500 - Something went wrong</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
-
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
-
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
+  <style media="screen">
+    html {
+        position: relative;
+        min-height: 100%;
+        width: 100%;
+    }
+    body {
+        /* Margin bottom by footer height */
+        font-family: Avenir, 'avenir next', Helvetica Neue, Helvetica, sans-serif;
+        font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        color: #454E55;
+        margin: 15% auto;
+        max-width: 960px;
+    }
+    .super {
+      max-width: 100%;
+      width: auto;
+    }
+    h1 {
+      font-size: 108px;
+    }
+    .content {
+      margin-top: 16px;
+      padding-left: 32px;
+    }
+    .content h2, a {
+      color: #EAAA00;
+    }
+    .content a {
+      font-weight: bold;
+      text-decoration: none;
+    }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <div class="super">
+    <div class="main">
+      <h1>That's on us... 500</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="content">
+      <h2>We're sorry but something went wrong; it's not you - it us.</h2>
+      <p>Our servers are currently on sabbatical, but will be back serving you with great course reviews soon.</p>
+      <p>Please try again later; if the problem resists contact us at <a href="mailto:mesch.hmc@gmail.com?subject=ServerError">mesch.hmc@gmail.com</a>
+    </div>
   </div>
 </body>
 </html>
