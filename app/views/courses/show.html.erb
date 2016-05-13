@@ -91,7 +91,7 @@
           <%= render @reviews.reorder("cached_votes_score DESC") %>
         </div>
       </div>
-      <div class="col-sm-5">
+      <div class="col-sm-5" style="margin-top:54px">
         <h3>Submit a review</h3>
         <% if user_signed_in? %>
           <% if !hasUserReviewCourse? @course, current_user %>
