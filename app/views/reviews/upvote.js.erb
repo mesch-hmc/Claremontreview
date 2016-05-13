@@ -1,14 +1,15 @@
 $(document).ajaxSuccess(function () {
     <% if user_signed_in? && (current_user.voted_up_on? @review) %>
-    $(<%= "up_#{@review.id}" %>).removeClass('fa-thumbs-o-up fa-lg').addClass('fa-thumbs-up fa-lg');
+      $(<%= "up_#{@review.id}" %>).removeClass('fa-thumbs-o-up fa-lg').addClass('fa-thumbs-up fa-lg');
     <% else %>
-    $(<%= "up_#{@review.id}" %>).removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
+      $(<%= "up_#{@review.id}" %>).removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
     <% end %>
     $(<%= "upvotes_#{@review.id}" %>).html(<%= @review.get_upvotes.size %>);
+
     <% if user_signed_in? && (current_user.voted_down_on? @review) %>
-    $(<%= "down_#{@review.id}" %>).removeClass('fa-thumbs-o-down fa-lg').addClass('fa-thumbs-down fa-lg');
+      $(<%= "down_#{@review.id}" %>).removeClass('fa-thumbs-o-down fa-lg').addClass('fa-thumbs-down fa-lg');
     <% else %>
-    $(<%= "down_#{@review.id}" %>).removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
+      $(<%= "down_#{@review.id}" %>).removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
     <% end %>
     $(<%= "downvotes_#{@review.id}" %>).html(<%= @review.get_downvotes.size %>);
 })

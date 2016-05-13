@@ -13,17 +13,17 @@
   <div class="voting pull-right">
     <%= link_to like_course_review_path(review.course, review), method: :put, class: "upvote", remote: true do %>
       <% if user_signed_in? && (current_user.voted_up_on? review) %>
-      <i class="fa fa-thumbs-up fa-lg" id="<%= "up_#{review.id}" %>" title='Helpful'></i>
+        <i class="fa fa-thumbs-up fa-lg" id="<%= "up_#{review.id}" %>" title='Helpful'></i>
       <% else %>
-      <i class="fa fa-thumbs-o-up fa-lg" id="<%= "up_#{review.id}" %>" title='Helpful'></i>
+        <i class="fa fa-thumbs-o-up fa-lg" id="<%= "up_#{review.id}" %>" title='Helpful'></i>
       <% end %>
     <% end %>
     <span id="<%= "upvotes_#{review.id}" %>"><%= review.cached_votes_up %></span> |
     <%= link_to dislike_course_review_path(review.course, review), method: :put, class: "upvote", remote:true do %>
       <% if user_signed_in? && (current_user.voted_down_on? review) %>
-      <i class="fa fa-thumbs-down fa-lg" id="<%= "down_#{review.id}" %>" title='Unhelpful'></i>
+        <i class="fa fa-thumbs-down fa-lg" id="<%= "down_#{review.id}" %>" title='Unhelpful'></i>
       <% else %>
-      <i class="fa fa-thumbs-o-down fa-lg" id="<%= "down_#{review.id}" %>" title='Unhelpful'></i>
+        <i class="fa fa-thumbs-o-down fa-lg" id="<%= "down_#{review.id}" %>" title='Unhelpful'></i>
       <% end %>
     <% end %>
     <span id="<%= "downvotes_#{review.id}" %>"><%= review.cached_votes_down %></span>
