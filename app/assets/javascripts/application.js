@@ -35,6 +35,14 @@ function review_switch(_to, _from) {
   }
 }
 
+$.ajaxSetup({
+    statusCode: {
+        401: function () {
+            window.location.href = '/users/auth/google_oauth2';
+        }
+    }
+});
+
 // $.rails.allowAction = function confirmBox(element) {
 //     var message = element.data('confirm');
 //     if (message == '') {
