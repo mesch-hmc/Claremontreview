@@ -4,6 +4,8 @@ class Review < ActiveRecord::Base
   belongs_to :user
   after_save :update_avg_rating
 
+  attr_accessor :semester, :year, :other # combine to form review info
+
   GRADES = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F','HP','P','NC']
 
   validates :rating, presence: true, inclusion: 1..5

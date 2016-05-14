@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :get_review, only: [:destroy, :edit, :update, :upvote, :downvote]
   before_action :authenticate_user!, only: [:create, :upvote, :downvote]
+  before_filter :create_info_param, only: [:create, :update]
 
   def create
     @course = Course.find_by_slug(params[:course_code])
@@ -80,7 +81,11 @@ class ReviewsController < ApplicationController
       return @course.reviews.unscoped.where(user_id: :user_id).empty?
     end
 
+    def create_info_param
+      params[:review][:info] = 'Taken ' + params[:review][:semester].to_s + ' ' + params[:review][:year].to_s + ' | ' + params[:review][:other].first
+    end
+
     def review_params
-      params.require(:review).permit(:rank, :rating, :date, :info, :review_text, :course_id, :grade, :user_id)
+      params.require(:review).permit(:rank, :rating, :date, :info, :review_text, :course_id, :grade, :user_id, :semester, :year, :other)
     end
 end
