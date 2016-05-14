@@ -4,20 +4,22 @@ class ReviewsController < ApplicationController
 
   def create
     @course = Course.find_by_slug(params[:course_code])
-    @review = @course.reviews.create(review_params)
-    @review.user = current_user
 
-    respond_to do |format|
-      if @review.save
+    if one_review # make sure that the user on reviews a course once
+      @review = @course.reviews.create(review_params)
+      @review.user = current_user
 
-        # Send email notification to admin : Don't use in local
-        # NewReviewNotification.notify(@review).deliver_later
+      respond_to do |format|
+        if @review.save
+          # Send email notification to admin : Don't use in local
+          # NewReviewNotification.notify(@review).deliver_later
 
-        format.html { redirect_to @course, notice: 'Thank you for your review!' }
-        format.json { render :show, status: :ok, location: @course }
-      else
-        format.html { redirect_to @course, notice: 'Invalid review' }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+          format.html { redirect_to @course, notice: 'Thank you for your review!' }
+          format.json { render :show, status: :ok, location: @course }
+        else
+          format.html { redirect_to @course, notice: 'Invalid review' }
+          format.json { render json: @review.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -66,6 +68,17 @@ class ReviewsController < ApplicationController
     def get_review
       @course = Course.find_by_slug(params[:course_code])
       @review = @course.reviews.find(params[:id])
+    end
+
+    def one_review
+      if !@course.reviews.unscoped.where(user_id: current_user).empty?
+        respond_to do |format|
+          format.html { redirect_to @course, notice: 'You have already reviewed this course' }
+          format.json { render json: @review.errors, status: :unprocessable_entity }
+        end
+        return false
+      end
+      return true
     end
 
     def review_params

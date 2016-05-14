@@ -94,10 +94,15 @@
       <div class="col-sm-5">
         <h3>Submit a review</h3>
         <% if user_signed_in? %>
-          <% if @course.reviews.count < 1 %>
-            <a href="javascript:toggle('reviews_form')">Be the first to review this course</a>
+          <% if !hasUserReviewCourse? @course, current_user %>
+            <% if @course.reviews.count < 1 %>
+              <a href="javascript:toggle('reviews_form')">Be the first to review this course</a>
+            <% else %>
+              <a href="javascript:toggle('reviews_form')">Review this course</a>
+            <% end %>
           <% else %>
-            <a href="javascript:toggle('reviews_form')">Review this course</a>
+            <p> Look like you already reviewed this course. </p>
+            <p> Feel free to edit your review if you want to. </p>
           <% end %>
         <% else %>
           <% if @course.reviews.count < 1 %>
