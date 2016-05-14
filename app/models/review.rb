@@ -4,8 +4,6 @@ class Review < ActiveRecord::Base
   belongs_to :user
   after_save :update_avg_rating
 
-  attr_accessor :semester, :year, :other # combine to form review info
-
   GRADES = ['A+','A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F','HP','P','NC']
 
   validates :rating, presence: true, inclusion: 1..5
@@ -21,5 +19,18 @@ class Review < ActiveRecord::Base
       avg = 0.0
     end
     course.update_column(:avg_rating, avg)
+  end
+
+  ### Parts of the info attribute ###
+  def semester
+    !info.nil? ? info.split(' | ')[0].split(' ')[1] : @semester
+  end
+
+  def year
+    !info.nil? ? info.split(' | ')[0].split(' ')[2] : @year
+  end
+
+  def other
+    !info.nil? ? info.split(' | ')[1] : @other
   end
 end
