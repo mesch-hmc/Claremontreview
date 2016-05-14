@@ -116,8 +116,4 @@ module CoursesHelper
     end
     color
   end
-
-  def hasUserReviewCourse?(course, user)
-    return !course.reviews.unscoped.where(user_id: user).empty?
-  end
 end

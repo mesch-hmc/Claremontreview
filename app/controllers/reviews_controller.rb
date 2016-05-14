@@ -21,6 +21,11 @@ class ReviewsController < ApplicationController
           format.json { render json: @review.errors, status: :unprocessable_entity }
         end
       end
+    else
+      respond_to do |format|
+        format.html { redirect_to @course, notice: 'You have already reviewed this course' }
+        format.json { render json: @review.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -71,14 +76,8 @@ class ReviewsController < ApplicationController
     end
 
     def one_review
-      if !@course.reviews.unscoped.where(user_id: current_user).empty?
-        respond_to do |format|
-          format.html { redirect_to @course, notice: 'You have already reviewed this course' }
-          format.json { render json: @review.errors, status: :unprocessable_entity }
-        end
-        return false
-      end
-      return true
+      return true if @course.reviews.empty?
+      return @course.reviews.unscoped.where(user_id: :user_id).empty?
     end
 
     def review_params

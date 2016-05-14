@@ -28,17 +28,17 @@
 
     <p>
       <%= f.label :grade %> <br>
-      <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s, { include_blank: true }, { class: 'form-control dropdown', id: 'form_review_grade' } %>
+      <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s, { required: true }, { class: 'form-control dropdown', id: 'form_review_grade' } %>
     </p>
 
     <p>
       <%= f.label :info %> <br>
-      <%= f.text_field :info, placeholder: "Taken Fall 2015 | Professor: Charles Xavier", class: 'form-control', id: 'form_review_info' %>
+      <%= f.text_field :info, placeholder: "Taken Fall 2015 | Professor: Charles Xavier", required: true, class: 'form-control', id: 'form_review_info' %>
     </p>
 
     <p>
       <%= f.label :review_text %> <br>
-      <%= f.text_area :review_text, placeholder: 'Write review here...', class: 'form-control', id: 'form_review_text' %>
+      <%= f.text_area :review_text, placeholder: 'Write review here...', required: true, class: 'form-control', id: 'form_review_text' %>
     </p>
 
     <br>

@@ -91,15 +91,14 @@
           <%= render @reviews.reorder("cached_votes_score DESC") %>
         </div>
       </div>
+
       <div class="col-sm-5" style="margin-top:53px">
         <h3>Submit a review</h3>
         <% if user_signed_in? %>
-          <% if !hasUserReviewCourse? @course, current_user %>
-            <% if @course.reviews.count < 1 %>
-              <a href="javascript:toggle('reviews_form')">Be the first to review this course</a>
-            <% else %>
-              <a href="javascript:toggle('reviews_form')">Review this course</a>
-            <% end %>
+          <% if @course.reviews.count < 1 %>
+            <a href="javascript:toggle('reviews_form')">Be the first to review this course</a>
+          <% elsif @course.reviews.unscoped.where(user_id: current_user).empty? %>
+            <a href="javascript:toggle('reviews_form')">Review this course</a>
           <% else %>
             <p> Thank you for your review! </p>
           <% end %>
