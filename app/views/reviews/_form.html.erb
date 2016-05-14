@@ -42,7 +42,8 @@
     </p>
 
     <br>
-    <p><%= f.submit 'Submit', class: 'btn btn-default btn-primary' %> |
+    <p>
+      <%= f.submit 'Submit', class: 'btn btn-default btn-primary' %> |
       <% if @review == nil %>
         <a href="javascript:toggle('reviews_form')", class="btn btn-default btn-danger">Cancel</a>
       <% else %>
