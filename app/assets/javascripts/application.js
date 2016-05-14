@@ -42,21 +42,3 @@ $.ajaxSetup({
         }
     }
 });
-
-// $.rails.allowAction = function confirmBox(element) {
-//     var message = element.data('confirm');
-//     if (message == '') {
-//       return true;
-//     } else {
-//       var $link = element.clone().removeAttr('class')
-//       .removeAttr('data-confirm').removeAttr('value').addClass('btn')
-//       .addClass('btn-danger').addValue('delete')
-//       .addClass('confirmBtn').html("Yes, I'm completely certain.");
-//
-//       var modal_html = "<div class='modal fade' id='myModal' role='dialog'><div class='modal-content'><div class='modal-header'><a class='close' data-dismiss='modal'>×</a><h3 class='modal-title' id='deleteMessage'>" + message + "</h3></div><div class='modal-footer'><a data-dismiss='modal' class='btn btn-primary'>Cancel</a></div></div></div>";
-//       var $modal_html = $(modal_html);
-//       $modal_html.find('.modal-footer').append($link);
-//       $modal_html.modal();
-//       return false;
-//     }
-// };
