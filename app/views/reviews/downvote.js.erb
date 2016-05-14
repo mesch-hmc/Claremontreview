@@ -1,11 +1,11 @@
 $('.downvote').on('ajax:success', function() {
     <% if user_signed_in? && (current_user.voted_down_on? @review) %>
-    $(this).find('i').removeClass('fa-thumbs-o-down fa-lg').addClass('fa-thumbs-down fa-lg');
-    $(this).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
+        $(this).find('i').removeClass('fa-thumbs-o-down fa-lg').addClass('fa-thumbs-down fa-lg');
+        $(this).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
     <% else %>
-    $(this).find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
-    $(this).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
+        $(this).find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
+        $(this).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
     <% end %>
-    $(this).next().html(<%= @review.get_downvotes.size %>);
-    $(this).prev().html(<%= @review.get_upvotes.size %>);
+        $(this).next().html(<%= @review.get_downvotes.size %>);
+        $(this).prev().html(<%= @review.get_upvotes.size %>);
 });
