@@ -1,11 +1,15 @@
 $('.upvote').on('ajax:success', function() {
-    <% if user_signed_in? && (current_user.voted_up_on? @review) %>
-        $(this).find('i').removeClass('fa-thumbs-o-up fa-lg').addClass('fa-thumbs-up fa-lg');
-        $(this).next().next().find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
+    <% if user_signed_in? && current_user == @review.user %>
+        alert("You can't vote on your own review!");
     <% else %>
-        $(this).find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
-        $(this).next().next().find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
+        <% if user_signed_in? && (current_user.voted_up_on? @review) %>
+            $(this).find('i').removeClass('fa-thumbs-o-up fa-lg').addClass('fa-thumbs-up fa-lg');
+            $(this).next().next().find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
+        <% else %>
+            $(this).find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
+            $(this).next().next().find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
+        <% end %>
+            $(this).next().html(<%= @review.get_upvotes.size %>);
+            $(this).next().next().next().html(<%= @review.get_downvotes.size %>);
     <% end %>
-        $(this).next().html(<%= @review.get_upvotes.size %>);
-        $(this).next().next().next().html(<%= @review.get_downvotes.size %>);
 });
