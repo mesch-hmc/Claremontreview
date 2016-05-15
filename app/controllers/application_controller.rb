@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-    session[:previous_url] || root_path
+    request.referrer || root_path
   end
 end
