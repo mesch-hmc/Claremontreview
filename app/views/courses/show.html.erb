@@ -104,10 +104,10 @@
             <%= link_to "Submit a review", user_omniauth_authorize_path(:google_oauth2) %>
           <% end %>
         <% end %>
-        <% if !user_signed_in? or not @course.reviews.where(user_id: current_user).empty? %>
-        <div id="reviews_form" style="display:none;margin-top:10px;">
-        <% else %>
+        <% if user_signed_in? && @course.reviews.where(user_id: current_user).empty? %>
         <div id="reviews_form" style="display:block;margin-top:10px;">
+        <% else %>
+        <div id="reviews_form" style="display:none;margin-top:10px;">
         <% end %>
           <%= render 'reviews/form' %>
         </div>
