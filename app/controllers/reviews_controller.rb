@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :get_review, expect: [:create]
+  before_action :get_review, except: [:create]
   before_action :authenticate_user!, only: [:create, :upvote, :downvote]
   before_filter :create_info_param, only: [:create, :update]
 
