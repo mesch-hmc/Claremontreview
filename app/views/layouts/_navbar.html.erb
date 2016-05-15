@@ -23,10 +23,12 @@
         <div class="form-group">
           <input name="query" type="text" class="form-control" id="header-search" autocomplete="off" placeholder="Search" style="width:200px;margin-right:2px;" autofocus data-autocomplete="/courses/autocomplete_course_code_title_instructor">
           <button type="submit" class="btn btn-default">Go</button>
-          <% if user_signed_in? %>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-default", style: "margin-left:30px;" %>
-          <% else %>
-            <%= link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-default", style: "margin-left:30px;" %>
+          <% if !current_page?(courses_url) %>
+            <% if user_signed_in? %>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-default", style: "margin-left:30px;" %>
+            <% else %>
+              <%= link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-default", style: "margin-left:30px;" %>
+            <% end %>
           <% end %>
         </div>
       </form>
