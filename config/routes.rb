@@ -19,6 +19,8 @@ Rails.application.routes.draw do
         put 'dislike', to: 'reviews#downvote'
       end
     end
+    get 'recent_reviews'
+    get 'popular_reviews'
     get :autocomplete_course_code_title_instructor, on: :collection
   end
 

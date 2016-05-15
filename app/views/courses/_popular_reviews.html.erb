@@ -1,0 +1,2 @@
+<h3 class="recent-reviews-header">Most popular student reviews</h3>
+<%= render @reviews.reorder("cached_votes_score DESC") %>

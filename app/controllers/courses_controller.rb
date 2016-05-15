@@ -64,6 +64,22 @@ class CoursesController < ApplicationController
     }).map(&:code)
   end
 
+  def recent_reviews
+    @course = Course.find_by_code(params[:course_code])
+    @reviews = @course.reviews
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def popular_reviews
+    @course = Course.find_by_code(params[:course_code])
+    @reviews = @course.reviews
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course

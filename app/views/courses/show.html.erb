@@ -75,20 +75,15 @@
     <div class="row">
       <div class="col-sm-7">
         <div class='btn-group pull-left' id="review-switch">
-          <a href="javascript:review_switch('recent_reviews', 'most_popular_review')" class='btn btn-default'>
+          <%= link_to course_recent_reviews_path(@course.code), remote: true, class: "btn btn-default" do %>
             <i class='fa fa-clock-o fa-lg school-color'></i> Recent reviews
-          </a>
-          <a href="javascript:review_switch('most_popular_review', 'recent_reviews')" class='btn btn-default'>
+          <% end %>
+          <%= link_to course_popular_reviews_path(@course.code), remote: true, class: "btn btn-default" do %>
             <i class='fa fa-fire fa-lg school-color'></i> Popular reviews
-          </a>
+          <% end %>
         </div>
-        <div id="recent_reviews" style="display:block">
-          <h3 class="recent-reviews-header">Most recent student reviews</h3>
-          <%= render @reviews %>
-        </div>
-        <div id="most_popular_review" style="display:none">
-          <h3 class="recent-reviews-header">Most popular student reviews</h3>
-          <%= render @reviews.reorder("cached_votes_score DESC") %>
+        <div id="reviews" style="display:block">
+          <%= render 'courses/recent_reviews' %>
         </div>
       </div>
 

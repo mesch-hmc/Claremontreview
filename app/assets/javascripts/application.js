@@ -28,13 +28,6 @@ function toggle(d) {
   }
 }
 
-function review_switch(_to, _from) {
-  if (document.getElementById(_to).style.display == "none") {
-    document.getElementById(_to).style.display = "block";
-    document.getElementById(_from).style.display = "none";
-  }
-}
-
 $.ajaxSetup({
     statusCode: {
         401: function () {
