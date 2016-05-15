@@ -12,7 +12,7 @@
     </div>
 
     <div class="voting pull-right">
-      <%= link_to like_course_review_path(review.course, review), method: :put, class: "upvote", remote: true do %>
+      <%= link_to like_course_review_path(review.course, review), method: :put, class: "upvote", id: "like_#{review.id}", remote: true do %>
         <% if user_signed_in? && (current_user.voted_up_on? review) %>
           <i class="fa fa-thumbs-up fa-lg" title='Helpful'></i>
         <% else %>
@@ -20,7 +20,7 @@
         <% end %>
       <% end %>
       <span><%= review.cached_votes_up %></span> |
-      <%= link_to dislike_course_review_path(review.course, review), method: :put, class: "downvote", remote:true do %>
+      <%= link_to dislike_course_review_path(review.course, review), method: :put, class: "downvote", id: "dislike_#{review.id}", remote:true do %>
         <% if user_signed_in? && (current_user.voted_down_on? review) %>
           <i class="fa fa-thumbs-down fa-lg" title='Unhelpful'></i>
         <% else %>
