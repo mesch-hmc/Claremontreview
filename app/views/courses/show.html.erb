@@ -49,19 +49,14 @@
         </p>
         <h5>
           <strong>Terms:</strong>
-          <% if !@course.term.nil? %>
-            <% if @course.term.include? "fall" %>
-              <span class="dark-col">Fall</span>
-            <% else %>
-              <span class="light-col">Fall</span>
-            <% end %>
-            <% if @course.term.include? "spring" %>
-              <span class="dark-col">Spring</span>
-            <% else %>
-              <span class="light-col">Spring</span>
-            <% end %>
+          <% if !@course.term.nil? && @course.term.include?("fall") %>
+            <span class="dark-col">Fall</span>
           <% else %>
             <span class="light-col">Fall</span>
+          <% end %>
+          <% if !@course.term.nil? && @course.term.include?("spring") %>
+            <span class="dark-col">Spring</span>
+          <% else %>
             <span class="light-col">Spring</span>
           <% end %>
         </h5>
