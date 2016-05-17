@@ -312,7 +312,14 @@ a#main {
     padding: 12px;
 }
 #myModal {
-    margin: 5% 15%;
+    margin: 5% auto;
+    max-width: 600px;
+    min-width: 350px;
+}
+#alertModal {
+    margin: 5% auto;
+    max-width: 500px;
+    min-width: 400px;
 }
 .deleteBtn {
     background:none!important;
