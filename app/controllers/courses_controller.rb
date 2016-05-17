@@ -18,9 +18,6 @@ class CoursesController < ApplicationController
     redirect_to courses_url # don't allow people to hit new
   end
 
-  def edit
-  end
-
   def create
     @course = Course.new(course_params)
 
@@ -33,6 +30,9 @@ class CoursesController < ApplicationController
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
   end
 
   def update
@@ -55,15 +55,6 @@ class CoursesController < ApplicationController
     end
   end
 
-  def autocomplete
-    render json: Course.search(params[:query], {
-      fields: ["code", "title"],
-      limit: 10,
-      load: false,
-      misspellings: {below: 5}
-    }).map(&:code)
-  end
-
   def recent_reviews
     @course = Course.find_by_code(params[:course_code])
     @reviews = @course.reviews
@@ -78,6 +69,15 @@ class CoursesController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def autocomplete
+    render json: Course.search(params[:query], {
+      fields: ["code", "title"],
+      limit: 10,
+      load: false,
+      misspellings: {below: 5}
+    }).map(&:code)
   end
 
   private
