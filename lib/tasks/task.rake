@@ -18,9 +18,7 @@ namespace :task do
   task avg: :environment do
     Course.all.each do |course|
       avg = course.reviews.average(:rating)
-      if avg.nil?
-        avg = 0.0
-      end
+      avg ||= 0.0
       course.update_column(:avg_rating, avg)
     end
   end
