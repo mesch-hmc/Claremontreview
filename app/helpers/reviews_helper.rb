@@ -4,7 +4,7 @@ module ReviewsHelper
   end
 
   def anon_student(email)
-    base = "by anonymous"
+    base = "anonymous"
     school = email.split("@")[1].split(".")[-2]
     if school == "claremontmckenna"
       base + " CMC student"

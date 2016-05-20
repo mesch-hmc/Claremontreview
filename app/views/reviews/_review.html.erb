@@ -30,7 +30,12 @@
       </div>
     </div>
 
-    <div class="review-date">Published <%= time_ago_in_words(review.created_at) %> ago <%= anon_student(review.user.email) %>
+    <div class="review-date">
+      <% if local_assigns[:recent] %>
+        Published <%= time_ago_in_words(review.created_at) %> ago by <%= anon_student(review.user.email) %>
+      <% else %>
+        By <%= anon_student(review.user.email) %> on <%= review.created_at.strftime("%B %d, %Y") %>
+      <% end %>
       <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
       | <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
       | <%= link_to 'Delete', [review.course, review], method: :delete,
