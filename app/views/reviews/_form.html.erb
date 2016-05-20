@@ -35,7 +35,7 @@
       <%= f.label :info %> <br>
       <%= f.collection_select :semester, ['Fall','Spring','Summer'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_semester' } %>
       <%= f.collection_select :year, ['2016','2015','2014','2013','2012','2011','2010','< 2010'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_year' } %>
-      <%= f.text_field :other, placeholder: "Professor: Charles Xavier", required: true, class: 'form-control', id: 'form_review_info', autocomplete: 'off', value: 'Professor: ' %>
+      <%= f.text_field :other, placeholder: "Professor: Charles Xavier", required: true, class: 'form-control', id: 'form_review_info', autocomplete: 'off' %>
     </p>
 
     <p>
@@ -60,15 +60,3 @@
     margin-top: 7px;
   }
 </style>
-
-<script>
-    $('#form_review_info').keydown(function() {
-        var oldvalue=$(this).val();
-        var field=this;
-        setTimeout(function () {
-            if(field.value.indexOf('Professor: ') !== 0) {
-                $(field).val(oldvalue);
-            }
-        }, 1);
-    })
-</script>
