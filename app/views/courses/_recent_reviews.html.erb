@@ -1,2 +1,4 @@
 <h3 class="reviews-header">Most recent student reviews</h3>
-<%= render @reviews %>
+<% if @reviews.count > 0 %>
+  <%= render @reviews %>
+<% end %>
