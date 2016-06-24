@@ -1,14 +1,18 @@
 <% if user_signed_in? && current_user == @review.user %>
-    $('#alertModal').modal()
+  $('#alertModal').modal()
 <% else %>
-    var dislike = '#<%= "dislike_#{@review.id}" %>';
-    <% if user_signed_in? && (current_user.voted_down_on? @review) %>
-        $(dislike).find('i').removeClass('fa-thumbs-o-down fa-lg').addClass('fa-thumbs-down fa-lg');
-        $(dislike).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
-    <% else %>
-        $(dislike).find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
-        $(dislike).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
-    <% end %>
-        $(dislike).next().html(<%= @review.get_downvotes.size %>);
-        $(dislike).prev().html(<%= @review.get_upvotes.size %>);
+  var dislike = '#<%= 'dislike_#{@review.id}' %>'
+  <% if user_signed_in? && (current_user.voted_down_on? @review) %>
+    $(dislike).find('i').removeClass('fa-thumbs-o-down fa-lg')
+      .addClass('fa-thumbs-down fa-lg')
+    $(dislike).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg')
+      .addClass('fa-thumbs-o-up fa-lg')
+  <% else %>
+    $(dislike).find('i').removeClass('fa-thumbs-down fa-lg')
+      .addClass('fa-thumbs-o-down fa-lg')
+    $(dislike).prev().prev().find('i').removeClass('fa-thumbs-up fa-lg')
+      .addClass('fa-thumbs-o-up fa-lg')
+  <% end %>
+  $(dislike).next().html(<%= @review.get_downvotes.size %>)
+  $(dislike).prev().html(<%= @review.get_upvotes.size %>)
 <% end %>

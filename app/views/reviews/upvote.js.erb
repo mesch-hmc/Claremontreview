@@ -1,14 +1,18 @@
 <% if user_signed_in? && current_user == @review.user %>
-    $('#alertModal').modal()
+  $('#alertModal').modal()
 <% else %>
-    var like = '#<%= "like_#{@review.id}" %>';
-    <% if user_signed_in? && (current_user.voted_up_on? @review) %>
-        $(like).find('i').removeClass('fa-thumbs-o-up fa-lg').addClass('fa-thumbs-up fa-lg');
-        $(like).next().next().find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
-    <% else %>
-        $(like).find('i').removeClass('fa-thumbs-up fa-lg').addClass('fa-thumbs-o-up fa-lg');
-        $(like).next().next().find('i').removeClass('fa-thumbs-down fa-lg').addClass('fa-thumbs-o-down fa-lg');
-    <% end %>
-        $(like).next().html(<%= @review.get_upvotes.size %>);
-        $(like).next().next().next().html(<%= @review.get_downvotes.size %>);
+  var like = '#<%= 'like_#{@review.id}' %>'
+  <% if user_signed_in? && (current_user.voted_up_on? @review) %>
+    $(like).find('i').removeClass('fa-thumbs-o-up fa-lg')
+      .addClass('fa-thumbs-up fa-lg')
+    $(like).next().next().find('i').removeClass('fa-thumbs-down fa-lg')
+      .addClass('fa-thumbs-o-down fa-lg')
+  <% else %>
+    $(like).find('i').removeClass('fa-thumbs-up fa-lg')
+      .addClass('fa-thumbs-o-up fa-lg')
+    $(like).next().next().find('i').removeClass('fa-thumbs-down fa-lg')
+      .addClass('fa-thumbs-o-down fa-lg')
+  <% end %>
+  $(like).next().html(<%= @review.get_upvotes.size %>)
+  $(like).next().next().next().html(<%= @review.get_downvotes.size %>)
 <% end %>

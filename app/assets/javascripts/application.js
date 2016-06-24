@@ -19,19 +19,18 @@
 //= require Chart
 //= require_tree .
 
-
-function toggle(d) {
-  if (document.getElementById(d).style.display == "none") {
-    document.getElementById(d).style.display = "block";
+function toggle (d) {
+  if (document.getElementById(d).style.display === 'none') {
+    document.getElementById(d).style.display = 'block'
   } else {
-    document.getElementById(d).style.display = "none";
+    document.getElementById(d).style.display = 'none'
   }
 }
 
 $.ajaxSetup({
-    statusCode: {
-        401: function () {
-            window.location.href = '/users/auth/google_oauth2';
-        }
+  statusCode: {
+    401: function () {
+      window.location.href = '/users/auth/google_oauth2'
     }
-});
+  }
+})

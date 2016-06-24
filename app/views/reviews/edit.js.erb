@@ -1,5 +1,5 @@
 var id = <%= @review.id %>
-$("#review_form_" + id).html("<%= escape_javascript(render('reviews/form')) %>");
-$("#review_wrapper_" + id).hide(1000, function () {
-    $(this).remove();
-});
+$('#review_form_' + id).html('<%= escape_javascript(render('reviews/form')) %>')
+$('#review_wrapper_' + id).hide(1000, function () {
+  $(this).remove()
+})
