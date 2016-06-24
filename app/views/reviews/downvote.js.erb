@@ -1,7 +1,7 @@
 <% if user_signed_in? && current_user == @review.user %>
   $('#alertModal').modal()
 <% else %>
-  var dislike = '#<%= 'dislike_#{@review.id}' %>'
+  var dislike = '#<%= "dislike_#{@review.id}" %>'
   <% if user_signed_in? && (current_user.voted_down_on? @review) %>
     $(dislike).find('i').removeClass('fa-thumbs-o-down fa-lg')
       .addClass('fa-thumbs-down fa-lg')
