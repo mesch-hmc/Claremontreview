@@ -23,6 +23,8 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 ## Voting
 gem 'acts_as_votable', '~> 0.10.0'
+## Template Engine
+gem 'slim-rails'
 
 group :development, :test do
   gem 'sqlite3'
