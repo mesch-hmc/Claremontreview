@@ -1,4 +1,13 @@
-<style>
+.content
+  .hovereffect
+    = image_tag 'mesch_text.png', class: 'img-responsive', alt: 'MESCH'
+    .overlay
+      .shift
+        h2 Questions?
+        p style=("font-size: 28px")  Email us at:
+        a.info href="mailto:mesch.hmc@gmail.com?subject=feedback" mesch.hmc@gmail.com
+
+css:
   .content {
     position: relative;
     top: 0;
@@ -86,17 +95,3 @@
     position: absolute;
     top: 150px;
   }
-</style>
-
-<div class="content">
-    <div class="hovereffect">
-        <%= image_tag 'mesch_text.png', class: 'img-responsive', alt: 'MESCH' %>
-        <div class="overlay">
-           <div class="shift">
-             <h2>Questions?</h2>
-             <p style="font-size: 28px">Email us at: </p>
-             <a class="info" href="mailto:mesch.hmc@gmail.com?subject=feedback"> mesch.hmc@gmail.com </a>
-           </div>
-        </div>
-    </div>
-</div>

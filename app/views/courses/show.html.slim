@@ -1,0 +1,97 @@
+- title "#{@course.code}: #{@course.title} - Course Reviews - Claremontreview"
+= render "layouts/navbar", search: true
+
+#main.container
+  .row
+    .row.course-info
+      .col-sm-7
+        h1.course-title style="font-size:24pt" 
+          span.claremont style="font-size:30pt" #{@course.code}
+          | : #{@course.title}
+        h4 style=("line-height: 130%;") 
+          | #{@course.instructor}
+          .classinfo
+            | #{@course.credits} credits
+            | &nbsp;
+            - unless @course.avg_rating.nil?
+              - for i in 0..4
+                - if @course.avg_rating-i>=1
+                  i#fa.fa.fa-star.school-color
+                - elsif @course.avg_rating-i>=0.5
+                  i#fa.fa.fa-star-half.school-color
+                - else
+                  i#fa.fa.fa-star-o.school-color
+            - else
+              - 5.times do
+                i#fa.fa.fa-star-o.school-color
+            | &nbsp;
+            | Grade:
+            span.claremont
+              - unless @course.reviews.pluck(:grade).nil? && @course.reviews.pluck(:grade) == 0
+                = real_average(gradeHash(@course))
+        p.course-description
+          = @course.description
+        h5
+          strong Terms:
+          | &nbsp;
+          - if !@course.term.nil? && @course.term.include?("fall")
+            span.dark-col
+            ' Fall
+          - else
+            span.light-col
+            ' Fall
+          - if !@course.term.nil? && @course.term.include?("spring")
+            span.dark-col Spring
+          - else
+            span.light-col Spring
+        span#gradeDistribution style="visibility:hidden" = gradeDist(gradeHash(@course))
+      .col-sm-5
+        canvas#gradeChart height="300" style="margin-top:20px;" width="280" 
+    .row
+      .col-sm-7
+        #review-switch.btn-group.pull-left
+          = link_to course_recent_reviews_path(@course.code), remote: true, class: "btn btn-default" do
+            i.fa.fa-clock-o.fa-lg.school-color
+            | Recent reviews
+          = link_to course_popular_reviews_path(@course.code), remote: true, class: "btn btn-default" do
+            i.fa.fa-fire.fa-lg.school-color
+            | Popular reviews
+        #reviews style="display:block" 
+          = render 'courses/recent_reviews'
+      .col-sm-5 style="margin-top:53px" 
+        h3 Submit a review
+        - if user_signed_in?
+          - if @course.reviews.count < 1
+            a href="javascript:toggle('reviews_form')"  Be the first to review this course
+          - elsif @course.reviews.where(user_id: current_user).empty?
+            a href="javascript:toggle('reviews_form')"  Review this course
+          - else
+            p Thank you for your review!
+        - else
+          - if @course.reviews.count < 1
+            = link_to "Be the first to review this course", user_omniauth_authorize_path(:google_oauth2)
+          - else
+            = link_to "Submit a review", user_omniauth_authorize_path(:google_oauth2)
+        - if user_signed_in? && @course.reviews.where(user_id: current_user).empty?
+          #reviews_form style="display:block;margin-top:10px;" 
+            = render 'reviews/form'
+        - else
+          #reviews_form style="display:none;margin-top:10px;" 
+            = render 'reviews/form'
+
+.hidden-modal style="width" 
+  #alertModal.modal.fade role="dialog" 
+    .modal-content
+      .modal-header
+        a.close data-dismiss="modal"  ×
+        h3.modal-title style=("display: block; width: 100%; padding-left: 8px;")  You can't vote on your own review!
+      .modal-footer
+        a.btn.btn-default.btn-primary data-dismiss="modal"  Ok
+
+css:
+  canvas {
+    width: 90% !important;
+    max-width: 410px;
+    height: 90% !important;
+    max-height: 390px;
+  }

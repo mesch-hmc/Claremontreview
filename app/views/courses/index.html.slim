@@ -1,0 +1,24 @@
+= render "layouts/navbar", search: true
+
+#main.container
+  .row
+    table
+      tr
+        td width="100px;"  Rating
+        td Class
+      - @courses.each do |course|
+        tr
+          td
+            - unless course.avg_rating.nil?
+              - for i in 0..4
+                - if course.avg_rating-i>=1
+                  i#fa.fa.fa-star.claremont
+                - elsif course.avg_rating-i>=0.5
+                  i#fa.fa.fa-star-half.claremont
+                - else
+                  i#fa.fa.fa-star-o.claremont
+            - else
+              - 5.times do
+                i#fa.fa.fa-star-o.claremont
+          td
+            = link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true)

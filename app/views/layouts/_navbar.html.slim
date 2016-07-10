@@ -1,0 +1,29 @@
+css:
+  .ui-autocomplete {
+    font-size: 80%;
+    max-height: 220px;
+    max-width: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    /* add padding for vertical scrollbar */
+    padding-right: 5px;
+  }
+
+nav.navbar.navbar-default role="navigation" 
+  .container
+    .navbar-header
+      a.navbar-brand href="/" 
+        span.claremont Claremont
+        | review
+      span.navbar-brand
+    - if search
+      form.navbar-form.navbar-right action="/courses" method="get" role="search" 
+        .form-group
+          input#header-search.form-control autocomplete="off" autofocus="" data-autocomplete="/courses/autocomplete_course_code_title_instructor" name="query" placeholder="Search" style="width:200px;margin-right:2px;" type="text" /
+          button.btn.btn-default type="submit"  Go
+          - if !current_page?(courses_url)
+            - if user_signed_in?
+              = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-default", style: "margin-left:24px;"
+            - else
+              = link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-default", style: "margin-left:24px;"

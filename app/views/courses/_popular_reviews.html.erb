@@ -1,4 +1,0 @@
-<h3 class="reviews-header">Most popular student reviews</h3>
-<% if @reviews.count > 0 %>
-  <%= render @reviews.reorder("cached_votes_score DESC") %>
-<% end %>
