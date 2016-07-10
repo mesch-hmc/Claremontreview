@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require autocomplete-rails
 //= require Chart
+//= require materialize-sprockets
 //= require_tree .
 
 function toggle (d) {
