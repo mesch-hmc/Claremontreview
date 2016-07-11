@@ -10,6 +10,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Added Gems
+## CSS Libraries
+gem 'materialize-sass'
 ## JavaScript Libraries
 gem 'chart-js-rails'
 gem 'jquery-ui-rails'
