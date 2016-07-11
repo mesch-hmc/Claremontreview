@@ -1,16 +1,18 @@
 doctype html
 html
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
+    meta name="viewport" content="width=device-width, initial-scale=1"
     title= content_for?(:title) ? content_for(:title) : "Claremontreview"
-    link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"
+    link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
     = favicon_link_tag 'cr.ico'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    .content
-      - flash.each do |message_type, message|
-        div class=("alert alert-#{message_type}") = message
-      = yield
+    - flash.each do |message_type, message|
+      javascript:
+        Materialize.toast("#{message}", 4000);
+    = yield
     = render 'layouts/footer'

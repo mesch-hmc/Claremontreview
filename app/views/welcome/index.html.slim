@@ -1,9 +1,7 @@
-#main.container
-  .row
-    .main-container
-      .title-container
-        a.title href="/"
-          span.claremont Claremont
-          span.dark-col review
-        .title-description Search for classes, departments, and professors.
-        = render "layouts/search"
+.wrap
+  .container style="padding-bottom:50px;"
+    .row style="text-align:center;padding-top:20%;"
+      a.title href="/" style="font-size:300%;"
+        span.yellow-text.text-darken-3 Claremont
+        span.grey-text.text-darken-1 review
+      = render "layouts/search"

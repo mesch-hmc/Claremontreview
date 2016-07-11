@@ -1,24 +1,33 @@
 = render "layouts/navbar", search: true
 
-#main.container
-  .row
-    table
-      tr
-        td width="100px;"  Rating
-        td Class
-      - @courses.each do |course|
+.container style="min-height:calc(100% - 66px)"
+  .row style="padding:0 8px;"
+    table style="table-layout:fixed;"
+      thead
         tr
-          td
-            - unless course.avg_rating.nil?
-              - for i in 0..4
-                - if course.avg_rating-i>=1
-                  i#fa.fa.fa-star.claremont
-                - elsif course.avg_rating-i>=0.5
-                  i#fa.fa.fa-star-half.claremont
-                - else
-                  i#fa.fa.fa-star-o.claremont
-            - else
-              - 5.times do
-                i#fa.fa.fa-star-o.claremont
-          td
-            = link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true)
+          th.grey-text.text-darken-2 style="width:135px;" Rating
+          th.grey-text.text-darken-2 Class
+      tbody
+        - @courses.each do |course|
+          tr
+            td style="width:135px;"
+              - unless course.avg_rating.nil?
+                - for i in 0..4
+                  - if course.avg_rating-i>=1
+                    i#fa.fa.fa-star.fa-lg.yellow-text.text-darken-3
+                  - elsif course.avg_rating-i>=0.5
+                    i#fa.fa.fa-star-half.fa-lg.yellow-text.text-darken-3
+                  - else
+                    i#fa.fa.fa-star-o.fa-lg.yellow-text.text-darken-3
+                  | &nbsp;
+              - else
+                - 5.times do
+                  i#fa.fa.fa-star-o.fa-lg.yellow-text.text-darken-3
+                  | &nbsp;
+            td style="word-wrap:break-word;width:95%;"
+              = link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true, style: "font-size:120%;", class: "grey-text text-darken-1")
+
+css:
+  .ui-autocomplete {
+    max-width: 188px;
+  }

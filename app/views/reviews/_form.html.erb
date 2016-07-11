@@ -1,55 +1,58 @@
 <%= form_for( (@review == nil ? [@course, @course.reviews.build] : [@course, @review]) ) do |f| %>
 
   <div class="form-group">
-    <p>
-      <%= f.label :rating %> <br>
-      <div id="r">
-        <input class="form-control" id="form_review_rating" type="hidden" name="review[rating]" value="1" />
+    <div class="row" style="margin-bottom:-10px;">
+      <div class="col s12 m6 l6">
+        <%= f.label :rating, style: "font-size:1rem;" %>
+        <div id="r" style="padding-top:14px;">
+          <input class="form-control" id="form_review_rating" type="hidden" name="review[rating]" value="1" />
+        </div>
+        <script>
+          $('#r').raty({
+            starType: 'i',
+            hints: ['', '', '', '', ''],
+            score: <%= @review.nil? ? 1 : @review.rating %>,
+            scoreName: 'review[rating]'
+          })
+          $('.star-off-png').each(function () {
+            $(this).css('color', schoolColor())
+          })
+          $('.star-on-png').each(function () {
+            $(this).css('color', schoolColor())
+          })
+        </script>
       </div>
-      <script>
-        $('#r').raty({
-          starType: 'i',
-          hints: ['', '', '', '', ''],
-          score: <%= @review.nil? ? 1 : @review.rating %>,
-          scoreName: 'review[rating]'
-        })
-        starsOff = document.getElementsByClassName('star-off-png')
-        for (var i = 0; i<starsOff.length; i++) {
-          var curr_element = starsOff[i]
-          curr_element.style.color = '<%= schoolColor(@course.code[-2, 2]) %>'
-        }
-        starsOn = document.getElementsByClassName('star-on-png')
-        for (var i = 0; i<starsOn.length; i++) {
-          var curr_element = starsOn[i]
-          curr_element.style.color = '<%= schoolColor(@course.code[-2, 2]) %>'
-        }
-      </script>
+      <div class="col s12 m6 l6">
+        <%= f.label :grade, style: "font-size:1rem;" %> <br>
+        <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s, { required: true }, { class: 'form-control dropdown', id: 'form_review_grade' } %>
+      </div>
+    </div>
+
+    <div class="row input-field">
+      <div class="col s6 m6 l6">
+        <%= f.label :info, style: "font-size:1rem;" %> <br>
+        <%= f.collection_select :semester, ['Fall','Spring','Summer'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_semester' } %>
+      </div>
+      <div class="col s6 m6 l6">
+        <br>
+        <%= f.collection_select :year, ['2016','2015','2014','2013','2012','2011','2010','< 2010'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_year' } %>
+      </div>
+      <div class="col s12 m12 l12" style="padding-top:14.5px;">
+        <%= f.text_field :other, placeholder: "Professor: Charles Xavier", required: true, class: 'form-control', id: 'form_review_info', autocomplete: 'off', value: 'Professor: ' %>
+      </div>
+    </div>
+
+    <p>
+      <%= f.label :review_text, style: "font-size:1rem;" %> <br>
+      <%= f.text_area :review_text, placeholder: 'Write review here...', required: true, class: 'materialize-textarea', id: 'form_review_text' %>
     </p>
 
     <p>
-      <%= f.label :grade %> <br>
-      <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s, { required: true }, { class: 'form-control dropdown', id: 'form_review_grade' } %>
-    </p>
-
-    <p>
-      <%= f.label :info %> <br>
-      <%= f.collection_select :semester, ['Fall','Spring','Summer'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_semester' } %>
-      <%= f.collection_select :year, ['2016','2015','2014','2013','2012','2011','2010','< 2010'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_year' } %>
-      <%= f.text_field :other, placeholder: "Professor: Charles Xavier", required: true, class: 'form-control', id: 'form_review_info', autocomplete: 'off' %>
-    </p>
-
-    <p>
-      <%= f.label :review_text %> <br>
-      <%= f.text_area :review_text, placeholder: 'Write review here...', required: true, class: 'form-control', id: 'form_review_text' %>
-    </p>
-
-    <br>
-    <p>
-      <%= f.submit 'Submit', class: 'btn btn-default btn-primary' %> |
+      <%= f.submit 'Submit', class: 'waves-effect waves-light btn' %> |
       <% if @review == nil %>
-        <a href="javascript:toggle('reviews_form')", class="btn btn-default btn-danger">Cancel</a>
+        <a href="javascript:toggle('reviews_form')", class="waves-effect waves-light btn">Cancel</a>
       <% else %>
-        <%= link_to 'Cancel', course_path(@course), class: 'btn btn-default btn-danger'%>
+        <%= link_to 'Cancel', course_path(@course), class: 'waves-effect waves-light btn' %>
       <% end %>
     </p>
   </div>
@@ -60,3 +63,13 @@
     margin-top: 7px;
   }
 </style>
+
+<script>
+  $('.btn').each(function () {
+    setSchoolColor($(this))
+  })
+  $('select').material_select()
+  $('ul li span').each(function () {
+    setSchoolTextColor($(this))
+  })
+</script>

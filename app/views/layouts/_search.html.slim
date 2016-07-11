@@ -1,4 +1,6 @@
-form action="/courses" method="get" role="search" 
-  .form-group.ui-widget
-    input#main-search.main-search autocomplete="off" autofocus="" data-autocomplete="courses/autocomplete_course_code_title_instructor" name="query" placeholder=("Type here...") type="text" /
-    button.btn.btn-default.main-search-button type="submit"  Go
+.search
+  .search-wrapper.card style="margin-left:auto;margin-right:auto;width:380px;"
+    form#form action="/courses"
+      input#main-search.main-search autocomplete="off" autofocus="" data-autocomplete="courses/autocomplete_course_code_title_instructor" name="query" placeholder="Search courses, departments, and professors" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:320px;"
+      a.black-text href="#" onclick="document.getElementById('form').submit();" style="position:absolute;top:10px;right:10px;"
+        i.material-icons search

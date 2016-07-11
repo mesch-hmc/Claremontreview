@@ -1,1 +1,80 @@
-@import "materialize";
+@import "materialize/components/color";
+$primary-color: color("yellow", "darken-3") !default;
+$secondary-color: color("yellow", "darken-3") !default;
+$link-color: color("grey", "darken-1") !default;
+@import 'materialize';
+
+html, body {
+  height: 100%;
+}
+
+.wrap {
+  min-height: calc(100% - 2px);
+}
+
+#header-search:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+
+.search-wrapper input[type=text]:focus {
+  border-bottom: 0px solid #000;
+  box-shadow: 0 0px 0 0 #000;
+}
+
+#review {
+  position: relative;
+}
+
+.ui-autocomplete {
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+  /* add padding for vertical scrollbar */
+  padding-right: 5px;
+  line-height: 50px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  max-width: 380px;
+  max-height: 50%;
+  padding: 4px 0;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 5px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+
+  .ui-menu-item {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    color: #555555;
+  
+    &.ui-state-focus {
+      text-decoration: none;
+      background-color: #eee;
+      border-radius: 0px;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      background-image: none;
+    }
+  }
+}

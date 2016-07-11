@@ -1,51 +1,64 @@
-<div class="review">
-  <div id="review_wrapper_<%= review.id %>">
-    <div class="review-rating-grade">
-      <% review.rating.times do %>
-        <i class="fa fa-star school-color" id="fa"></i>
-      <% end %>
-      <% (5-review.rating).times do %>
-        <i class="fa fa-star-o school-color" id="fa"></i>
-      <% end %>
-      &nbsp;
-      <%= review.grade %>
-
-      <div class="voting pull-right">
-        <%= link_to like_course_review_path(review.course, review), method: :put, class: "upvote", id: "like_#{review.id}", remote: true do %>
-          <% if user_signed_in? && (current_user.voted_up_on? review) %>
-            <i class="fa fa-thumbs-up fa-lg" title="Helpful"></i>
-          <% else %>
-            <i class="fa fa-thumbs-o-up fa-lg" title="Helpful"></i>
-          <% end %>
+<% if !review.rating.nil? %>
+  <div class="review">
+    <div id="review_wrapper_<%= review.id %>">
+      <div class="review-rating-grade">
+        <% review.rating.times do %>
+          <i class="fa fa-star school-color" id="fa"></i>
         <% end %>
-        <span><%= review.cached_votes_up %></span> |
-        <%= link_to dislike_course_review_path(review.course, review), method: :put, class: "downvote", id: "dislike_#{review.id}", remote:true do %>
-          <% if user_signed_in? && (current_user.voted_down_on? review) %>
-            <i class="fa fa-thumbs-down fa-lg" title="Unhelpful"></i>
-          <% else %>
-            <i class="fa fa-thumbs-o-down fa-lg" title="Unhelpful"></i>
-          <% end %>
+        <% (5-review.rating).times do %>
+          <i class="fa fa-star-o school-color" id="fa"></i>
         <% end %>
-        <span><%= review.cached_votes_down %></span>
+        &nbsp;
+        <%= review.grade %>
+  
+        <div class="voting pull-right">
+          <%= link_to like_course_review_path(review.course, review), method: :put, class: "upvote", id: "like_#{review.id}", remote: true do %>
+            <% if user_signed_in? && (current_user.voted_up_on? review) %>
+              <i class="fa fa-thumbs-up fa-lg" title="Helpful"></i>
+            <% else %>
+              <i class="fa fa-thumbs-o-up fa-lg" title="Helpful"></i>
+            <% end %>
+          <% end %>
+          <span><%= review.cached_votes_up %></span> |
+          <%= link_to dislike_course_review_path(review.course, review), method: :put, class: "downvote", id: "dislike_#{review.id}", remote:true do %>
+            <% if user_signed_in? && (current_user.voted_down_on? review) %>
+              <i class="fa fa-thumbs-down fa-lg" title="Unhelpful"></i>
+            <% else %>
+              <i class="fa fa-thumbs-o-down fa-lg" title="Unhelpful"></i>
+            <% end %>
+          <% end %>
+          <span><%= review.cached_votes_down %></span>
+        </div>
       </div>
+  
+      <div class="review-date grey-text">
+        <% if local_assigns[:recent] %>
+          Published <%= time_ago_in_words(review.created_at) %> ago by <%= anon_student(review.user.email) %>
+        <% else %>
+          By <%= anon_student(review.user.email) %> on <%= review.created_at.strftime("%B %d, %Y") %>
+        <% end %>
+        <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
+        | <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
+        | <a class="modal-trigger" href="#delete">Delete</a>
+          <div id="delete" class="modal">
+            <div class="modal-content black-text">
+              <h4>Are you sure you want to delete your review?</h4>
+            </div>
+            <div class="modal-footer">
+              <a href=<%= "#{request.original_url}/reviews/#{review.id}" %> data-method="delete" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+            </div>
+          </div>
+          <script>
+            $('.modal-trigger').leanModal()
+          </script>
+        <% end %>
+      </div>
+  
+      <p class="review-info"><%= review.info %></p>
+      <p><%= nl2br(review.review_text).html_safe %></p>
     </div>
-
-    <div class="review-date">
-      <% if local_assigns[:recent] %>
-        Published <%= time_ago_in_words(review.created_at) %> ago by <%= anon_student(review.user.email) %>
-      <% else %>
-        By <%= anon_student(review.user.email) %> on <%= review.created_at.strftime("%B %d, %Y") %>
-      <% end %>
-      <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
-      | <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
-      | <%= link_to 'Delete', [review.course, review], method: :delete,
-          data: { confirm: 'Are you sure you want to delete your review?|'+course_review_path(@course, review) }, class: 'deleteBtn'%>
-      <% end %>
+    <div id="review_form_<%= review.id %>">
     </div>
-
-    <p class="review-info"><%= review.info %></p>
-    <p><%= nl2br(review.review_text).html_safe %></p>
   </div>
-  <div id="review_form_<%= review.id %>">
-  </div>
-</div>
+<% end %>

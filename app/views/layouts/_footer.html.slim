@@ -1,15 +1,27 @@
 - if !current_page?(contact_url)
-  #footer.navbar.navbar-bottom.footer
-    .container.row-fluid
-      hr/
-      .col-xs-3.col-sm-3.col-md-3.col-lg-3.pull-left
-        = image_tag 'mesch.png', id: 'mesch'
-        - if !current_page?(root_url)
-          p MESCH
-      - if !current_page?(root_url)
-        .col-xs-6.col-sm-6.col-md-6.col-lg-6
-          a.navbar-brand href="/" 
-            span.claremont C
-            | r
-      .col-xs-3.col-sm-3.col-md-3.col-lg-3.pull-right
-        a#contact href="/contact" Contact Us
+  footer.footer-copyright.grey.lighten-4
+    .container
+      .row style="margin-bottom:0px;"
+        - if current_page?(root_url)
+          .col.s6.m6.l6
+            p.grey-text.text-darken-1 style="margin-left:5px;" © 2016 MESCH
+          .col.s6.m6.l6 style="text-align:right;"
+            p
+              a.grey-text.text-darken-1 href="/contact" Contact Us
+        - else
+          .col.s4.m4.l4
+            p.grey-text.text-darken-1 style="margin-left:5px;" © 2016 MESCH
+          .col.s4.m4.l4 style="height:50px;display:flex;justify-content:center;align-items:center;"
+            p
+              a.grey-text.text-darken-1 href="/" style="font-size:22px;"
+                span.school-color C
+                | r
+          .col.s4.m4.l4 style="text-align:right;"
+            p
+              a.grey-text.text-darken-1 href="/contact" Contact Us
+
+- if current_page?(root_url)
+  css:
+    footer {
+      margin-top: -50px;
+    }

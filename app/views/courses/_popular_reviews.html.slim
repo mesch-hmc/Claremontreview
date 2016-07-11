@@ -1,3 +1,2 @@
-h3.reviews-header Most popular student reviews
 - if @reviews.count > 0
   = render @reviews.reorder("cached_votes_score DESC")
