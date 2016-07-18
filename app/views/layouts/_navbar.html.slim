@@ -30,7 +30,7 @@ nav
               input#nav-search.black-text autocomplete="off" autofocus="" data-autocomplete="courses/autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:160px;"
             - else
               input#nav-search.black-text autocomplete="off" autofocus="" data-autocomplete="autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:160px;"
-            a#search-icon.black-text href="#" onclick="document.getElementById('form').submit();" style="position:absolute;top:4px;right:-15px;"
+            a#search-icon.black-text href="#" onclick="document.getElementById('form').submit();" style="position:absolute;top:4px;right:0px;padding:0 10px;"
               i.material-icons search
       li
         - if !current_page?(courses_url)
