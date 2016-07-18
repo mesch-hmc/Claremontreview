@@ -16,12 +16,20 @@ ready = function () {
     }
     var a = {
       labels: new_labels,
-      datasets: [{
-        backgroundColor: convertHex(schoolColor(), 50),
-        borderColor: convertHex(schoolColor(), 100),
-        borderWidth: 1,
-        data: new_data
-      }]
+      datasets: [
+        {
+          backgroundColor: convertHex(schoolColor(), 0),
+          borderColor: convertHex(schoolColor(), 0),
+          borderWidth: 1,
+          data: [1]
+        },
+        {
+          backgroundColor: convertHex(schoolColor(), 50),
+          borderColor: convertHex(schoolColor(), 100),
+          borderWidth: 1,
+          data: new_data
+        }
+      ]
     },
     r = {
       responsive: true,
