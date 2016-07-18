@@ -20,20 +20,36 @@ nav
             = link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "waves-effect"
     ul.side-nav#nav-mobile
       li
+        a#logo.grey-text.text-darken-1 href="/" style="font-size:24px;margin-left:auto;margin-right:auto;"
+          span.school-color Claremont
+          | review
+      li
         .search-wrapper.card style="width:188px;margin-left:auto;margin-right:auto;padding:5px 0;"
           form#form action="/courses"
             - if current_page?(courses_url)
               input#nav-search.black-text autocomplete="off" autofocus="" data-autocomplete="courses/autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:128px;"
             - else
               input#nav-search.black-text autocomplete="off" autofocus="" data-autocomplete="autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:128px;"
-            a.black-text href="#" onclick="document.getElementById('form').submit();" style="position:absolute;top:10px;right:-15px;"
+            a#search-icon.black-text href="#" onclick="document.getElementById('form').submit();" style="position:absolute;top:10px;right:-15px;"
               i.material-icons search
       li
         - if !current_page?(courses_url)
           - if user_signed_in?
-            = link_to "Sign Out", destroy_user_session_path, method: :delete
+            = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "waves-effect"
           - else
-            = link_to "Sign In", user_omniauth_authorize_path(:google_oauth2)
+            = link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "waves-effect"
+      li
+        a.waves-effect href="/contact" Contact Us
+
+
+
+css:
+  #logo:hover {
+    background-color: transparent;
+  }
+  #search-icon:hover {
+    background-color: transparent;
+  }
 
 javascript:
   $(".button-collapse").sideNav();
