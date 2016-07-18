@@ -14,22 +14,25 @@ ready = function () {
     for (var e = 0; e < labels.length; e++) {
       var t = labels.indexOf(new_labels[e]); - 1 !== t && (new_data[e] = a[t])
     }
+    sum = new_data.reduce(function (a, b) { return a + b }, 0)
+    if (sum == 0) {
+      dataset = [{
+        backgroundColor: convertHex(schoolColor(), 0),
+        borderColor: convertHex(schoolColor(), 0),
+        borderWidth: 1,
+        data: [1]
+      }]
+    } else {
+      dataset = [{
+        backgroundColor: convertHex(schoolColor(), 50),
+        borderColor: convertHex(schoolColor(), 100),
+        borderWidth: 1,
+        data: new_data
+      }]
+    }
     var a = {
       labels: new_labels,
-      datasets: [
-        {
-          backgroundColor: convertHex(schoolColor(), 0),
-          borderColor: convertHex(schoolColor(), 0),
-          borderWidth: 1,
-          data: [1]
-        },
-        {
-          backgroundColor: convertHex(schoolColor(), 50),
-          borderColor: convertHex(schoolColor(), 100),
-          borderWidth: 1,
-          data: new_data
-        }
-      ]
+      datasets: dataset
     },
     r = {
       responsive: true,
