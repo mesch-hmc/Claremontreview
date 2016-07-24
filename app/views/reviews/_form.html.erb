@@ -37,8 +37,9 @@
         <br><br>
         <%= f.collection_select :year, ['2016','2015','2014','2013','2012','2011','2010','< 2010'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_year' } %>
       </div>
-      <div class="col s12 m12 l12" style="padding-top:14.5px;">
-        <%= f.text_field :other, placeholder: "Professor: Charles Xavier", required: true, class: 'form-control', id: 'form_review_info', autocomplete: 'off', value: 'Professor: ' %>
+      <div class="col s12 m12 l12" style="padding-top:8px;">
+        <p style="display:inline;color:#9e9e9e">Professor: </p>
+        <%= f.text_field :other, placeholder: "Charles Xavier", required: true, class: 'form-control', id: 'form_review_info', autocomplete: 'off', style: "margin-top:0px;" %>
       </div>
     </div>
 

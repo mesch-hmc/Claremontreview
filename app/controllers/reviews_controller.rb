@@ -35,7 +35,7 @@ class ReviewsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @review.update(review_params)
+      if (current_user == @review.user || current_user.admin?) && @review.update(review_params)
         format.html { redirect_to @course, notice: 'Review updated' }
         format.json { render :show, status: :ok, location: @course }
       else
@@ -46,11 +46,14 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    if (current_user == @review.user || current_user.admin?)
+    if current_user == @review.user || current_user.admin?
       @review.destroy
     end
     @review.update_avg_rating
-    redirect_to course_path(@course)
+    respond_to do |format|
+      format.html { redirect_to course_path(@course), notice: 'Review sucessfully deleted' }
+      format.json { render :show, status: :ok, location: @course }
+    end
   end
 
   ### Voting ###
