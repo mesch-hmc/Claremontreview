@@ -56,10 +56,10 @@
         .col.s4.m4.l4.valign.right
           .input-field
             select#reviews_type
-              option.school-color value="0" Most recent
-              option.school-color value="1" Most popular
+              option.school-color value="0" Most popular
+              option.school-color value="1" Most recent
       #reviews style="display:block;"
-        = render 'courses/recent_reviews'
+        = render 'courses/popular_reviews'
     .col.s12.m12.l5.grey-text.text-darken-1
       h4 Submit a review
       - if user_signed_in?
@@ -75,10 +75,10 @@
         - else
           = link_to "Submit a review", user_omniauth_authorize_path(:google_oauth2)
       - if user_signed_in? && @course.reviews.where(user_id: current_user).empty?
-        #reviews_form style="display:block;margin-top:10px;" 
+        #reviews_form style="display:block;margin-top:10px;"
           = render 'reviews/form'
       - else
-        #reviews_form style="display:none;margin-top:10px;" 
+        #reviews_form style="display:none;margin-top:10px;"
           = render 'reviews/form'
 
 #alertModal.modal
@@ -108,7 +108,7 @@ javascript:
   $('select').material_select()
   $('#reviews_type').change(function () {
     value = $('#reviews_type').val()
-    if (value == 0) $('#reviews').html('#{escape_javascript(render "recent_reviews")}')
-    if (value == 1) $('#reviews').html('#{escape_javascript(render "popular_reviews")}')
+    if (value == 0) $('#reviews').html('#{escape_javascript(render "popular_reviews")}')
+    if (value == 1) $('#reviews').html('#{escape_javascript(render "recent_reviews")}')
     updateSchoolColors()
   })
