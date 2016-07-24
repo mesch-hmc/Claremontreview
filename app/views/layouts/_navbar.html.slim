@@ -13,10 +13,9 @@ nav
         a.waves-effect href="#" style="height:64px;display:flex;align-items:center;" onclick="document.getElementById('header-search').focus()"
           i.material-icons search
       li
-        - if !current_page?(courses_url)
-          - if user_signed_in?
+        - if user_signed_in?
             = link_to "Sign Out", destroy_user_session_path, method: :delete, class: "waves-effect"
-          - else
+        - elsif !current_page?(courses_url)
             = link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "waves-effect"
     ul.side-nav#nav-mobile
       li
