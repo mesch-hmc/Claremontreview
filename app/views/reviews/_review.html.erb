@@ -10,7 +10,7 @@
         <% end %>
         &nbsp;
         <%= review.grade %>
-  
+
         <div class="voting pull-right">
           <%= link_to like_course_review_path(review.course, review), method: :put, class: "upvote", id: "like_#{review.id}", remote: true do %>
             <% if user_signed_in? && (current_user.voted_up_on? review) %>
@@ -30,7 +30,7 @@
           <span><%= review.cached_votes_down %></span>
         </div>
       </div>
-  
+
       <div class="review-date grey-text">
         <% if local_assigns[:recent] %>
           Published <%= time_ago_in_words(review.created_at) %> ago by <%= anon_student(review.user.email) %>
@@ -40,13 +40,14 @@
         <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
         | <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
         | <a class="modal-trigger" href="#delete">Delete</a>
-          <div id="delete" class="modal">
+          <div id="delete" class="modal" aria-hidden="true">
+            <a href="#close" class="modal-action modal-close modal-close-good cross" aria-hidden="true">×</a>
             <div class="modal-content black-text">
               <h4>Are you sure you want to delete your review?</h4>
             </div>
             <div class="modal-footer">
-              <a href=<%= "#{request.original_url}/reviews/#{review.id}" %> data-method="delete" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+              <a href=<%= "#{request.original_url}/reviews/#{review.id}" %> data-method="delete" class="modal-action modal-close waves-effect waves-red btn-flat modal-close-bad">Yes</a>
+              <a href="#close" class="modal-action modal-close waves-effect waves-green btn-flat modal-close-good">Cancel</a>
             </div>
           </div>
           <script>
@@ -54,7 +55,7 @@
           </script>
         <% end %>
       </div>
-  
+
       <p class="review-info"><%= review.info %></p>
       <p><%= nl2br(review.review_text).html_safe %></p>
     </div>

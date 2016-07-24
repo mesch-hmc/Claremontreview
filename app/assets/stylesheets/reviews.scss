@@ -1,3 +1,35 @@
 // Place all the styles related to the Reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.modal {
+  background-color: #E3E8EA;
+
+  a.cross {
+    float: right;
+    margin: 4px 16px;
+    font-size: 24px;
+  }
+
+  a.modal-close-bad:hover {
+    color: #F44336;
+  }
+
+  a.modal-close-good:hover {
+    color: #3ac569;
+  }
+
+  .modal-content {
+    padding-bottom: 0px;
+
+    h4 {
+      text-align: center;
+      margin: 0px;
+      font: 2rem;
+    }
+  }
+
+  .modal-footer {
+    background-color: #E3E8EA;
+  }
+}

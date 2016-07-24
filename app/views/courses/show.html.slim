@@ -81,11 +81,12 @@
         #reviews_form style="display:none;margin-top:10px;"
           = render 'reviews/form'
 
-#alertModal.modal
+#alertModal.modal aria-hidden="true"
+  a.modal-close.modal-close-good.cross href="#close" aria-hidden="true" ×
   .modal-content
-    h4 You can't vote on your own review!
+    h4 Sorry, you can't vote on your own review!
   .modal-footer
-    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Ok</a>
+    a.modal-action.modal-close.waves-effect.waves-green.btn-flat.modal-close-good href="#close" Ok
 
 css:
   canvas {
