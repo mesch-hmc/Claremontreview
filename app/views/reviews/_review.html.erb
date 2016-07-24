@@ -38,7 +38,7 @@
           By <%= anon_student(review.user.email) %> on <%= review.created_at.strftime("%B %d, %Y") %>
         <% end %>
         <% if user_signed_in? && (current_user == review.user || current_user.try(:admin?) ) %>
-        | <%= link_to "Edit", edit_course_review_path(@course, review), method: :get, remote: true %>
+        | <%= link_to "Edit", edit_course_review_path(review.course, review), method: :get, remote: true %>
         | <a class="modal-trigger" href="#delete">Delete</a>
           <div id="delete" class="modal" aria-hidden="true">
             <a href="#close" class="modal-action modal-close modal-close-good cross" aria-hidden="true">×</a>

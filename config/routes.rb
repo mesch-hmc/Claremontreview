@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   as :user do
     delete '/users/sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
-  # destroy_user_session DELETE   /users/sign_out(.:format)                                                                                                                                               devise/sessions#destroy
-
 
   resources :courses, except: [:edit, :destroy], param: :code do
     resources :reviews do
@@ -24,9 +22,10 @@ Rails.application.routes.draw do
     get :autocomplete_course_code_title_instructor, on: :collection
   end
 
+  get '/contact', to: 'welcome#contact'
+  get '/my_reviews', to: 'welcome#my_reviews'
+
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-
-  get '/contact', to: 'welcome#contact'
 
 end

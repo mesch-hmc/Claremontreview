@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :get_review, except: [:create]
-  before_action :authenticate_user!, only: [:create, :upvote, :downvote]
+  before_action :authenticate_user!
   before_filter :create_info_param, only: [:create, :update]
 
   def create
@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if (current_user == @review.user || current_user.admin?) && @review.update(review_params)
-        format.html { redirect_to @course, notice: 'Review updated' }
+        format.html { redirect_to :back, notice: 'Review updated' }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render 'review/form' }
@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
     end
     @review.update_avg_rating
     respond_to do |format|
-      format.html { redirect_to course_path(@course), notice: 'Review sucessfully deleted' }
+      format.html { redirect_to :back, notice: 'Review sucessfully deleted' }
       format.json { render :show, status: :ok, location: @course }
     end
   end

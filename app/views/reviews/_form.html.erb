@@ -53,7 +53,7 @@
       <% if @review == nil %>
         <a href="javascript:toggle('reviews_form')", class="waves-effect waves-light btn">Cancel</a>
       <% else %>
-        <%= link_to 'Cancel', course_path(@course), class: 'waves-effect waves-light btn' %>
+        <%= link_to 'Cancel', :back, class: 'waves-effect waves-light btn' %>
       <% end %>
     </p>
   </div>
