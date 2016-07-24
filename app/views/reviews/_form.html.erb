@@ -3,7 +3,7 @@
   <div class="form-group">
     <div class="row" style="margin-bottom:-10px;">
       <div class="col s12 m6 l6">
-        <%= f.label :rating, style: "font-size:1rem;" %>
+        <%= f.label :rating, style: "font-size:1.15rem;" %>
         <div id="r" style="padding-top:14px;">
           <input class="form-control" id="form_review_rating" type="hidden" name="review[rating]" value="1" />
         </div>
@@ -23,18 +23,18 @@
         </script>
       </div>
       <div class="col s12 m6 l6">
-        <%= f.label :grade, style: "font-size:1rem;" %> <br>
+        <%= f.label :grade, style: "font-size:1.15rem;" %> <br>
         <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s, { required: true }, { class: 'form-control dropdown', id: 'form_review_grade' } %>
       </div>
     </div>
 
     <div class="row input-field">
       <div class="col s6 m6 l6">
-        <%= f.label :info, style: "font-size:1rem;" %> <br>
+        <%= f.label :info, style: "font-size:1.15rem;" %> <br><br>
         <%= f.collection_select :semester, ['Fall','Spring','Summer'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_semester' } %>
       </div>
       <div class="col s6 m6 l6">
-        <br>
+        <br><br>
         <%= f.collection_select :year, ['2016','2015','2014','2013','2012','2011','2010','< 2010'], :to_s, :to_s, { required: true }, { class: 'form-control', id: 'form_review_year' } %>
       </div>
       <div class="col s12 m12 l12" style="padding-top:14.5px;">
@@ -43,7 +43,7 @@
     </div>
 
     <p>
-      <%= f.label :review_text, style: "font-size:1rem;" %> <br>
+      <%= f.label :review_text, style: "font-size:1.15rem;" %> <br>
       <%= f.text_area :review_text, placeholder: 'Write review here...', required: true, class: 'materialize-textarea', id: 'form_review_text' %>
     </p>
 
