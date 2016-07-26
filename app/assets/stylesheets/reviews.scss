@@ -3,8 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .modal {
-  background-color: #E3E8EA;
-
   a.cross {
     float: right;
     margin: 4px 16px;
@@ -27,9 +25,5 @@
       margin: 0px;
       font: 2rem;
     }
-  }
-
-  .modal-footer {
-    background-color: #E3E8EA;
   }
 }

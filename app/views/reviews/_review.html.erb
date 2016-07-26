@@ -41,13 +41,13 @@
         | <%= link_to "Edit", edit_course_review_path(review.course, review), method: :get, remote: true %>
         | <a class="modal-trigger" href="#delete">Delete</a>
           <div id="delete" class="modal" aria-hidden="true">
-            <a href="#close" class="modal-action modal-close modal-close-good cross" aria-hidden="true">×</a>
+            <a class="modal-action modal-close modal-close-good cross" aria-hidden="true">×</a>
             <div class="modal-content black-text">
               <h4>Are you sure you want to delete your review?</h4>
             </div>
             <div class="modal-footer">
               <a href=<%= "#{request.original_url}/reviews/#{review.id}" %> data-method="delete" class="modal-action modal-close waves-effect waves-red btn-flat modal-close-bad">Yes</a>
-              <a href="#close" class="modal-action modal-close waves-effect waves-green btn-flat modal-close-good">Cancel</a>
+              <a class="modal-action modal-close waves-effect waves-green btn-flat modal-close-good">Cancel</a>
             </div>
           </div>
           <script>
