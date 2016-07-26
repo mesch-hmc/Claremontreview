@@ -1,19 +1,18 @@
 = render "layouts/navbar", search: true
 
 .container style="min-height:calc(100% - 151px);margin-top:15px;"
-  .row
-    br
-    .order
-      a.btn.primary href='/my_reviews?recents=false' Popular
-      | |
-      a.btn.primary href='/my_reviews?recents=true' Recent
-    - @reviews.each do |review|
+  .row style="padding:0 8px;"
+    .col.l8.m12.s12
       br
-      a href=course_path(review.course)
-        h4 =review.course.full_title
-      p =render review
-      br
-      hr
+      .order.grey-text.text-darken-1 style="text-align:center;"
+        a.btn.primary href="/my_reviews?recents=false" style="margin-right:8px;" Popular
+        | |
+        a.btn.primary href="/my_reviews?recents=true" style="margin-left:8px;" Recent
+      - @reviews.each do |review|
+        br
+        a href=course_path(review.course)
+          h5 =review.course.full_title
+        p =render review
 
 /TODO: avoid code duplication with course show page
 #alertModal.modal aria-hidden="true"
@@ -22,16 +21,3 @@
     h4 Sorry, you can't vote on your own review!
   .modal-footer
     a.modal-action.modal-close.waves-effect.waves-green.btn-flat.modal-close-good href="#close" Ok
-
-css:
-  hr {
-    color: #f9a825;
-    align-content: center;
-    width: 42%;
-  }
-  .order {
-   text-align: center;
-  }
-  .order a {
-   margin: 8px;
-  }
