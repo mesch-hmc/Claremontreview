@@ -5,9 +5,9 @@
     .col.l8.m12.s12
       br
       .order.grey-text.text-darken-1 style="text-align:center;"
-        a.btn.primary href="/my_reviews?recents=false" style="margin-right:8px;" Popular
+        a.btn.primary href="/user_reviews?recents=false" style="margin-right:8px;" Popular
         | |
-        a.btn.primary href="/my_reviews?recents=true" style="margin-left:8px;" Recent
+        a.btn.primary href="/user_reviews?recents=true" style="margin-left:8px;" Recent
       - @reviews.each do |review|
         br
         a href=course_path(review.course)
