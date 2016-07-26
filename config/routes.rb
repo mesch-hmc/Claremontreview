@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   get '/contact', to: 'welcome#contact'
-  get '/my_reviews', to: 'welcome#my_reviews'
+  get '/user_reviews', to: 'welcome#user_reviews'
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
