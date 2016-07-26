@@ -1,7 +1,7 @@
 <% if !review.rating.nil? %>
   <div class="review">
     <div id="review_wrapper_<%= review.id %>">
-      <div class="review-rating-grade">
+      <div class="review-rating-grade grey-text text-darken-1">
         <% review.rating.times do %>
           <i class="fa fa-star school-color" id="fa"></i>
         <% end %>
@@ -56,8 +56,8 @@
         <% end %>
       </div>
 
-      <p class="review-info"><%= review.info %></p>
-      <p><%= nl2br(review.review_text).html_safe %></p>
+      <p class="review-info grey-text text-darken-1"><%= review.info %></p>
+      <p class="grey-text text-darken-1"><%= nl2br(review.review_text).html_safe %></p>
     </div>
     <div id="review_form_<%= review.id %>">
     </div>
