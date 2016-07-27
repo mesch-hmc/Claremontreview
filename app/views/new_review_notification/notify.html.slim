@@ -12,15 +12,15 @@ html
     div
       h3 Review information
       p Created -
-      = @review.created_at
+        = @review.created_at
       p Rating -
-      = @review.rating
+        = @review.rating
       p Info -
-      = @review.info
+        = @review.info
       p User -
-      = @review.user.email
+        = @review.user.email
       p Review text -
-      = @review.review_text
+        = "".html_safe + @review.review_text
 
 css:
   html {

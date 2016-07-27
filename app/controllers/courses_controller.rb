@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
 
   def index
     if params[:query].present?
-      @courses = Course.search(params[:query])
+      @courses = Course.search("".html_safe + params[:query])
     else
       @courses = Course.all.order(:id)
     end
@@ -72,7 +72,7 @@ class CoursesController < ApplicationController
   end
 
   def autocomplete
-    render json: Course.search(params[:query], {
+    render json: Course.search(("".html_safe + params[:query]), {
       fields: ["code", "title"],
       limit: 10,
       load: false,

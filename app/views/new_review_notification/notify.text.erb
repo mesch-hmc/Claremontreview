@@ -12,4 +12,4 @@ Info - <%= @review.info %>
 ---
 User - <%= @review.user.email %>
 ---
-Review text - <%= @review.review_text %>
+Review text - <%= "".html_safe + h(review.review_text) %>
