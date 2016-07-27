@@ -18,7 +18,6 @@ ready = function () {
     var course = data.item.code.replace(re, '_')
     window.location.href = '/courses/' + course
   })
-  $('input[data-autocomplete][autofocus]').focus()
 }
 $(document).ready(ready)
 $(document).on('page:load', ready)

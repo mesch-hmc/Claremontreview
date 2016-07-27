@@ -8,7 +8,7 @@ nav
       li
         form action="/courses"
           .input-field
-            input#header-search autocomplete="off" autofocus="" data-autocomplete="/courses/autocomplete_course_code_title_instructor" name="query" type="text" style="width:220px;padding:0;"
+            input#header-search autocomplete="off" data-autocomplete="/courses/autocomplete_course_code_title_instructor" name="query" type="text" style="width:220px;padding:0;"
       li
         a.waves-effect href="#" style="height:64px;display:flex;align-items:center;" onclick="document.getElementById('header-search').focus()"
           i.material-icons search
@@ -27,9 +27,9 @@ nav
         .search-wrapper.card style="width:220px;margin-left:auto;margin-right:auto;"
           form#form action="/courses"
             - if current_page?(courses_url)
-              input#nav-search.black-text autocomplete="off" autofocus="" data-autocomplete="courses/autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:160px;"
+              input#nav-search.black-text autocomplete="off" data-autocomplete="courses/autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:160px;"
             - else
-              input#nav-search.black-text autocomplete="off" autofocus="" data-autocomplete="autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:160px;"
+              input#nav-search.black-text autocomplete="off" data-autocomplete="autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:160px;"
             a#search-icon.black-text href="#" onclick="document.getElementById('form').submit();" style="position:absolute;top:4px;right:0px;padding:0 10px;"
               i.material-icons search
         - if user_signed_in?
