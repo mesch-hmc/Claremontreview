@@ -90,7 +90,7 @@ class ReviewsController < ApplicationController
     end
 
     def create_info_param
-      params[:review][:info] = 'Taken ' + params[:review][:semester].to_s + ' ' + params[:review][:year].to_s + ' | Professor: ' + params[:review][:prof].to_s
+      params[:review][:info] = 'Taken ' + params[:review][:semester].to_s + ' ' + params[:review][:year].to_s + ' | Professor: ' + params[:review][:other].to_s
       params[:review].delete :semester
       params[:review].delete :year
       params[:review].delete :prof
