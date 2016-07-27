@@ -22,6 +22,14 @@ html, body {
   position: relative;
 }
 
+#logo:hover {
+  background-color: transparent;
+}
+
+#search-icon:hover {
+  background-color: transparent;
+}
+
 .ui-autocomplete {
   overflow-y: auto;
   /* prevent horizontal scrollbar */
