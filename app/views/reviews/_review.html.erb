@@ -57,7 +57,7 @@
       </div>
 
       <p class="review-info grey-text text-darken-1"><%= "".html_safe + h(review.info) %></p>
-      <p class="grey-text text-darken-1"><%= "".html_safe + h(review.review_text) %></p>
+      <p class="grey-text text-darken-1"><%= nl2br("".html_safe + h(review.review_text)).html_safe %></p>
     </div>
     <div id="review_form_<%= review.id %>">
     </div>
