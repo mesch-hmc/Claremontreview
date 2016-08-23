@@ -28,7 +28,7 @@ class Review < ActiveRecord::Base
     !info.nil? ? info.split(' | ')[0].split(' ')[2] : @year
   end
 
-  def other
-    !info.nil? ? info.split(' | ')[1] : @other
+  def prof
+    !info.nil? ? info.split(' | Professor: ')[1] : @prof
   end
 end

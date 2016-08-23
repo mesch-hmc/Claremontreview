@@ -89,13 +89,13 @@ class ReviewsController < ApplicationController
     end
 
     def create_info_param
-      params[:review][:info] = 'Taken ' + params[:review][:semester].to_s + ' ' + params[:review][:year].to_s + ' | Professor: ' + params[:review][:other].to_s
+      params[:review][:info] = 'Taken ' + params[:review][:semester].to_s + ' ' + params[:review][:year].to_s + ' | Professor: ' + params[:review][:prof].to_s
       params[:review].delete :semester
       params[:review].delete :year
-      params[:review].delete :other
+      params[:review].delete :prof
     end
 
     def review_params
-      params.require(:review).permit(:rank, :rating, :date, :info, :review_text, :course_id, :grade, :user_id, :semester, :year, :other)
+      params.require(:review).permit(:rank, :rating, :date, :info, :review_text, :course_id, :grade, :user_id, :semester, :year, :prof)
     end
 end
