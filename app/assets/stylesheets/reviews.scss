@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.review {
+  margin-bottom: 1.5em;
+
+  .review-info {
+    margin-top: 0.25em;
+    margin-bottom: 0em;
+  }
+
+  .gray-text {
+    margin-top: 0.65em;
+    margin-bottom: 0em;
+  }
+}
+
 .modal {
   a.cross {
     float: right;
