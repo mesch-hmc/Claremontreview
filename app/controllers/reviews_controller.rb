@@ -48,11 +48,12 @@ class ReviewsController < ApplicationController
   def destroy
     if current_user == @review.user || current_user.admin?
       @review.destroy
-    end
-    @review.update_avg_rating
-    respond_to do |format|
-      format.html { redirect_to :back, notice: 'Review sucessfully deleted' }
-      format.json { render :show, status: :ok, location: @course }
+      @review.update_avg_rating
+
+      respond_to do |format|
+        format.html { redirect_to :back, notice: 'Review sucessfully deleted' }
+        format.json { render :show, status: :ok, location: @course }
+      end
     end
   end
 
