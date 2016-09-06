@@ -26,8 +26,21 @@
                   | &nbsp;
             td style="word-wrap:break-word;width:95%;"
               = link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true, style: "font-size:120%;", class: "grey-text text-darken-1")
+      = will_paginate @courses, class: "paginate"
+
 
 css:
   .ui-autocomplete {
     max-width: 220px;
+  }
+  .paginate {
+    margin-top: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  / This makes the paginate bar prettier on mobiles
+  @media only screen and (max-width: 992px) {
+    .pagination li.prev, .pagination li.next {
+        width: 17%;
+    }
   }

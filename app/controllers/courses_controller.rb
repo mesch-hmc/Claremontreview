@@ -4,9 +4,9 @@ class CoursesController < ApplicationController
 
   def index
     if params[:query].present?
-      @courses = Course.search("".html_safe + params[:query])
+      @courses = Course.search("".html_safe + params[:query], page: params[:page], per_page: 42)
     else
-      @courses = Course.all.order(:id)
+      @courses = Course.paginate(page: params[:page], per_page: 42)
     end
   end
 

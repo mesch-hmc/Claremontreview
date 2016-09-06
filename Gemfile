@@ -25,6 +25,9 @@ gem 'omniauth-google-oauth2'
 gem 'acts_as_votable', '~> 0.10.0'
 ## Template Engine
 gem 'slim-rails'
+## Pagination
+gem 'will_paginate', '~> 3.1'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 
 group :development, :test do
   gem 'sqlite3'
