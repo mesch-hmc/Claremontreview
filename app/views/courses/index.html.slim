@@ -26,7 +26,7 @@
                   | &nbsp;
             td style="word-wrap:break-word;width:95%;"
               = link_to("#{course.code}: #{course.title}", course, "data-no-turbolink" => true, style: "font-size:120%;", class: "grey-text text-darken-1")
-      = will_paginate @courses, class: "paginate"
+  = will_paginate @courses, class: "paginate"
 
 
 css:
