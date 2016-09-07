@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
     if params[:query].present?
       @courses = Course.search("".html_safe + params[:query], page: params[:page], per_page: 42)
     else
-      @courses = Course.paginate(page: params[:page], per_page: 42)
+      @courses = Course.paginate(page: params[:page], per_page: 42).order('code ASC')
     end
   end
 
