@@ -23,7 +23,7 @@
         </script>
       </div>
       <div class="col s12 m6 l6">
-        <%= f.label :grade, style: "font-size:1.15rem;" %> <br>
+        <%= f.label "Grade received", style: "font-size:1.15rem;" %> <br>
         <%= f.collection_select :grade, Review::GRADES, :to_s, :to_s, { required: true }, { class: 'form-control dropdown', id: 'form_review_grade' } %>
       </div>
     </div>
