@@ -26,7 +26,7 @@
             - 5.times do
               i#fa.fa.fa-star-o.school-color
           | &nbsp;
-          | Grade:
+          | Average Student Grade:
           | &nbsp;
           span.school-color
             - unless @course.reviews.pluck(:grade).nil? && @course.reviews.pluck(:grade) == 0
