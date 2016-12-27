@@ -1,9 +1,9 @@
 namespace :task do
-  desc "import json into db"
+  desc "import json into new database"
   task importjson: :environment do
-    File.open(File.dirname(__FILE__)+'/../../scraper/courses.json') do |file|
-      JSON.parse(file.read).each do |course_attr|
-        Course.create! course_attr
+    File.open(File.dirname(__FILE__)+'/../../scraper/dist/courses.json') do |file|
+      JSON.parse(file.read).each do |course_data|
+        Course.create! course_data
       end
     end
   end
