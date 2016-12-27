@@ -10,8 +10,8 @@ namespace :task do
 
   task slug: :environment do
     Course.all.each do |course|
-      course.slug = course.code.gsub(" ", "_")
-      course.save
+      slug = course.code.gsub(" ", "_")
+      course.update_column(:slug, slug)
     end
   end
 
@@ -25,8 +25,8 @@ namespace :task do
 
   task codetitleinstructor: :environment do
     Course.all.each do |course|
-      course.code_title_instructor = "#{course.code} #{course.title} #{course.instructor}"
-      course.save
+      code_title_instructor = "#{course.code} #{course.title} #{course.instructor}"
+      course.update_column(:code_title_instructor, code_title_instructor)
     end
   end
 
@@ -37,18 +37,17 @@ namespace :task do
         if Course.exists?(code: course_data['code'])
           course = Course.where(code: course_data['code']).first
           if course.title != course_data['title']
-            course.title = course_data['title']
+            course.update_column(:title, course_data['title'])
           end
           if course.instructor != course_data['instructor']
-            course.instructor = course_data['instructor']
+            course.update_column(:instructor, course_data['instructor'])
           end
           if course.credits != course_data['credits'].to_f
-            course.credits = course_data['credits'].to_f
+            course.update_column(:credits, course_data['credits'].to_f)
           end
           if course.description != course_data['description']
-            course.description = course_data['description']
+            course.update_column(:description, course_data['description'])
           end
-          course.save
         else
           Course.create! course_data
         end
