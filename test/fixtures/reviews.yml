@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  rank: MyText
-  rating: 1
-  date: MyText
-  info: MyText
-  review_text: MyText
-  course_id: 
+  rank: ""
+  rating: 4
+  date: ""
+  info: "Info"
+  review_text: "ReviewText"
+  course_id: 1
 
 two:
-  rank: MyText
+  rank: ""
   rating: 1
-  date: MyText
-  info: MyText
-  review_text: MyText
-  course_id: 
+  date: ""
+  info: "Info"
+  review_text: "ReviewText"
+  course_id: 2

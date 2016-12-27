@@ -29,7 +29,7 @@ gem 'slim-rails'
 gem 'will_paginate', '~> 3.1'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
   gem 'byebug'
   gem 'web-console', '~> 2.0'

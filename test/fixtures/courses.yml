@@ -1,19 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: MyText
-  title: MyText
-  instructor: MyText
-  credits: 1.5
-  description: MyText
-  requirements: MyText
-  term: MyText
+  code: "TEST001"
+  title: "Title"
+  instructor: "Instructor"
+  credits: 1.0
+  description: "Description"
+  requirements: ""
+  term: "fall"
+  slug: "TEST001"
 
 two:
-  code: MyText
-  title: MyText
-  instructor: MyText
-  credits: 1.5
-  description: MyText
-  requirements: MyText
-  term: MyText
+  code: "TEST002"
+  title: "Title"
+  instructor: "Instructor"
+  credits: 1.0
+  description: "Description"
+  requirements: ""
+  term: "spring"
+  slug: "TEST002"
