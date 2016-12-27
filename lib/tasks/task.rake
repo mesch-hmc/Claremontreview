@@ -29,4 +29,30 @@ namespace :task do
       course.save
     end
   end
+
+  # update an exisiting database with a json file
+  task updatejson: :environment do
+    File.open(File.dirname(__FILE__)+'/../../scraper/dist/courses.json') do |file|
+      JSON.parse(file.read).each do |course_data|
+        if Course.exists?(code: course_data['code'])
+          course = Course.where(code: course_data['code']).first
+          if course.title != course_data['title']
+            course.title = course_data['title']
+          end
+          if course.instructor != course_data['instructor']
+            course.instructor = course_data['instructor']
+          end
+          if course.credits != course_data['credits'].to_f
+            course.credits = course_data['credits'].to_f
+          end
+          if course.description != course_data['description']
+            course.description = course_data['description']
+          end
+          course.save
+        else
+          Course.create! course_data
+        end
+      end
+    end
+  end
 end
