@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  before_action :authenticate_user!, only: [:my_reviews]
+  before_action :authenticate_user!, only: [:user_reviews]
 
   def index
   end
