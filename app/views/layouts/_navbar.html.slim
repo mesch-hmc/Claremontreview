@@ -12,6 +12,8 @@ nav
       li
         a.waves-effect href="#" style="height:64px;display:flex;align-items:center;" onclick="document.getElementById('header-search').focus()"
           i.material-icons search
+      li
+        a.waves-effect href="http://hmc-tools.github.io/hmc-scheduler/" target="blank" Scheduler
       - if user_signed_in?
         li
           a.waves-effect href="/user_reviews" My Reviews
@@ -32,12 +34,14 @@ nav
               input#nav-search.black-text autocomplete="off" data-autocomplete="autocomplete_course_code_title_instructor" name="query" placeholder="Search" type="text" style="border:0;margin:0;padding:0 45px 0 15px;width:160px;"
             a#search-icon.black-text href="#" onclick="document.getElementById('form').submit();" style="position:absolute;top:4px;right:0px;padding:0 10px;"
               i.material-icons search
-        - if user_signed_in?
-          li
-            a.waves-effect href="/user_reviews" My Reviews
+      li
+        a.waves-effect href="http://hmc-tools.github.io/hmc-scheduler/" target="black" Scheduler
+      - if user_signed_in?
+        li
+          a.waves-effect href="/user_reviews" My Reviews
           li =link_to "Sign Out", destroy_user_session_path, method: :delete, class: "waves-effect"
-        - else
-          li =link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "waves-effect"
+      - else
+        li =link_to "Sign In", user_omniauth_authorize_path(:google_oauth2), class: "waves-effect"
       li
         a.waves-effect href="/contact" Contact Us
 
