@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  autocomplete :course, :code_title_instructor, :full => true, :limit => 100, :extra_data => [:code, :title], :display_value => :full_title
+  autocomplete :course, :code_title_instructor, full: true, limit: 100, extra_data: [:code, :title], display_value: :full_title
 
   def index
     if params[:query].present?
