@@ -5,9 +5,7 @@ module CoursesHelper
 
   def real_average(gradeHash)
     length = gradeHash.size
-    if length == 0
-      return ""
-    end
+    return "" if length == 0
 
     passFailKeys = ["HP","P","NC"]
     letterGradeKeys = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","F"]
@@ -60,9 +58,7 @@ module CoursesHelper
     rL = result[1].to_i
 
     output = ''
-    if result == 100
-      return 'A+'
-    end
+    return 'A+' if result == 100
 
     if rF == 9
       output = 'A'

@@ -40,8 +40,4 @@ rails server
 There you go, you're now up and running!
 
 ### Questions? Suggestions?
-Email us at mesch-hmc@gmail.com!
-
-
-
-
+Email us at <mesch-hmc@gmail.com>!
