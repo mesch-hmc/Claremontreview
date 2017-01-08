@@ -1,0 +1,34 @@
+[
+    {
+        "term": "fall", 
+        "code": "AFRI010A AF", 
+        "description": "Interdisciplinary exploration of key aspects of Black history, culture and life in Africa and the Americas. Provides a fundamental, intellectual understanding of the global Black experience as it has been described and interpreted in the arts, humanities and social sciences.", 
+        "title": "Intro to Africana Studies", 
+        "credits": "1.0", 
+        "instructor": "Soliman, Maryan"
+    }, 
+    {
+        "term": "spring", 
+        "code": "AFRI010B AF", 
+        "description": "Introduce students to the methodologies used in research on topics pertinent to Africana studies. In keeping with the interdisciplinary nature of the field, introduces students to research methods in the humanities and social sciences including, but is not limited to, interviewing; content analysis; archival, library and Internet research; and participant-observation.", 
+        "title": "Research Methods", 
+        "credits": "1.0", 
+        "instructor": "Arguello, Martha M."
+    }, 
+    {
+        "term": "fall", 
+        "code": "AFRI190 AF", 
+        "description": "Seminar for Africana studies majors. Complements guidance of primary thesis advisor, by focusing on interdisciplinary research strategies and data collection methods; development of authorial voice for the interrogation of African/African Diasporan topics, notions of race and manifestations of racism. Emphasis on writing, rewriting and peer review. Minors require instructor's permission.", 
+        "title": "Senior Seminar", 
+        "credits": "1.0", 
+        "instructor": "Hurley, Eric A."
+    }, 
+    {
+        "term": "fall, spring", 
+        "code": "AFRI191 AF", 
+        "description": "Senior Thesis. In the Senior Seminar, students will undertake independent research culminating in a substantial thesis. The thesis work will be supervised by one faculty member chosen by the student. Each thesis  will be read by one additional reader.", 
+        "title": "Senior Thesis", 
+        "credits": "1.0", 
+        "instructor": "Hurley, Eric A. / Thomas, Valorie D. / Walker, Sheila"
+    }
+]
