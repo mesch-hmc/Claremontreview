@@ -1,11 +1,14 @@
 # ClaremontReview
 
-[![Build Status](https://travis-ci.org/mesch-hmc/Claremontreview.svg?branch=master)](https://travis-ci.org/mesch-hmc/Claremontreview)
+### Build Status
+
+[![License](http://img.shields.io/badge/license-MIT-red.svg?style=flat)][license]
+[![Build Status](https://travis-ci.org/mesch-hmc/Claremontreview.svg?branch=master)][travis]
 
 ## Motivation
 Make an accessible site to search for classes in the Claremont Colleges and provide a way for students to better choose their future classes @ [claremontreview.com](claremontreview.com)!
 
-### Our Stack
+## Our Stack
 - Ruby
 - Rails 4.2.5.2
 - [Slim](http://www.rubydoc.info/gems/slim/frames)
@@ -13,7 +16,7 @@ Make an accessible site to search for classes in the Claremont Colleges and prov
 - SQLite3
 - ElasticSearch 2.X.X
 
-### Getting Started
+## Getting Started
 For first-timers, clone our repo below!
 
 ``` shell
@@ -31,8 +34,11 @@ rails server -b 0.0.0.0
 ```
 There you go, you're now up and running!
 
-### Questions? Suggestions?
+## Questions? Suggestions?
 Email us at <mesch-hmc@gmail.com>!
 
-### License
-MIT. Copyright (c) MESCH.
+## License
+MIT. Copyright (c) MESCH. See [LICENSE] for details.
+
+[travis]: https://travis-ci.org/mesch-hmc/Claremontreview
+[LICENSE]: https://github.com/mesch-hmc/Claremontreview/blob/master/LICENSE.md
