@@ -1,13 +1,13 @@
 # ClaremontReview
 
 ## Motivation
-Make an accessible site to search for classes in the Claremont Colleges and provide a way for students to better choose their future classes!
+Make an accessible site to search for classes in the Claremont Colleges and provide a way for students to better choose their future classes @ [claremontreview.com](claremontreview.com)!
 
 ### Our Stack
 - Ruby
 - Rails 4.2.5.2
 - [Slim](http://www.rubydoc.info/gems/slim/frames)
-- Digital Ocean Server
+- Digital Ocean Server (Ubuntu 12.04 or higher)
 - SQLite3
 - ElasticSearch 2.X.X
 
@@ -19,24 +19,15 @@ git clone https://github.com/mesch-hmc/Claremontreview.git
 cd Claremontreview
 ```
 
-**DISCLAIMER:** Currently, ```rake task:importjson``` will not work because we haven't uploaded a sample json file yet.
-
-Update all the gems and migrate the database.
-``` ruby
-bundle install
-rake db:migrate
-rake task:importjson
-rake task:slug
-```
-
 Install ElasticSearch. [Here](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04) is a good tutorial for Ubuntu.
 **NOTE:** Make sure that elastic search is running.
 
-``` shell
-sudo systemctl restart elasticsearch
-rails server
-```
+Run our bash script ```./scripts/loadEnv.sh``` for the initial setup.
 
+Then, run on your local server!
+``` shell
+rails server -b 0.0.0.0
+```
 There you go, you're now up and running!
 
 ### Questions? Suggestions?

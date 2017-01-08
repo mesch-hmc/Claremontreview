@@ -10,11 +10,8 @@ echo "Starting up elasticsearch service"
 sudo service elasticsearch restart
 
 echo "Setting up local database"
-rake db:reset
-rake db:migrate
-rake task:importjson
-rake task:slug
-rake searchkick:reindex CLASS=Course
-
-echo "Running local server on localhost"
-rails s -b 0.0.0.0
+bundle exec rake db:reset
+bundle exec rake db:migrate
+bundle exec rake task:importjson
+bundle exec rake task:slug
+bundle exec rake searchkick:reindex CLASS=Course
