@@ -20,7 +20,6 @@ cd Claremontreview
 ```
 
 Install ElasticSearch. [Here](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04) is a good tutorial for Ubuntu.
-**NOTE:** Make sure that elastic search is running.
 
 Run our bash script ```./scripts/loadEnv.sh``` for the initial setup.
 
