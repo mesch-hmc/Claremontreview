@@ -33,3 +33,6 @@ There you go, you're now up and running!
 
 ### Questions? Suggestions?
 Email us at <mesch-hmc@gmail.com>!
+
+### License
+MIT. Copyright (c) MESCH.
