@@ -1,5 +1,7 @@
 # ClaremontReview
 
+[![Build Status](https://travis-ci.org/mesch-hmc/Claremontreview.svg?branch=master)](https://travis-ci.org/mesch-hmc/Claremontreview)
+
 ## Motivation
 Make an accessible site to search for classes in the Claremont Colleges and provide a way for students to better choose their future classes @ [claremontreview.com](claremontreview.com)!
 
