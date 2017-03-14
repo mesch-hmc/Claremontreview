@@ -39,7 +39,6 @@ There you go, you're now up and running!
 
 [![License](http://img.shields.io/badge/license-MIT-red.svg?style=flat)][license]
 [![Build Status](https://travis-ci.org/mesch-hmc/Claremontreview.svg?branch=master)][travis]
-[![Code Quality](http://img.shields.io/codeclimate/github/mesch-hmc/Claremontreview.svg?style=flat)][codeclimate]
 
 ## Questions? Suggestions?
 
@@ -52,5 +51,4 @@ MIT. Copyright (c) MESCH. See [LICENSE] for details.
 <!-- Links -->
 [ElasticSearch]: https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04
 [travis]: https://travis-ci.org/mesch-hmc/Claremontreview
-[codeclimate]: https://codeclimate.com/github/mesch-hmc/Claremontreview
 [LICENSE]: https://github.com/mesch-hmc/Claremontreview/blob/master/LICENSE.md
