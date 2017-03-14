@@ -1,5 +1,7 @@
 # ClaremontReview
 
+[![Build Status](https://travis-ci.org/mesch-hmc/Claremontreview.svg?branch=master)][travis]
+
 ## Motivation
 
 Make an accessible site to search for classes in the Claremont Colleges and provide a way
@@ -35,20 +37,14 @@ rails server -b 0.0.0.0
 
 There you go, you're now up and running!
 
-## Build Status
-
-[![License](http://img.shields.io/badge/license-MIT-red.svg?style=flat)][license]
-[![Build Status](https://travis-ci.org/mesch-hmc/Claremontreview.svg?branch=master)][travis]
-
 ## Questions? Suggestions?
 
 Email us at <mesch-hmc@gmail.com>!
 
 ## License
 
-MIT. Copyright (c) MESCH. See [LICENSE] for details.
+MIT. Copyright (c) MESCH.
 
 <!-- Links -->
 [ElasticSearch]: https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04
 [travis]: https://travis-ci.org/mesch-hmc/Claremontreview
-[LICENSE]: https://github.com/mesch-hmc/Claremontreview/blob/master/LICENSE.md
